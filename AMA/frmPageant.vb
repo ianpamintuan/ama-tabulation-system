@@ -326,7 +326,7 @@
                     dbCmd.CommandText = "INSERT INTO tblcontestants(first_name, last_name, title, event_id) VALUES('" & txtFirstName.Text.Trim & "', '" & txtLastName.Text.Trim & "', '" & cboTitle.Text & "', " & tempEventID & ")"
                     dbCmd.ExecuteNonQuery()
 
-                    LoadContestants("SELECT * FROM tblcontestants ORDER BY last_name ASC")
+                    LoadContestants("SELECT * FROM tblcontestants ORDER BY contestant_id ASC")
 
                     MsgBox("Contestant added successfully!", MsgBoxStyle.Information, "Message")
 
@@ -379,7 +379,7 @@
                     dbCmd.CommandText = "UPDATE tblcontestants SET first_name = '" & txtFirstName.Text.Trim & "', last_name = '" & txtLastName.Text.Trim & "', title = '" & cboTitle.Text & "', event_id = " & tempEventID & "  WHERE contestant_id = " & tempContestantID
                     dbCmd.ExecuteNonQuery()
 
-                    LoadContestants("SELECT * FROM tblcontestants ORDER BY last_name ASC")
+                    LoadContestants("SELECT * FROM tblcontestants ORDER BY contestant_id ASC")
 
                     MsgBox("Contestant updated successfully!", MsgBoxStyle.Information, "Message")
 
@@ -401,7 +401,7 @@
     Private Sub frmPageant_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         LoadEventsOptions()
-        LoadContestants("SELECT * FROM tblcontestants ORDER BY last_name ASC")
+        LoadContestants("SELECT * FROM tblcontestants ORDER BY contestant_id ASC")
 
     End Sub
 
@@ -542,7 +542,7 @@
                 End If
             Next
 
-            LoadContestants("SELECT * FROM tblcontestants ORDER BY last_name ASC")
+            LoadContestants("SELECT * FROM tblcontestants ORDER BY contestant_id ASC")
 
             MsgBox("Contestants(s) deleted successfully", MsgBoxStyle.Information, "Message")
 

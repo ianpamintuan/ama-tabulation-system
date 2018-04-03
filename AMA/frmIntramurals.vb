@@ -195,7 +195,7 @@
                     dbCmd.CommandText = "INSERT INTO tblsports(name, sport_category) VALUES('" & txtSportName.Text.Trim & "', '" & cboSports.Text & "')"
                     dbCmd.ExecuteNonQuery()
 
-                    LoadSports("SELECT * FROM tblsports ORDER BY name ASC")
+                    LoadSports("SELECT * FROM tblsports ORDER BY sport_id ASC")
 
                     MsgBox("Sport added successfully!", MsgBoxStyle.Information, "Message")
 
@@ -227,7 +227,7 @@
                 dbCmd.CommandText = "UPDATE tblsports SET name = '" & txtSportName.Text.Trim & "', sport_category = '" & cboSports.Text & "'  WHERE sport_id = " & tempSportID
                 dbCmd.ExecuteNonQuery()
 
-                LoadSports("SELECT * FROM tblsports ORDER BY name ASC")
+                LoadSports("SELECT * FROM tblsports ORDER BY sport_id ASC")
 
                 MsgBox("Sport updated successfully!", MsgBoxStyle.Information, "Message")
 
@@ -288,7 +288,7 @@
 
     Private Sub frmIntramurals_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        LoadSports("SELECT * FROM tblsports ORDER BY name ASC")
+        LoadSports("SELECT * FROM tblsports ORDER BY sport_id ASC")
 
     End Sub
 
@@ -363,7 +363,7 @@
                 End If
             Next
 
-            LoadSports("SELECT * FROM tblsports ORDER BY name ASC")
+            LoadSports("SELECT * FROM tblsports ORDER BY sport_id ASC")
 
             MsgBox("Sport(s) deleted successfully", MsgBoxStyle.Information, "Message")
 

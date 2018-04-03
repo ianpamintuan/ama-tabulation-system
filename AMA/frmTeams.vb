@@ -190,7 +190,7 @@
     Private Sub frmTeams_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         LoadSportsOptions()
-        LoadTeams("SELECT * FROM tblteams ORDER BY team_name ASC")
+        LoadTeams("SELECT * FROM tblteams ORDER BY team_id ASC")
 
     End Sub
 
@@ -255,7 +255,7 @@
                     dbCmd.CommandText = "INSERT INTO tblteams(team_name, sport_id) VALUES('" & txtTeamName.Text.Trim & "', '" & tempSportID & "')"
                     dbCmd.ExecuteNonQuery()
 
-                    LoadTeams("SELECT * FROM tblteams ORDER BY team_name ASC")
+                    LoadTeams("SELECT * FROM tblteams ORDER BY team_id ASC")
 
                     MsgBox("Team added successfully!", MsgBoxStyle.Information, "Message")
 
@@ -304,7 +304,7 @@
                     dbCmd.CommandText = "UPDATE tblteams SET team_name = '" & txtTeamName.Text.Trim & "', sport_id = '" & tempSportID & "'  WHERE team_id = " & tempTeamID
                     dbCmd.ExecuteNonQuery()
 
-                    LoadTeams("SELECT * FROM tblteams ORDER BY team_name ASC")
+                    LoadTeams("SELECT * FROM tblteams ORDER BY team_id ASC")
 
                     MsgBox("Team updated successfully!", MsgBoxStyle.Information, "Message")
 
@@ -457,7 +457,7 @@
                 End If
             Next
 
-            LoadTeams("SELECT * FROM tblteams ORDER BY team_name ASC")
+            LoadTeams("SELECT * FROM tblteams ORDER BY team_id ASC")
 
             MsgBox("Team(s) deleted successfully", MsgBoxStyle.Information, "Message")
 

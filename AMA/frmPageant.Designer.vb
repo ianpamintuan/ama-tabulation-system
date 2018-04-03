@@ -219,7 +219,7 @@ Partial Class frmPageant
         '
         'ColumnHeader1
         '
-        Me.ColumnHeader1.Text = "Constestant ID"
+        Me.ColumnHeader1.Text = "Contestant ID"
         '
         'ColumnHeader2
         '

@@ -236,7 +236,7 @@
                     dbCmd.CommandText = "INSERT INTO tblevents(event_name, event_description, event_date, has_criteria, is_pageant) VALUES('" & txtEventName.Text.Trim & "', '" & txtEventDescription.Text & "', '" & dtpEventDate.Text & "', " & tempCriteria & ", " & tempPageant & ")"
                     dbCmd.ExecuteNonQuery()
 
-                    LoadEvents("SELECT * FROM tblevents ORDER BY event_name ASC")
+                    LoadEvents("SELECT * FROM tblevents ORDER BY event_id ASC")
 
                     MsgBox("Event added successfully!", MsgBoxStyle.Information, "Message")
 
@@ -289,7 +289,7 @@
                 dbCmd.CommandText = "UPDATE tblevents SET event_name = '" & txtEventName.Text.Trim & "', event_description = '" & txtEventDescription.Text.Trim & "', event_date = '" & dtpEventDate.Text & "', has_criteria = " & tempCriteria & ", is_pageant = " & tempPageant & "  WHERE event_id = " & tempEventID
                 dbCmd.ExecuteNonQuery()
 
-                LoadEvents("SELECT * FROM tblevents ORDER BY event_name ASC")
+                LoadEvents("SELECT * FROM tblevents ORDER BY event_id ASC")
 
                 MsgBox("Event updated successfully!", MsgBoxStyle.Information, "Message")
 
@@ -303,7 +303,7 @@
 
     Private Sub frmEvents_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        LoadEvents("SELECT * FROM tblEvents ORDER BY event_name ASC")
+        LoadEvents("SELECT * FROM tblEvents ORDER BY event_id ASC")
 
     End Sub
 
@@ -446,7 +446,7 @@
                 End If
             Next
 
-            LoadEvents("SELECT * FROM tblevents ORDER BY event_name ASC")
+            LoadEvents("SELECT * FROM tblevents ORDER BY event_id ASC")
 
             MsgBox("Event(s) deleted successfully", MsgBoxStyle.Information, "Message")
 
