@@ -139,8 +139,26 @@
                         .Items(index).SubItems.Add(dbReader.Item("event_name").ToString)
                         .Items(index).SubItems.Add(dbReader.Item("event_description").ToString)
                         .Items(index).SubItems.Add(dbReader.Item("event_date").ToString)
-                        .Items(index).SubItems.Add(dbReader.Item("has_criteria").ToString)
-                        .Items(index).SubItems.Add(dbReader.Item("is_pageant").ToString)
+
+                        If dbReader.Item("has_criteria") = 1 Then
+
+                            .Items(index).SubItems.Add("Yes")
+
+                        Else
+
+                            .Items(index).SubItems.Add("No")
+
+                        End If
+
+                        If dbReader.Item("is_pageant") = 1 Then
+
+                            .Items(index).SubItems.Add("Yes")
+
+                        Else
+
+                            .Items(index).SubItems.Add("No")
+
+                        End If
 
                         index += 1
 
@@ -347,7 +365,7 @@
             txtEventDescription.Text = .SubItems(2).Text
             dtpEventDate.Text = .SubItems(3).Text
 
-            If .SubItems(4).Text = 1 Then
+            If .SubItems(4).Text = "Yes" Then
 
                 chkCriteria.Checked = True
 
@@ -357,7 +375,7 @@
 
             End If
 
-            If .SubItems(5).Text = 1 Then
+            If .SubItems(5).Text = "Yes" Then
 
                 chkPageant.Checked = True
 
