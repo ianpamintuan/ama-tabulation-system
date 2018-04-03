@@ -165,6 +165,12 @@
             ErrorProvider1.SetIconPadding(txtEmail, 5)
             flag4 = False
 
+        ElseIf txtEmail.Text.Contains("@") = False Or txtEmail.Text.Contains(".") = False Then
+
+            ErrorProvider1.SetError(txtEmail, "This is not a valid email.")
+            ErrorProvider1.SetIconPadding(txtEmail, 5)
+            flag4 = False
+
         Else
 
             ErrorProvider1.SetError(txtEmail, "")
@@ -562,7 +568,7 @@
 
                     dbCmd.ExecuteNonQuery()
 
-                    LoadAccounts("SELECT * FROM tblusers")
+                    LoadAccounts("SELECT * FROM tblusers ORDER BY user_id ASC")
 
                     MsgBox("User added successfully!", MsgBoxStyle.Information, "Message")
 
@@ -613,7 +619,7 @@
 
                 dbCmd.ExecuteNonQuery()
 
-                LoadAccounts("SELECT * FROM tblusers")
+                LoadAccounts("SELECT * FROM tblusers ORDER BY user_id ASC")
 
                 MsgBox("User updated successfully!", MsgBoxStyle.Information, "Message")
 
@@ -627,7 +633,7 @@
 
     Private Sub frmUsersRegistration_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        LoadAccounts("SELECT * FROM tblusers")
+        LoadAccounts("SELECT * FROM tblusers ORDER BY user_id ASC")
         LoadEvents()
 
     End Sub
@@ -823,7 +829,7 @@
                 End If
             Next
 
-            LoadAccounts("SELECT * FROM tblusers")
+            LoadAccounts("SELECT * FROM tblusers ORDER BY user_id ASC")
 
             MsgBox("Record(s) deleted successfully", MsgBoxStyle.Information, "Message")
 
