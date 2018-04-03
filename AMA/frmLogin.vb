@@ -58,7 +58,7 @@
 
     End Sub
 
-    Private Sub txtLogin_Click(sender As Object, e As EventArgs) Handles txtLogin.Click
+    Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
 
         flag1 = True
         flag2 = True
