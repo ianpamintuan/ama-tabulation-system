@@ -20,3 +20,4 @@ C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.pdb
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmJudge.resources
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmJudgeTally.resources
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.vbprojResolveAssemblyReference.cache
+C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmRegistration.resources

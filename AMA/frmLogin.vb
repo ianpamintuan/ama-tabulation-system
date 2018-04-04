@@ -122,4 +122,11 @@
         End If
 
     End Sub
+
+    Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+
+        frmRegistration.Show()
+        Me.Close()
+
+    End Sub
 End Class

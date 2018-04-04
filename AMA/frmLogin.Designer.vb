@@ -25,22 +25,22 @@ Partial Class frmLogin
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogin))
         Me.FormSkin1 = New AMA.FormSkin()
+        Me.btnRegister = New AMA.FlatButton()
         Me.btnLogin = New AMA.FlatButton()
         Me.txtPassword = New AMA.FlatTextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtUsername = New AMA.FlatTextBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.FlatMini1 = New AMA.FlatMini()
         Me.FlatClose1 = New AMA.FlatClose()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.btnRegister = New AMA.FlatButton()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.FormSkin1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'FormSkin1
@@ -70,6 +70,20 @@ Partial Class frmLogin
         Me.FormSkin1.Size = New System.Drawing.Size(869, 600)
         Me.FormSkin1.TabIndex = 0
         Me.FormSkin1.Text = "Login"
+        '
+        'btnRegister
+        '
+        Me.btnRegister.BackColor = System.Drawing.Color.Transparent
+        Me.btnRegister.BaseColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnRegister.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnRegister.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnRegister.Location = New System.Drawing.Point(274, 458)
+        Me.btnRegister.Name = "btnRegister"
+        Me.btnRegister.Rounded = False
+        Me.btnRegister.Size = New System.Drawing.Size(168, 47)
+        Me.btnRegister.TabIndex = 9
+        Me.btnRegister.Text = "Register"
+        Me.btnRegister.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
         '
         'btnLogin
         '
@@ -138,17 +152,6 @@ Partial Class frmLogin
         Me.txtUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtUsername.TextColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtUsername.UseSystemPasswordChar = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = Global.AMA.My.Resources.Resources.AMA_logo
-        Me.PictureBox1.Location = New System.Drawing.Point(282, 158)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(334, 140)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 5
-        Me.PictureBox1.TabStop = False
         '
         'Label3
         '
@@ -220,19 +223,16 @@ Partial Class frmLogin
         Me.ErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.ErrorProvider1.ContainerControl = Me
         '
-        'btnRegister
+        'PictureBox1
         '
-        Me.btnRegister.BackColor = System.Drawing.Color.Transparent
-        Me.btnRegister.BaseColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.btnRegister.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnRegister.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnRegister.Location = New System.Drawing.Point(274, 458)
-        Me.btnRegister.Name = "btnRegister"
-        Me.btnRegister.Rounded = False
-        Me.btnRegister.Size = New System.Drawing.Size(168, 47)
-        Me.btnRegister.TabIndex = 9
-        Me.btnRegister.Text = "Register"
-        Me.btnRegister.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = Global.AMA.My.Resources.Resources.AMA_logo
+        Me.PictureBox1.Location = New System.Drawing.Point(282, 158)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(334, 140)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 5
+        Me.PictureBox1.TabStop = False
         '
         'frmLogin
         '
@@ -248,8 +248,8 @@ Partial Class frmLogin
         Me.TransparencyKey = System.Drawing.Color.Fuchsia
         Me.FormSkin1.ResumeLayout(False)
         Me.FormSkin1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
