@@ -30,12 +30,10 @@
         txtMiddleName.Text = ""
         txtLastName.Text = ""
         txtEmail.Text = ""
-        txtUsername.ReadOnly = False
         txtUsername.Text = ""
         txtPassword.Text = ""
         txtConfirmPassword.Text = ""
         cboRoles.SelectedIndex = -1
-        cboRoles.Items.Remove("Administrator")
         cboRoles.Enabled = True
         lblEvent.Visible = False
         cboEvent.Visible = False
@@ -209,25 +207,53 @@
 
             ErrorProvider1.SetError(txtUsername, "")
 
-            OpenDBConnection()
-            dbCmd.CommandText = "SELECT * FROM tblusers WHERE BINARY username = '" & txtUsername.Text.Trim & "';"
-            dbReader = dbCmd.ExecuteReader
+            If saveMode = "Add" Then
 
-            If dbReader.HasRows = True And saveMode = "Add" Then
+                OpenDBConnection()
+                dbCmd.CommandText = "SELECT * FROM tblusers WHERE BINARY username = '" & txtUsername.Text.Trim & "';"
+                dbReader = dbCmd.ExecuteReader
 
-                ErrorProvider1.SetError(txtUsername, "Username is already taken.")
-                ErrorProvider1.SetIconPadding(txtUsername, 3)
-                flag5 = False
+                If dbReader.HasRows = True Then
 
-                CheckIfDbReaderIsClosed()
+                    ErrorProvider1.SetError(txtUsername, "Username is already taken.")
+                    ErrorProvider1.SetIconPadding(txtUsername, 3)
+                    flag5 = False
+
+                    CheckIfDbReaderIsClosed()
+
+                Else
+
+                    ErrorProvider1.SetError(txtUsername, "")
+
+                    CheckIfDbReaderIsClosed()
+
+                End If
 
             Else
 
-                ErrorProvider1.SetError(txtUsername, "")
+                OpenDBConnection()
+                dbCmd.CommandText = "SELECT * FROM tblusers WHERE BINARY username = '" & txtUsername.Text.Trim & "' AND user_id != " & tempUserID
+                dbReader = dbCmd.ExecuteReader
 
-                CheckIfDbReaderIsClosed()
+                If dbReader.HasRows = True Then
+
+                    ErrorProvider1.SetError(txtUsername, "Username is already taken.")
+                    ErrorProvider1.SetIconPadding(txtUsername, 3)
+                    flag5 = False
+
+                    CheckIfDbReaderIsClosed()
+
+                Else
+
+                    ErrorProvider1.SetError(txtUsername, "")
+
+                    CheckIfDbReaderIsClosed()
+
+                End If
 
             End If
+
+            
 
         End If
 
@@ -613,6 +639,15 @@
 
                 Else
 
+                    CountJudges("SELECT COUNT(user_id) AS total_judges FROM tblusers WHERE event_id = " & tempEventID & " AND user_id != " & tempUserID)
+
+                    If tempTotalJudges >= 3 Then
+
+                        MsgBox("The total judges for " & cboEvent.Text & " is already reached the limit.", MsgBoxStyle.Critical, "Error")
+                        Exit Sub
+
+                    End If
+
                     dbCmd.CommandText = "UPDATE tblusers SET first_name = '" & txtFirstName.Text.Trim & "', middle_name = '" & txtMiddleName.Text.Trim & "', last_name = '" & txtLastName.Text.Trim & "', email = '" & txtEmail.Text.Trim & "', role = '" & cboRoles.Text & "', event_id = " & tempEventID & " WHERE user_id = " & tempUserID
 
                 End If
@@ -695,8 +730,6 @@
         grpInfo.Enabled = True
         grpTable.Enabled = False
 
-        txtUsername.ReadOnly = True
-
         With lstUserAccounts.Items(index)
 
             tempUserID = .SubItems(0).Text
@@ -704,18 +737,6 @@
             txtMiddleName.Text = .SubItems(2).Text
             txtLastName.Text = .SubItems(3).Text
             txtEmail.Text = .SubItems(4).Text
-
-            If .SubItems(5).Text = "Administrator" Then
-
-                cboRoles.Items.Add("Administrator")
-                cboRoles.Enabled = False
-
-            Else
-
-                cboRoles.Items.Remove("Administrator")
-
-            End If
-
             cboRoles.Text = .SubItems(5).Text
             tempEventName = .SubItems(6).Text
 
@@ -766,8 +787,7 @@
 
         End If
 
-        txtUsername.ReadOnly = True
-
+        cboRoles.Enabled = False
         saveMode = "Edit"
 
     End Sub

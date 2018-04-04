@@ -377,7 +377,7 @@ Partial Class frmUsersRegistration
         Me.cboRoles.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cboRoles.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboRoles.ForeColor = System.Drawing.Color.White
-        Me.cboRoles.Items.AddRange(New Object() {"Scorer", "Judge"})
+        Me.cboRoles.Items.AddRange(New Object() {"Administrator", "Scorer", "Judge"})
         Me.cboRoles.Location = New System.Drawing.Point(672, 230)
         Me.cboRoles.Name = "cboRoles"
         Me.cboRoles.Size = New System.Drawing.Size(267, 33)
