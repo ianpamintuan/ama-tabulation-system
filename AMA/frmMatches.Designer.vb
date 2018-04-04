@@ -23,12 +23,11 @@ Partial Class frmMatches
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMatches))
         Me.FormSkin1 = New AMA.FormSkin()
         Me.btnCancel = New AMA.FlatButton()
         Me.grpTable = New AMA.FlatGroupBox()
         Me.chkShow = New System.Windows.Forms.CheckBox()
-        Me.lstMatches = New System.Windows.Forms.ListView()
+        Me.lstMatches = New AMA.ffListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -51,6 +50,7 @@ Partial Class frmMatches
         Me.btnAdd = New AMA.FlatButton()
         Me.btnBack = New AMA.FlatButton()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.FormSkin1.SuspendLayout()
         Me.grpTable.SuspendLayout()
         Me.grpInfo.SuspendLayout()
@@ -326,6 +326,11 @@ Partial Class frmMatches
         Me.ErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.ErrorProvider1.ContainerControl = Me
         '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 1000
+        '
         'frmMatches
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -333,7 +338,6 @@ Partial Class frmMatches
         Me.ClientSize = New System.Drawing.Size(798, 614)
         Me.Controls.Add(Me.FormSkin1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMatches"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmMatches"
@@ -356,7 +360,6 @@ Partial Class frmMatches
     Friend WithEvents cboTeamA As System.Windows.Forms.ComboBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents cboEvents As System.Windows.Forms.ComboBox
-    Friend WithEvents lstMatches As System.Windows.Forms.ListView
     Friend WithEvents chkShow As System.Windows.Forms.CheckBox
     Friend WithEvents btnCancel As AMA.FlatButton
     Friend WithEvents btnDelete As AMA.FlatButton
@@ -374,4 +377,6 @@ Partial Class frmMatches
     Friend WithEvents ColumnHeader8 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader9 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader10 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents lstMatches As AMA.ffListView
 End Class

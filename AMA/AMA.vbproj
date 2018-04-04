@@ -78,6 +78,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection.vb" />
+    <Compile Include="ffListView.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FlatUI.Designer.vb">
       <DependentUpon>FlatUI.vb</DependentUpon>
     </Compile>

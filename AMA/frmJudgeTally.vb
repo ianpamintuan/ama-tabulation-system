@@ -215,5 +215,29 @@
         UpdateFullName()
         lblJudgeName.Text = userName
 
+        CountJudgesSheet()
+        lblTotalJudges.Text = TotalJudges
+
+        If TotalJudges < 3 Then
+
+            lblWinnerMr.Visible = False
+            lblWinnerMrName.Visible = False
+            lblWinnerMs.Visible = False
+            lblWinnerMsName.Visible = False
+
+        Else
+
+            lblWinnerMr.Visible = True
+            lblWinnerMrName.Visible = True
+            lblWinnerMs.Visible = True
+            lblWinnerMsName.Visible = True
+
+            LoadJudgeTally("SELECT tblscores.contestant_id, CONCAT(tblcontestants.first_name, ' ', tblcontestants.last_name) AS full_name,  (SUM(tblscores.score) / 5) / " & TotalJudges & " AS score FROM tblscores INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id WHERE tblscores.event_id = " & eventID & " AND tblcontestants.title = 'Ms' GROUP BY tblscores.contestant_id", lstTotalMs)
+            LoadJudgeTally("SELECT tblscores.contestant_id, CONCAT(tblcontestants.first_name, ' ', tblcontestants.last_name) AS full_name,  (SUM(tblscores.score) / 5) / " & TotalJudges & " AS score FROM tblscores INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id WHERE tblscores.event_id = " & eventID & " AND tblcontestants.title = 'Mr' GROUP BY tblscores.contestant_id", lstTotalMr)
+            SetWinnerMr()
+            SetWinnerMs()
+
+        End If
+
     End Sub
 End Class

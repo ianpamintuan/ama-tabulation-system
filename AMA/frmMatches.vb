@@ -159,6 +159,8 @@
 
         With lstMatches
 
+            .BeginUpdate()
+
             .Items.Clear()
 
             Try
@@ -191,6 +193,8 @@
                     .AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
 
                 End If
+
+                .EndUpdate()
 
                 CheckIfDbReaderIsClosed()
 
@@ -500,6 +504,16 @@
             MsgBox("Match(s) deleted successfully", MsgBoxStyle.Information, "Message")
 
             PerformCancel()
+
+        End If
+
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+
+        If grpInfo.Enabled = False And chkShow.Checked = False And lstMatches.SelectedItems.Count = 0 Then
+
+            LoadMatches("SELECT * FROM tblmatches ORDER BY match_id ASC")
 
         End If
 

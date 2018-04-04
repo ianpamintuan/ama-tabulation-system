@@ -57,12 +57,14 @@ Partial Class frmJudgeTally
         Me.grpPageantSummary = New AMA.FlatGroupBox()
         Me.FlatTabControl3 = New AMA.FlatTabControl()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.lstTotalMr = New System.Windows.Forms.ListView()
+        'Me.lstTotalMr = New System.Windows.Forms.ListView()
+        Me.lstTotalMr = New ffListView
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabPage6 = New System.Windows.Forms.TabPage()
-        Me.lstTotalMs = New System.Windows.Forms.ListView()
+        'Me.lstTotalMs = New System.Windows.Forms.ListView()
+        Me.lstTotalMs = New ffListView
         Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -590,7 +592,7 @@ Partial Class frmJudgeTally
         'Timer1
         '
         Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 500
+        Me.Timer1.Interval = 1000
         '
         'frmJudgeTally
         '
