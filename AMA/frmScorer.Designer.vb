@@ -26,6 +26,8 @@ Partial Class frmScorer
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmScorer))
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.FormSkin1 = New AMA.FormSkin()
+        Me.FlatClose1 = New AMA.FlatClose()
+        Me.FlatMini1 = New AMA.FlatMini()
         Me.FlatTabControl1 = New AMA.FlatTabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.grpInfo = New AMA.FlatGroupBox()
@@ -72,9 +74,10 @@ Partial Class frmScorer
         Me.cboEventsFilter = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.btnChange = New AMA.FlatButton()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.btnLogout = New AMA.FlatButton()
-        Me.FlatMini1 = New AMA.FlatMini()
-        Me.FlatClose1 = New AMA.FlatClose()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FormSkin1.SuspendLayout()
         Me.FlatTabControl1.SuspendLayout()
@@ -107,9 +110,35 @@ Partial Class frmScorer
         Me.FormSkin1.HeaderMaximize = False
         Me.FormSkin1.Location = New System.Drawing.Point(0, 0)
         Me.FormSkin1.Name = "FormSkin1"
-        Me.FormSkin1.Size = New System.Drawing.Size(794, 603)
+        Me.FormSkin1.Size = New System.Drawing.Size(793, 603)
         Me.FormSkin1.TabIndex = 0
         Me.FormSkin1.Text = "Scorer Dashboard"
+        '
+        'FlatClose1
+        '
+        Me.FlatClose1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FlatClose1.BackColor = System.Drawing.Color.White
+        Me.FlatClose1.BaseColor = System.Drawing.Color.FromArgb(CType(CType(168, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.FlatClose1.Font = New System.Drawing.Font("Marlett", 10.0!)
+        Me.FlatClose1.Location = New System.Drawing.Point(763, 12)
+        Me.FlatClose1.Name = "FlatClose1"
+        Me.FlatClose1.Size = New System.Drawing.Size(18, 18)
+        Me.FlatClose1.TabIndex = 33
+        Me.FlatClose1.Text = "FlatClose1"
+        Me.FlatClose1.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
+        '
+        'FlatMini1
+        '
+        Me.FlatMini1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FlatMini1.BackColor = System.Drawing.Color.White
+        Me.FlatMini1.BaseColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.FlatMini1.Font = New System.Drawing.Font("Marlett", 12.0!)
+        Me.FlatMini1.Location = New System.Drawing.Point(739, 12)
+        Me.FlatMini1.Name = "FlatMini1"
+        Me.FlatMini1.Size = New System.Drawing.Size(18, 18)
+        Me.FlatMini1.TabIndex = 32
+        Me.FlatMini1.Text = "FlatMini1"
+        Me.FlatMini1.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
         '
         'FlatTabControl1
         '
@@ -123,7 +152,7 @@ Partial Class frmScorer
         Me.FlatTabControl1.Location = New System.Drawing.Point(0, 49)
         Me.FlatTabControl1.Name = "FlatTabControl1"
         Me.FlatTabControl1.SelectedIndex = 0
-        Me.FlatTabControl1.Size = New System.Drawing.Size(794, 554)
+        Me.FlatTabControl1.Size = New System.Drawing.Size(793, 554)
         Me.FlatTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.FlatTabControl1.TabIndex = 31
         '
@@ -135,7 +164,7 @@ Partial Class frmScorer
         Me.TabPage1.Location = New System.Drawing.Point(4, 44)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(786, 506)
+        Me.TabPage1.Size = New System.Drawing.Size(785, 506)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Scoring"
         '
@@ -443,7 +472,7 @@ Partial Class frmScorer
         Me.btnLoadMatch.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.btnLoadMatch.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnLoadMatch.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnLoadMatch.Location = New System.Drawing.Point(672, 102)
+        Me.btnLoadMatch.Location = New System.Drawing.Point(671, 102)
         Me.btnLoadMatch.Name = "btnLoadMatch"
         Me.btnLoadMatch.Rounded = False
         Me.btnLoadMatch.Size = New System.Drawing.Size(106, 32)
@@ -507,7 +536,7 @@ Partial Class frmScorer
         Me.TabPage2.Location = New System.Drawing.Point(4, 44)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(786, 506)
+        Me.TabPage2.Size = New System.Drawing.Size(785, 506)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Match Results"
         '
@@ -618,13 +647,54 @@ Partial Class frmScorer
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(73, Byte), Integer))
+        Me.TabPage3.Controls.Add(Me.Label5)
+        Me.TabPage3.Controls.Add(Me.btnChange)
+        Me.TabPage3.Controls.Add(Me.Label4)
         Me.TabPage3.Controls.Add(Me.btnLogout)
         Me.TabPage3.Location = New System.Drawing.Point(4, 44)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(786, 506)
+        Me.TabPage3.Size = New System.Drawing.Size(785, 506)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Option"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.Label5.Location = New System.Drawing.Point(28, 83)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(78, 30)
+        Me.Label5.TabIndex = 15
+        Me.Label5.Text = "Logout"
+        '
+        'btnChange
+        '
+        Me.btnChange.BackColor = System.Drawing.Color.Transparent
+        Me.btnChange.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.btnChange.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnChange.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnChange.Location = New System.Drawing.Point(248, 31)
+        Me.btnChange.Name = "btnChange"
+        Me.btnChange.Rounded = False
+        Me.btnChange.Size = New System.Drawing.Size(106, 32)
+        Me.btnChange.TabIndex = 14
+        Me.btnChange.Text = "Change"
+        Me.btnChange.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.Label4.Location = New System.Drawing.Point(28, 31)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(170, 30)
+        Me.Label4.TabIndex = 13
+        Me.Label4.Text = "Account Settings"
         '
         'btnLogout
         '
@@ -632,45 +702,19 @@ Partial Class frmScorer
         Me.btnLogout.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnLogout.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnLogout.Location = New System.Drawing.Point(643, 444)
+        Me.btnLogout.Location = New System.Drawing.Point(248, 83)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Rounded = False
-        Me.btnLogout.Size = New System.Drawing.Size(124, 45)
+        Me.btnLogout.Size = New System.Drawing.Size(106, 34)
         Me.btnLogout.TabIndex = 0
         Me.btnLogout.Text = "Logout"
         Me.btnLogout.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
-        '
-        'FlatMini1
-        '
-        Me.FlatMini1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FlatMini1.BackColor = System.Drawing.Color.White
-        Me.FlatMini1.BaseColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.FlatMini1.Font = New System.Drawing.Font("Marlett", 12.0!)
-        Me.FlatMini1.Location = New System.Drawing.Point(740, 12)
-        Me.FlatMini1.Name = "FlatMini1"
-        Me.FlatMini1.Size = New System.Drawing.Size(18, 18)
-        Me.FlatMini1.TabIndex = 32
-        Me.FlatMini1.Text = "FlatMini1"
-        Me.FlatMini1.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
-        '
-        'FlatClose1
-        '
-        Me.FlatClose1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FlatClose1.BackColor = System.Drawing.Color.White
-        Me.FlatClose1.BaseColor = System.Drawing.Color.FromArgb(CType(CType(168, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.FlatClose1.Font = New System.Drawing.Font("Marlett", 10.0!)
-        Me.FlatClose1.Location = New System.Drawing.Point(764, 12)
-        Me.FlatClose1.Name = "FlatClose1"
-        Me.FlatClose1.Size = New System.Drawing.Size(18, 18)
-        Me.FlatClose1.TabIndex = 33
-        Me.FlatClose1.Text = "FlatClose1"
-        Me.FlatClose1.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
         '
         'frmScorer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(794, 603)
+        Me.ClientSize = New System.Drawing.Size(793, 603)
         Me.Controls.Add(Me.FormSkin1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -691,6 +735,7 @@ Partial Class frmScorer
         Me.grpEventSelection.ResumeLayout(False)
         Me.grpEventSelection.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
+        Me.TabPage3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -745,4 +790,7 @@ Partial Class frmScorer
     Friend WithEvents ColumnHeader10 As System.Windows.Forms.ColumnHeader
     Friend WithEvents FlatClose1 As AMA.FlatClose
     Friend WithEvents FlatMini1 As AMA.FlatMini
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents btnChange As AMA.FlatButton
+    Friend WithEvents Label4 As System.Windows.Forms.Label
 End Class

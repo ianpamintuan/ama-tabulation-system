@@ -5,10 +5,14 @@ C:\Users\MarkIan\Desktop\AMA\AMA\bin\Debug\AMA.xml
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmDashboard.resources
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmEvents.resources
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmIntramurals.resources
+C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmJudge.resources
+C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmJudgeTally.resources
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmLogin.resources
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmMatches.resources
+C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmMyProfile.resources
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmPageant.resources
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmPlayers.resources
+C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmRegistration.resources
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmScorer.resources
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmTeams.resources
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmUsersRegistration.resources
@@ -17,7 +21,3 @@ C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.vbproj.GenerateResource.Cache
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.exe
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.xml
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.pdb
-C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmJudge.resources
-C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmJudgeTally.resources
-C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.vbprojResolveAssemblyReference.cache
-C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmRegistration.resources

@@ -192,4 +192,21 @@
         End If
 
     End Sub
+
+    Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+
+        If MsgBox("Do you want to logout?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
+
+            frmLogin.Show()
+            Me.Close()
+
+        End If
+
+    End Sub
+
+    Private Sub btnChange_Click(sender As Object, e As EventArgs) Handles btnChange.Click
+
+        frmMyProfile.ShowDialog()
+
+    End Sub
 End Class

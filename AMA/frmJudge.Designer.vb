@@ -60,6 +60,9 @@ Partial Class frmJudge
         Me.tabMs = New System.Windows.Forms.TabPage()
         Me.lbMs = New System.Windows.Forms.ListBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.btnChange = New AMA.FlatButton()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.btnLogout = New AMA.FlatButton()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FormSkin1.SuspendLayout()
@@ -97,7 +100,7 @@ Partial Class frmJudge
         Me.FormSkin1.HeaderMaximize = False
         Me.FormSkin1.Location = New System.Drawing.Point(0, 0)
         Me.FormSkin1.Name = "FormSkin1"
-        Me.FormSkin1.Size = New System.Drawing.Size(852, 580)
+        Me.FormSkin1.Size = New System.Drawing.Size(850, 580)
         Me.FormSkin1.TabIndex = 0
         Me.FormSkin1.Text = "Judge Dashboard"
         '
@@ -107,7 +110,7 @@ Partial Class frmJudge
         Me.FlatMini1.BackColor = System.Drawing.Color.White
         Me.FlatMini1.BaseColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.FlatMini1.Font = New System.Drawing.Font("Marlett", 12.0!)
-        Me.FlatMini1.Location = New System.Drawing.Point(798, 13)
+        Me.FlatMini1.Location = New System.Drawing.Point(796, 13)
         Me.FlatMini1.Name = "FlatMini1"
         Me.FlatMini1.Size = New System.Drawing.Size(18, 18)
         Me.FlatMini1.TabIndex = 2
@@ -120,7 +123,7 @@ Partial Class frmJudge
         Me.FlatClose1.BackColor = System.Drawing.Color.White
         Me.FlatClose1.BaseColor = System.Drawing.Color.FromArgb(CType(CType(168, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.FlatClose1.Font = New System.Drawing.Font("Marlett", 10.0!)
-        Me.FlatClose1.Location = New System.Drawing.Point(822, 13)
+        Me.FlatClose1.Location = New System.Drawing.Point(820, 13)
         Me.FlatClose1.Name = "FlatClose1"
         Me.FlatClose1.Size = New System.Drawing.Size(18, 18)
         Me.FlatClose1.TabIndex = 1
@@ -138,7 +141,7 @@ Partial Class frmJudge
         Me.FlatTabControl1.Location = New System.Drawing.Point(0, 50)
         Me.FlatTabControl1.Name = "FlatTabControl1"
         Me.FlatTabControl1.SelectedIndex = 0
-        Me.FlatTabControl1.Size = New System.Drawing.Size(852, 530)
+        Me.FlatTabControl1.Size = New System.Drawing.Size(850, 530)
         Me.FlatTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.FlatTabControl1.TabIndex = 0
         '
@@ -154,7 +157,7 @@ Partial Class frmJudge
         Me.TabPage1.Location = New System.Drawing.Point(4, 44)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(844, 482)
+        Me.TabPage1.Size = New System.Drawing.Size(842, 482)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Scores Sheet"
         '
@@ -501,13 +504,54 @@ Partial Class frmJudge
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(73, Byte), Integer))
+        Me.TabPage3.Controls.Add(Me.Label5)
+        Me.TabPage3.Controls.Add(Me.btnChange)
+        Me.TabPage3.Controls.Add(Me.Label6)
         Me.TabPage3.Controls.Add(Me.btnLogout)
         Me.TabPage3.Location = New System.Drawing.Point(4, 44)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(844, 482)
+        Me.TabPage3.Size = New System.Drawing.Size(842, 482)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Option"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.Label5.Location = New System.Drawing.Point(23, 83)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(78, 30)
+        Me.Label5.TabIndex = 19
+        Me.Label5.Text = "Logout"
+        '
+        'btnChange
+        '
+        Me.btnChange.BackColor = System.Drawing.Color.Transparent
+        Me.btnChange.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.btnChange.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnChange.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnChange.Location = New System.Drawing.Point(243, 31)
+        Me.btnChange.Name = "btnChange"
+        Me.btnChange.Rounded = False
+        Me.btnChange.Size = New System.Drawing.Size(106, 32)
+        Me.btnChange.TabIndex = 18
+        Me.btnChange.Text = "Change"
+        Me.btnChange.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.Label6.Location = New System.Drawing.Point(23, 31)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(170, 30)
+        Me.Label6.TabIndex = 17
+        Me.Label6.Text = "Account Settings"
         '
         'btnLogout
         '
@@ -515,11 +559,11 @@ Partial Class frmJudge
         Me.btnLogout.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnLogout.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnLogout.Location = New System.Drawing.Point(720, 432)
+        Me.btnLogout.Location = New System.Drawing.Point(243, 83)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Rounded = False
-        Me.btnLogout.Size = New System.Drawing.Size(106, 32)
-        Me.btnLogout.TabIndex = 0
+        Me.btnLogout.Size = New System.Drawing.Size(106, 34)
+        Me.btnLogout.TabIndex = 16
         Me.btnLogout.Text = "Logout"
         Me.btnLogout.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
         '
@@ -527,7 +571,7 @@ Partial Class frmJudge
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(852, 580)
+        Me.ClientSize = New System.Drawing.Size(850, 580)
         Me.Controls.Add(Me.FormSkin1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -552,6 +596,7 @@ Partial Class frmJudge
         Me.tabMr.ResumeLayout(False)
         Me.tabMs.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
+        Me.TabPage3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -591,5 +636,8 @@ Partial Class frmJudge
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents btnSubmitScores As AMA.FlatButton
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents btnChange As AMA.FlatButton
+    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents btnLogout As AMA.FlatButton
 End Class

@@ -76,4 +76,10 @@
 
     End Sub
 
+    Private Sub lblAccountSettings_Click(sender As Object, e As EventArgs) Handles lblAccountSettings.Click
+
+        frmMyProfile.ShowDialog()
+
+    End Sub
+
 End Class

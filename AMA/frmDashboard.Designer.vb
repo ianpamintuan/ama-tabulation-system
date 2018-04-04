@@ -33,6 +33,7 @@ Partial Class frmDashboard
         Me.txtRole = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.txtDate = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblAccountSettings = New System.Windows.Forms.ToolStripStatusLabel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -87,7 +88,7 @@ Partial Class frmDashboard
         '
         Me.StatusStrip1.BackColor = System.Drawing.Color.Transparent
         Me.StatusStrip1.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.txtName, Me.ToolStripStatusLabel2, Me.txtRole, Me.ToolStripStatusLabel3, Me.txtDate})
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.txtName, Me.ToolStripStatusLabel2, Me.txtRole, Me.ToolStripStatusLabel3, Me.txtDate, Me.lblAccountSettings})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 676)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(993, 30)
@@ -109,7 +110,7 @@ Partial Class frmDashboard
         Me.txtName.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(282, 25)
+        Me.txtName.Size = New System.Drawing.Size(227, 25)
         Me.txtName.Spring = True
         Me.txtName.Text = "txtName"
         '
@@ -128,7 +129,7 @@ Partial Class frmDashboard
         Me.txtRole.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRole.ForeColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.txtRole.Name = "txtRole"
-        Me.txtRole.Size = New System.Drawing.Size(282, 25)
+        Me.txtRole.Size = New System.Drawing.Size(227, 25)
         Me.txtRole.Spring = True
         Me.txtRole.Text = "txtRole"
         '
@@ -147,9 +148,19 @@ Partial Class frmDashboard
         Me.txtDate.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.txtDate.Name = "txtDate"
-        Me.txtDate.Size = New System.Drawing.Size(282, 25)
+        Me.txtDate.Size = New System.Drawing.Size(227, 25)
         Me.txtDate.Spring = True
         Me.txtDate.Text = "txtDate"
+        '
+        'lblAccountSettings
+        '
+        Me.lblAccountSettings.BackColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.lblAccountSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.lblAccountSettings.ForeColor = System.Drawing.Color.White
+        Me.lblAccountSettings.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.lblAccountSettings.Name = "lblAccountSettings"
+        Me.lblAccountSettings.Size = New System.Drawing.Size(135, 25)
+        Me.lblAccountSettings.Text = "Account Settings"
         '
         'PictureBox1
         '
@@ -404,4 +415,5 @@ Partial Class frmDashboard
     Friend WithEvents btnEvents As AMA.FlatButton
     Friend WithEvents btnMatches As AMA.FlatButton
     Friend WithEvents btnPlayers As AMA.FlatButton
+    Friend WithEvents lblAccountSettings As System.Windows.Forms.ToolStripStatusLabel
 End Class

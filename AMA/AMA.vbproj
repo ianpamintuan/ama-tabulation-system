@@ -127,6 +127,12 @@
     <Compile Include="frmMatches.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmMyProfile.Designer.vb">
+      <DependentUpon>frmMyProfile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMyProfile.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmPageant.Designer.vb">
       <DependentUpon>frmPageant.vb</DependentUpon>
     </Compile>
@@ -201,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMatches.resx">
       <DependentUpon>frmMatches.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMyProfile.resx">
+      <DependentUpon>frmMyProfile.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPageant.resx">
       <DependentUpon>frmPageant.vb</DependentUpon>

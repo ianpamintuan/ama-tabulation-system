@@ -590,4 +590,10 @@
 
     End Sub
 
+    Private Sub btnChange_Click(sender As Object, e As EventArgs) Handles btnChange.Click
+
+        frmMyProfile.ShowDialog()
+
+    End Sub
+
 End Class
