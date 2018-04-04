@@ -24,6 +24,7 @@ Partial Class frmDashboard
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDashboard))
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.FormSkin1 = New AMA.FormSkin()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
@@ -37,6 +38,7 @@ Partial Class frmDashboard
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.FlatGroupBox1 = New AMA.FlatGroupBox()
+        Me.btnPlayers = New AMA.FlatButton()
         Me.btnMatches = New AMA.FlatButton()
         Me.btnEvents = New AMA.FlatButton()
         Me.btnTeams = New AMA.FlatButton()
@@ -46,12 +48,16 @@ Partial Class frmDashboard
         Me.btnAccounts = New AMA.FlatButton()
         Me.FlatMini1 = New AMA.FlatMini()
         Me.FlatClose1 = New AMA.FlatClose()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.FormSkin1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlatGroupBox1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 500
         '
         'FormSkin1
         '
@@ -73,7 +79,7 @@ Partial Class frmDashboard
         Me.FormSkin1.HeaderMaximize = False
         Me.FormSkin1.Location = New System.Drawing.Point(0, 0)
         Me.FormSkin1.Name = "FormSkin1"
-        Me.FormSkin1.Size = New System.Drawing.Size(993, 663)
+        Me.FormSkin1.Size = New System.Drawing.Size(993, 706)
         Me.FormSkin1.TabIndex = 0
         Me.FormSkin1.Text = "Dashboard"
         '
@@ -82,7 +88,7 @@ Partial Class frmDashboard
         Me.StatusStrip1.BackColor = System.Drawing.Color.Transparent
         Me.StatusStrip1.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.txtName, Me.ToolStripStatusLabel2, Me.txtRole, Me.ToolStripStatusLabel3, Me.txtDate})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 633)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 676)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(993, 30)
         Me.StatusStrip1.TabIndex = 7
@@ -199,6 +205,7 @@ Partial Class frmDashboard
         '
         Me.FlatGroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.FlatGroupBox1.BaseColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(73, Byte), Integer))
+        Me.FlatGroupBox1.Controls.Add(Me.btnPlayers)
         Me.FlatGroupBox1.Controls.Add(Me.btnMatches)
         Me.FlatGroupBox1.Controls.Add(Me.btnEvents)
         Me.FlatGroupBox1.Controls.Add(Me.btnTeams)
@@ -214,13 +221,27 @@ Partial Class frmDashboard
         Me.FlatGroupBox1.TabIndex = 2
         Me.FlatGroupBox1.Text = "Menu"
         '
+        'btnPlayers
+        '
+        Me.btnPlayers.BackColor = System.Drawing.Color.Transparent
+        Me.btnPlayers.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.btnPlayers.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnPlayers.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnPlayers.Location = New System.Drawing.Point(3, 456)
+        Me.btnPlayers.Name = "btnPlayers"
+        Me.btnPlayers.Rounded = False
+        Me.btnPlayers.Size = New System.Drawing.Size(246, 63)
+        Me.btnPlayers.TabIndex = 8
+        Me.btnPlayers.Text = "Players"
+        Me.btnPlayers.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
+        '
         'btnMatches
         '
         Me.btnMatches.BackColor = System.Drawing.Color.Transparent
         Me.btnMatches.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.btnMatches.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnMatches.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnMatches.Location = New System.Drawing.Point(3, 180)
+        Me.btnMatches.Location = New System.Drawing.Point(3, 318)
         Me.btnMatches.Name = "btnMatches"
         Me.btnMatches.Rounded = False
         Me.btnMatches.Size = New System.Drawing.Size(246, 63)
@@ -248,7 +269,7 @@ Partial Class frmDashboard
         Me.btnTeams.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.btnTeams.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnTeams.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnTeams.Location = New System.Drawing.Point(3, 318)
+        Me.btnTeams.Location = New System.Drawing.Point(3, 249)
         Me.btnTeams.Name = "btnTeams"
         Me.btnTeams.Rounded = False
         Me.btnTeams.Size = New System.Drawing.Size(246, 63)
@@ -262,7 +283,7 @@ Partial Class frmDashboard
         Me.btnLogout.BaseColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(96, Byte), Integer))
         Me.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnLogout.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnLogout.Location = New System.Drawing.Point(3, 456)
+        Me.btnLogout.Location = New System.Drawing.Point(3, 525)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Rounded = False
         Me.btnLogout.Size = New System.Drawing.Size(246, 63)
@@ -290,7 +311,7 @@ Partial Class frmDashboard
         Me.btnIntramurals.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.btnIntramurals.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnIntramurals.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnIntramurals.Location = New System.Drawing.Point(3, 249)
+        Me.btnIntramurals.Location = New System.Drawing.Point(3, 180)
         Me.btnIntramurals.Name = "btnIntramurals"
         Me.btnIntramurals.Rounded = False
         Me.btnIntramurals.Size = New System.Drawing.Size(246, 63)
@@ -338,16 +359,11 @@ Partial Class frmDashboard
         Me.FlatClose1.Text = "FlatClose1"
         Me.FlatClose1.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
         '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 500
-        '
         'frmDashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(993, 663)
+        Me.ClientSize = New System.Drawing.Size(993, 706)
         Me.Controls.Add(Me.FormSkin1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -387,4 +403,5 @@ Partial Class frmDashboard
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents btnEvents As AMA.FlatButton
     Friend WithEvents btnMatches As AMA.FlatButton
+    Friend WithEvents btnPlayers As AMA.FlatButton
 End Class
