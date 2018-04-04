@@ -396,7 +396,6 @@
     Private Sub frmScorer_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         LoadEventsOptions()
-        'LoadMyProfile()
 
     End Sub
 
@@ -596,4 +595,10 @@
 
     End Sub
 
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+
+        UpdateFullName()
+        lblScorerName.Text = userName
+
+    End Sub
 End Class

@@ -64,6 +64,7 @@ Partial Class frmJudge
         Me.btnChange = New AMA.FlatButton()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.btnLogout = New AMA.FlatButton()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FormSkin1.SuspendLayout()
         Me.FlatTabControl1.SuspendLayout()
@@ -567,6 +568,11 @@ Partial Class frmJudge
         Me.btnLogout.Text = "Logout"
         Me.btnLogout.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
         '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 500
+        '
         'frmJudge
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -640,4 +646,5 @@ Partial Class frmJudge
     Friend WithEvents btnChange As AMA.FlatButton
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents btnLogout As AMA.FlatButton
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

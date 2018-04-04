@@ -19,4 +19,22 @@
 
     End Sub
 
+    Public Sub UpdateFullName()
+
+        OpenDBConnection()
+        dbCmd.CommandText = "SELECT CONCAT(first_name, ' ' , middle_name, ' ', last_name) AS Fullname FROM tblusers WHERE user_id = " & userID
+        dbReader = dbCmd.ExecuteReader
+
+        If dbReader.HasRows = True Then
+
+            dbReader.Read()
+
+            userName = dbReader.Item("Fullname").ToString
+
+        End If
+
+        CheckIfDbReaderIsClosed()
+
+    End Sub
+
 End Module

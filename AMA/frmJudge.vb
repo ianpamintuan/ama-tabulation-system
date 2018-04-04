@@ -307,16 +307,14 @@
             dbCmd.CommandText = "SELECT tblscores.*, tblcontestants.title FROM tblscores"
             dbCmd.CommandText &= " INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id"
             dbCmd.CommandText &= " WHERE tblscores.judge_id = " & userID & " And tblscores.event_id = " & eventID
-            'SELECT tblscores.*, tblcontestants.title FROM tblscores
-            'INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id
-            'WHERE tblscores.judge_id = 1 And tblscores.event_id = 1
+
             dbReader = dbCmd.ExecuteReader
 
             If dbReader.HasRows = True Then
 
-                MsgBox("You already submitted your scores for this event. Redirecting to your score tally.", MsgBoxStyle.Information, "Message")
-
                 CheckIfDbReaderIsClosed()
+
+                MsgBox("You already submitted your scores for this event. Redirecting to your score tally.", MsgBoxStyle.Information, "Message")
 
                 frmJudgeTally.Show()
                 Me.Close()
@@ -582,7 +580,20 @@
 
     End Sub
 
-    Private Sub btnLogout_Click(sender As Object, e As EventArgs)
+    Private Sub btnChange_Click(sender As Object, e As EventArgs) Handles btnChange.Click
+
+        frmMyProfile.ShowDialog()
+
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+
+        UpdateFullName()
+        lblJudgeName.Text = userName
+
+    End Sub
+
+    Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
 
         If MsgBox("Do you want to logout?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
 
@@ -592,11 +603,4 @@
         End If
 
     End Sub
-
-    Private Sub btnChange_Click(sender As Object, e As EventArgs) Handles btnChange.Click
-
-        frmMyProfile.ShowDialog()
-
-    End Sub
-
 End Class

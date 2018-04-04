@@ -70,6 +70,8 @@
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
 
+        UpdateFullName()
+
         txtName.Text = userName
         txtRole.Text = userType
         txtDate.Text = Date.Now

@@ -30,6 +30,8 @@ Partial Class frmScorer
         Me.FlatMini1 = New AMA.FlatMini()
         Me.FlatTabControl1 = New AMA.FlatTabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.lblScorerName = New System.Windows.Forms.Label()
         Me.grpInfo = New AMA.FlatGroupBox()
         Me.btnAddFoulB = New AMA.FlatButton()
         Me.lblTeamBFouls = New System.Windows.Forms.Label()
@@ -78,6 +80,7 @@ Partial Class frmScorer
         Me.btnChange = New AMA.FlatButton()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnLogout = New AMA.FlatButton()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FormSkin1.SuspendLayout()
         Me.FlatTabControl1.SuspendLayout()
@@ -110,7 +113,7 @@ Partial Class frmScorer
         Me.FormSkin1.HeaderMaximize = False
         Me.FormSkin1.Location = New System.Drawing.Point(0, 0)
         Me.FormSkin1.Name = "FormSkin1"
-        Me.FormSkin1.Size = New System.Drawing.Size(793, 603)
+        Me.FormSkin1.Size = New System.Drawing.Size(793, 650)
         Me.FormSkin1.TabIndex = 0
         Me.FormSkin1.Text = "Scorer Dashboard"
         '
@@ -149,24 +152,49 @@ Partial Class frmScorer
         Me.FlatTabControl1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.FlatTabControl1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.FlatTabControl1.ItemSize = New System.Drawing.Size(120, 40)
-        Me.FlatTabControl1.Location = New System.Drawing.Point(0, 49)
+        Me.FlatTabControl1.Location = New System.Drawing.Point(0, 50)
         Me.FlatTabControl1.Name = "FlatTabControl1"
         Me.FlatTabControl1.SelectedIndex = 0
-        Me.FlatTabControl1.Size = New System.Drawing.Size(793, 554)
+        Me.FlatTabControl1.Size = New System.Drawing.Size(793, 600)
         Me.FlatTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.FlatTabControl1.TabIndex = 31
         '
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(73, Byte), Integer))
+        Me.TabPage1.Controls.Add(Me.Label6)
+        Me.TabPage1.Controls.Add(Me.lblScorerName)
         Me.TabPage1.Controls.Add(Me.grpInfo)
         Me.TabPage1.Controls.Add(Me.grpSelection)
         Me.TabPage1.Location = New System.Drawing.Point(4, 44)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(785, 506)
+        Me.TabPage1.Size = New System.Drawing.Size(785, 552)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Scoring"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(6, 515)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(76, 25)
+        Me.Label6.TabIndex = 44
+        Me.Label6.Text = "Scorer:"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblScorerName
+        '
+        Me.lblScorerName.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblScorerName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.lblScorerName.Location = New System.Drawing.Point(88, 507)
+        Me.lblScorerName.Name = "lblScorerName"
+        Me.lblScorerName.Size = New System.Drawing.Size(415, 40)
+        Me.lblScorerName.TabIndex = 43
+        Me.lblScorerName.Text = "Scorer Name"
+        Me.lblScorerName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'grpInfo
         '
@@ -197,7 +225,7 @@ Partial Class frmScorer
         Me.grpInfo.Location = New System.Drawing.Point(0, 159)
         Me.grpInfo.Name = "grpInfo"
         Me.grpInfo.ShowText = True
-        Me.grpInfo.Size = New System.Drawing.Size(786, 344)
+        Me.grpInfo.Size = New System.Drawing.Size(786, 337)
         Me.grpInfo.TabIndex = 42
         Me.grpInfo.Text = "Match Information"
         '
@@ -536,7 +564,7 @@ Partial Class frmScorer
         Me.TabPage2.Location = New System.Drawing.Point(4, 44)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(785, 506)
+        Me.TabPage2.Size = New System.Drawing.Size(785, 552)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Match Results"
         '
@@ -654,7 +682,7 @@ Partial Class frmScorer
         Me.TabPage3.Location = New System.Drawing.Point(4, 44)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(785, 506)
+        Me.TabPage3.Size = New System.Drawing.Size(785, 552)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Option"
         '
@@ -710,11 +738,16 @@ Partial Class frmScorer
         Me.btnLogout.Text = "Logout"
         Me.btnLogout.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
         '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 500
+        '
         'frmScorer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(793, 603)
+        Me.ClientSize = New System.Drawing.Size(793, 650)
         Me.Controls.Add(Me.FormSkin1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -726,6 +759,7 @@ Partial Class frmScorer
         Me.FormSkin1.ResumeLayout(False)
         Me.FlatTabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
+        Me.TabPage1.PerformLayout()
         Me.grpInfo.ResumeLayout(False)
         Me.grpInfo.PerformLayout()
         Me.grpSelection.ResumeLayout(False)
@@ -793,4 +827,7 @@ Partial Class frmScorer
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents btnChange As AMA.FlatButton
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents lblScorerName As System.Windows.Forms.Label
 End Class

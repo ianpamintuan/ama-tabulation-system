@@ -209,4 +209,11 @@
         frmMyProfile.ShowDialog()
 
     End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+
+        UpdateFullName()
+        lblJudgeName.Text = userName
+
+    End Sub
 End Class
