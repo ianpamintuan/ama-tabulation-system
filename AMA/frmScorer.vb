@@ -1,12 +1,15 @@
 ﻿Public Class frmScorer
 
     Dim flag1, flag2 As Boolean
-    Dim index, tempEventID, tempMatchID, selectedMatch, TeamAScore, TeamBScore, TeamAFoul, TeamBFoul, tempSportID As Integer
+    Dim index, tempEventID, tempMatchID, selectedMatch, TeamAScore, TeamBScore, TeamAFoul, TeamBFoul, tempSportID, tempTeamAID, tempTeamBID As Integer
     Dim selectedEvent As String = ""
     Dim winner As String = ""
     Dim eventFilter As String = ""
     Dim tempTeam As String = ""
     Dim tempSportType As String = ""
+    Dim MVP As String = ""
+    Dim teamAPlayersStats(,) As Integer
+    Dim teamBPlayersStats(,) As Integer
 
     Public Sub InitializeFlags()
 
@@ -24,6 +27,8 @@
         lblStatus.Text = "_____"
         lblTeamAFouls.Text = "0"
         lblTeamBFouls.Text = "0"
+        lblTeamAPlayerPoints.Text = "0"
+        lblTeamBPlayerPoints.Text = "0"
 
         btnAdd1A.Visible = True
         btnAdd1B.Visible = True
@@ -42,6 +47,13 @@
 
         grpInfo.Enabled = False
         grpSelection.Enabled = True
+
+        lbTeamAPlayers.Enabled = True
+        lbTeamBPlayers.Enabled = True
+        lbTeamAPlayers.SelectedIndex = -1
+        lbTeamBPlayers.SelectedIndex = -1
+        lbTeamAPlayers.Items.Clear()
+        lbTeamBPlayers.Items.Clear()
 
     End Sub
 
@@ -76,6 +88,21 @@
         End If
 
     End Sub
+
+    Public Function PlayerValidation(lbTeam As ListBox)
+
+        If lbTeam.SelectedIndex = -1 Then
+
+            MsgBox("Please choose a player", MsgBoxStyle.Exclamation, "Message")
+            Return False
+
+        Else
+
+            Return True
+
+        End If
+
+    End Function
 
     Public Sub LoadEventsOptions()
 
@@ -239,6 +266,7 @@
                         .Items(index).SubItems.Add(dbReader.Item("a_fouls").ToString)
                         .Items(index).SubItems.Add(dbReader.Item("b_fouls").ToString)
                         .Items(index).SubItems.Add(dbReader.Item("winner").ToString)
+                        .Items(index).SubItems.Add(dbReader.Item("mvp").ToString)
                         .Items(index).SubItems.Add(dbReader.Item("status").ToString)
 
                         index += 1
@@ -264,6 +292,140 @@
             End Try
 
         End With
+
+    End Sub
+
+    Public Sub LoadPlayers(Query As String, lbName As ListBox, Team As Char)
+
+        Dim index As Integer = 0
+
+        With lbName
+
+            .Items.Clear()
+
+            Try
+
+                OpenDBConnection()
+                dbCmd.CommandText = Query
+                dbReader = dbCmd.ExecuteReader
+
+                Application.UseWaitCursor = True
+
+                If dbReader.HasRows = True Then
+
+                    While dbReader.Read
+
+                        .Items.Add(dbReader.Item("player_id").ToString & " " & dbReader.Item("full_name").ToString)
+
+                        If Team = "A" Then
+
+                            tempTeamAID = dbReader.Item("team_id").ToString
+
+                        ElseIf Team = "B" Then
+
+                            tempTeamBID = dbReader.Item("team_id").ToString
+
+                        End If
+
+                        index += 1
+
+                    End While
+
+                End If
+
+                CheckIfDbReaderIsClosed()
+
+                Application.UseWaitCursor = False
+
+            Catch ex As Exception
+
+                Application.UseWaitCursor = False
+
+                CheckIfDbReaderIsClosed()
+
+                MsgBox(ex.Message, MsgBoxStyle.Critical)
+
+            End Try
+
+        End With
+
+    End Sub
+
+    Public Sub UpdateTeamScore()
+
+        Dim TotalAScore = 0
+        Dim TotalBScore = 0
+
+        For i = 0 To lbTeamAPlayers.Items.Count - 1 Step 1
+
+            TotalAScore += teamAPlayersStats(i, 0)
+
+        Next
+
+        For i = 0 To lbTeamBPlayers.Items.Count - 1 Step 1
+
+            TotalBScore += teamBPlayersStats(i, 0)
+
+        Next
+
+        lblAScore.Text = TotalAScore
+        lblBScore.Text = TotalBScore
+
+    End Sub
+
+    Public Sub LoadScores()
+
+        Try
+
+            OpenDBConnection()
+            dbCmd.CommandText = "SELECT player_id, points, fouls FROM tblplayerscores WHERE team_id = " & tempTeamAID & " AND match_id = " & cboMatches.Text
+            dbReader = dbCmd.ExecuteReader
+
+            If dbReader.HasRows = True Then
+
+                Dim ctr = 0
+
+                While dbReader.Read
+
+                    teamAPlayersStats(ctr, 0) = dbReader.Item("points")
+                    teamAPlayersStats(ctr, 1) = dbReader.Item("fouls")
+
+                    ctr += 1
+
+                End While
+
+            End If
+
+            CheckIfDbReaderIsClosed()
+
+            OpenDBConnection()
+            dbCmd.CommandText = "SELECT player_id, points, fouls FROM tblplayerscores WHERE team_id = " & tempTeamBID & " AND match_id = " & cboMatches.Text
+            dbReader = dbCmd.ExecuteReader
+
+            If dbReader.HasRows = True Then
+
+                Dim ctr = 0
+
+                While dbReader.Read
+
+                    teamBPlayersStats(ctr, 0) = dbReader.Item("points")
+                    teamBPlayersStats(ctr, 1) = dbReader.Item("fouls")
+
+                    ctr += 1
+
+                End While
+
+            End If
+
+            CheckIfDbReaderIsClosed()
+
+        Catch ex As Exception
+
+            CheckIfDbReaderIsClosed()
+
+            MsgBox("Error in loading scores" & vbNewLine & ex.Message, MsgBoxStyle.Critical, "Error")
+
+        End Try
 
     End Sub
 
@@ -294,6 +456,11 @@
         grpInfo.Enabled = True
 
         LoadMatch()
+        LoadPlayers("SELECT player_id, CONCAT(first_name, ' ', last_name) AS full_name, tblplayers.team_id FROM tblplayers INNER JOIN tblteams ON tblteams.team_id = tblplayers.team_id WHERE tblteams.team_name = '" & lblTeamA.Text & "'", lbTeamAPlayers, "A")
+        LoadPlayers("SELECT player_id, CONCAT(first_name, ' ', last_name) AS full_name, tblplayers.team_id FROM tblplayers INNER JOIN tblteams ON tblteams.team_id = tblplayers.team_id WHERE tblteams.team_name = '" & lblTeamB.Text & "'", lbTeamBPlayers, "B")
+
+        teamAPlayersStats = New Integer(lbTeamAPlayers.Items.Count, 2) {}
+        teamBPlayersStats = New Integer(lbTeamBPlayers.Items.Count, 2) {}
 
         Try
 
@@ -347,7 +514,6 @@
 
         If lblStatus.Text = "Finished" Then
 
-            btnPauseMatch.Visible = False
             btnFinishMatch.Visible = False
             grpSelection.Enabled = True
             btnAdd1A.Visible = False
@@ -358,18 +524,43 @@
             btnAdd2B.Visible = False
             btnAdd3A.Visible = False
             btnAdd3B.Visible = False
+            lbTeamAPlayers.Enabled = False
+            lbTeamBPlayers.Enabled = False
+            lblFoulA.Visible = False
+            lblTeamAFouls.Visible = False
+            btnAddFoulA.Visible = False
+            lblFoulB.Visible = False
+            lblTeamBFouls.Visible = False
+            btnAddFoulB.Visible = False
+            lblPointsA.Visible = False
+            lblTeamAPlayerPoints.Visible = False
+            lblPointsB.Visible = False
+            lblTeamBPlayerPoints.Visible = False
+            btnCloseMatch.Visible = False
 
             MsgBox("This match is already finished. You can check other unfinished matches.")
 
         Else
 
-            btnPauseMatch.Visible = True
             btnFinishMatch.Visible = True
             grpSelection.Enabled = False
             btnAdd1A.Visible = True
             btnAdd1B.Visible = True
             btnAddFoulA.Visible = True
             btnAddFoulB.Visible = True
+            lbTeamAPlayers.Enabled = True
+            lbTeamBPlayers.Enabled = True
+            lblFoulA.Visible = True
+            lblTeamAFouls.Visible = True
+            btnAddFoulA.Visible = True
+            lblFoulB.Visible = True
+            lblTeamBFouls.Visible = True
+            btnAddFoulB.Visible = True
+            lblPointsA.Visible = True
+            lblTeamAPlayerPoints.Visible = True
+            lblPointsB.Visible = True
+            lblTeamBPlayerPoints.Visible = True
+            btnCloseMatch.Visible = True
 
             If tempSportType <> "Basketball" Then
 
@@ -387,8 +578,6 @@
 
             End If
 
-            MsgBox(tempSportType)
-
         End If
 
     End Sub
@@ -405,29 +594,6 @@
 
     End Sub
 
-    Private Sub btnPauseMatch_Click(sender As Object, e As EventArgs) Handles btnPauseMatch.Click
-
-        If MsgBox("Do you want to pause this match?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirmation Message") = MsgBoxResult.Yes Then
-
-            Try
-
-                OpenDBConnection()
-                dbCmd.CommandText = "UPDATE tblmatches SET a_score = '" & lblAScore.Text.ToString & "', b_score = '" & lblBScore.Text & "', a_fouls = '" & lblTeamAFouls.Text & "', b_fouls = '" & lblTeamBFouls.Text & "', status = 'Paused' WHERE match_id = " & selectedMatch
-                dbCmd.ExecuteNonQuery()
-
-                MsgBox("Match successfully paused at the moment.", MsgBoxStyle.Information, "Message")
-                MatchReset()
-
-            Catch ex As Exception
-
-                MsgBox("Error on pausing the match.", MsgBoxStyle.Critical, "Error")
-
-            End Try
-
-        End If
-
-    End Sub
-
     Private Sub btnFinishMatch_Click(sender As Object, e As EventArgs) Handles btnFinishMatch.Click
 
         If MsgBox("Do you want to end this match?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirmation Message") = MsgBoxResult.Yes Then
@@ -438,22 +604,94 @@
 
                     winner = lblTeamA.Text
 
+                    Dim highest = 0
+
+                    Dim index = -1
+
+                    For i = 0 To lbTeamAPlayers.Items.Count - 1 Step 1
+
+                        If teamAPlayersStats(i, 0) > highest Then
+
+                            highest = teamAPlayersStats(i, 0)
+                            index = i
+
+                        End If
+
+                    Next
+
+                    Dim temp = lbTeamAPlayers.Items.Item(index).ToString
+                    Dim test = temp.Split(New Char() {" "c})
+
+                    MVP = test(1) & " " & test(2)
+
                 Else
 
                     winner = lblTeamB.Text
 
+                    Dim highest = 0
+
+                    Dim index = -1
+
+                    For i = 0 To lbTeamBPlayers.Items.Count - 1 Step 1
+
+                        If teamBPlayersStats(i, 0) > highest Then
+
+                            highest = teamBPlayersStats(i, 0)
+
+                            index = i
+
+                        End If
+
+                    Next
+
+                    Dim temp = lbTeamBPlayers.Items.Item(index).ToString
+                    Dim test = temp.Split(New Char() {" "c})
+
+                    MVP = test(1) & " " & test(2)
+
                 End If
 
                 OpenDBConnection()
-                dbCmd.CommandText = "UPDATE tblmatches SET a_score = '" & lblAScore.Text.ToString & "', b_score = '" & lblBScore.Text & "', a_fouls = '" & lblTeamAFouls.Text & "', b_fouls = '" & lblTeamBFouls.Text & "', winner = '" & winner & "', status = 'Finished' WHERE match_id = " & selectedMatch
+                dbCmd.CommandText = "UPDATE tblmatches SET a_score = '" & lblAScore.Text.ToString & "', b_score = '" & lblBScore.Text & "', a_fouls = '" & lblTeamAFouls.Text & "', b_fouls = '" & lblTeamBFouls.Text & "', winner = '" & winner & "', mvp = '" & MVP & "', status = 'Finished' WHERE match_id = " & selectedMatch
                 dbCmd.ExecuteNonQuery()
+
+                dbCmd.CommandText = "SELECT * FROM tblplayerscores WHERE match_id = " & cboMatches.Text
+                dbReader = dbCmd.ExecuteReader
+
+                If dbReader.HasRows = False Then
+
+                    CheckIfDbReaderIsClosed()
+
+                    For i = 0 To lbTeamAPlayers.Items.Count - 1 Step 1
+
+                        Dim temp = lbTeamAPlayers.Items.Item(i).ToString
+                        Dim test = temp.Split(New Char() {" "c})
+                        Dim PlayerID = test(0)
+
+                        dbCmd.CommandText = "INSERT INTO tblplayerscores(player_id, team_id, match_id, points, fouls) VALUES(" & PlayerID & ", " & tempTeamAID & ", " & cboMatches.Text & ", " & teamAPlayersStats(i, 0) & ", " & teamAPlayersStats(i, 1) & ")"
+                        dbCmd.ExecuteNonQuery()
+
+                    Next
+
+                    For i = 0 To lbTeamBPlayers.Items.Count - 1 Step 1
+
+                        Dim temp = lbTeamBPlayers.Items.Item(i).ToString
+                        Dim test = temp.Split(New Char() {" "c})
+                        Dim PlayerID = test(0)
+
+                        dbCmd.CommandText = "INSERT INTO tblplayerscores(player_id, team_id, match_id, points, fouls) VALUES(" & PlayerID & ", " & tempTeamBID & ", " & cboMatches.Text & ", " & teamBPlayersStats(i, 0) & ", " & teamBPlayersStats(i, 1) & ")"
+                        dbCmd.ExecuteNonQuery()
+
+                    Next
+
+                End If
 
                 MsgBox("Match successfully ended the match.", MsgBoxStyle.Information, "Message")
                 MatchReset()
 
             Catch ex As Exception
 
-                MsgBox("Error on ending the match.", MsgBoxStyle.Critical, "Error")
+                MsgBox("Error on ending the match." & vbNewLine & ex.Message, MsgBoxStyle.Critical, "Error")
 
             End Try
 
@@ -463,11 +701,18 @@
 
     Private Sub btnAdd1A_Click(sender As Object, e As EventArgs) Handles btnAdd1A.Click
 
-        If MsgBox("Add 1 point to Team " & lblTeamA.Text & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+        If PlayerValidation(lbTeamAPlayers) Then
 
-            TeamAScore = Val(lblAScore.Text)
-            TeamAScore += 1
-            lblAScore.Text = TeamAScore
+            Dim PlayerPoints = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
+
+            If MsgBox("Add 1 point to " & lbTeamAPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+
+                PlayerPoints += 1
+                teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0) = PlayerPoints
+                lblTeamAPlayerPoints.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
+                UpdateTeamScore()
+
+            End If
 
         End If
 
@@ -475,11 +720,18 @@
 
     Private Sub btnAdd2A_Click(sender As Object, e As EventArgs) Handles btnAdd2A.Click
 
-        If MsgBox("Add 2 points to Team " & lblTeamA.Text & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+        If PlayerValidation(lbTeamAPlayers) Then
 
-            TeamAScore = Val(lblAScore.Text)
-            TeamAScore += 2
-            lblAScore.Text = TeamAScore
+            Dim PlayerPoints = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
+
+            If MsgBox("Add 2 points to " & lbTeamAPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+
+                PlayerPoints += 2
+                teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0) = PlayerPoints
+                lblTeamAPlayerPoints.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
+                UpdateTeamScore()
+
+            End If
 
         End If
 
@@ -487,11 +739,18 @@
 
     Private Sub btnAdd3A_Click(sender As Object, e As EventArgs) Handles btnAdd3A.Click
 
-        If MsgBox("Add 3 points to Team " & lblTeamA.Text & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+        If PlayerValidation(lbTeamAPlayers) Then
 
-            TeamAScore = Val(lblAScore.Text)
-            TeamAScore += 3
-            lblAScore.Text = TeamAScore
+            Dim PlayerPoints = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
+
+            If MsgBox("Add 3 points to " & lbTeamAPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+
+                PlayerPoints += 3
+                teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0) = PlayerPoints
+                lblTeamAPlayerPoints.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
+                UpdateTeamScore()
+
+            End If
 
         End If
 
@@ -499,11 +758,18 @@
 
     Private Sub btnAdd1B_Click(sender As Object, e As EventArgs) Handles btnAdd1B.Click
 
-        If MsgBox("Add 1 point to Team " & lblTeamB.Text & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+        If PlayerValidation(lbTeamBPlayers) Then
 
-            TeamBScore = Val(lblBScore.Text)
-            TeamBScore += 1
-            lblBScore.Text = TeamBScore
+            Dim PlayerPoints = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
+
+            If MsgBox("Add 1 point to " & lbTeamBPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+
+                PlayerPoints += 1
+                teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0) = PlayerPoints
+                lblTeamBPlayerPoints.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
+                UpdateTeamScore()
+
+            End If
 
         End If
 
@@ -511,11 +777,18 @@
 
     Private Sub btnAdd2B_Click(sender As Object, e As EventArgs) Handles btnAdd2B.Click
 
-        If MsgBox("Add 2 points to Team " & lblTeamB.Text & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+        If PlayerValidation(lbTeamBPlayers) Then
 
-            TeamBScore = Val(lblBScore.Text)
-            TeamBScore += 2
-            lblBScore.Text = TeamBScore
+            Dim PlayerPoints = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
+
+            If MsgBox("Add 2 points to " & lbTeamBPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+
+                PlayerPoints += 2
+                teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0) = PlayerPoints
+                lblTeamBPlayerPoints.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
+                UpdateTeamScore()
+
+            End If
 
         End If
 
@@ -523,11 +796,18 @@
 
     Private Sub btnAdd3B_Click(sender As Object, e As EventArgs) Handles btnAdd3B.Click
 
-        If MsgBox("Add 3 points to Team " & lblTeamB.Text & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+        If PlayerValidation(lbTeamBPlayers) Then
 
-            TeamBScore = Val(lblBScore.Text)
-            TeamBScore += 3
-            lblBScore.Text = TeamBScore
+            Dim PlayerPoints = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
+
+            If MsgBox("Add 3 points to " & lbTeamBPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+
+                PlayerPoints += 3
+                teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0) = PlayerPoints
+                lblTeamBPlayerPoints.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
+                UpdateTeamScore()
+
+            End If
 
         End If
 
@@ -567,11 +847,17 @@
 
     Private Sub btnAddFoulA_Click(sender As Object, e As EventArgs) Handles btnAddFoulA.Click
 
-        If MsgBox("Add 1 foul to Team " & lblTeamA.Text & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+        If PlayerValidation(lbTeamAPlayers) Then
 
-            TeamAFoul = Val(lblTeamAFouls.Text)
-            TeamAFoul += 1
-            lblTeamAFouls.Text = TeamAFoul
+            Dim PlayerFouls = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 1)
+
+            If MsgBox("Add 1 foul to " & lbTeamAPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+
+                PlayerFouls += 1
+                teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 1) = PlayerFouls
+                lblTeamAFouls.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 1)
+
+            End If
 
         End If
 
@@ -579,11 +865,17 @@
 
     Private Sub btnAddFoulB_Click(sender As Object, e As EventArgs) Handles btnAddFoulB.Click
 
-        If MsgBox("Add 1 foul to Team " & lblTeamB.Text & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+        If PlayerValidation(lbTeamBPlayers) Then
 
-            TeamBFoul = Val(lblTeamBFouls.Text)
-            TeamBFoul += 1
-            lblTeamBFouls.Text = TeamBFoul
+            Dim PlayerFouls = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 1)
+
+            If MsgBox("Add 1 foul to " & lbTeamBPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+
+                PlayerFouls += 1
+                teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 1) = PlayerFouls
+                lblTeamBFouls.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 1)
+
+            End If
 
         End If
 
@@ -599,6 +891,38 @@
 
         UpdateFullName()
         lblScorerName.Text = userName
+
+    End Sub
+
+    Private Sub lbTeamAPlayers_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbTeamAPlayers.SelectedIndexChanged
+
+        If lbTeamAPlayers.SelectedIndex <> -1 Then
+
+            lblTeamAPlayerPoints.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
+            lblTeamAFouls.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 1)
+
+        End If
+
+    End Sub
+
+    Private Sub lbTeamBPlayers_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbTeamBPlayers.SelectedIndexChanged
+
+        If lbTeamBPlayers.SelectedIndex <> -1 Then
+
+            lblTeamBPlayerPoints.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
+            lblTeamBFouls.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 1)
+
+        End If
+
+    End Sub
+
+    Private Sub btnCloseMatch_Click(sender As Object, e As EventArgs) Handles btnCloseMatch.Click
+
+        If MsgBox("Your match result will not be saved. Are you sure you want to close the match?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirm") = MsgBoxResult.Yes Then
+
+            MatchReset()
+
+        End If
 
     End Sub
 End Class
