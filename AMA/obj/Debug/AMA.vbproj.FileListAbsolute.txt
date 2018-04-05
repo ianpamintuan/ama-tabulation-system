@@ -2,7 +2,6 @@ C:\Users\MarkIan\Desktop\AMA\AMA\bin\Debug\AMA.exe.config
 C:\Users\MarkIan\Desktop\AMA\AMA\bin\Debug\AMA.exe
 C:\Users\MarkIan\Desktop\AMA\AMA\bin\Debug\AMA.pdb
 C:\Users\MarkIan\Desktop\AMA\AMA\bin\Debug\AMA.xml
-C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.vbprojResolveAssemblyReference.cache
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmDashboard.resources
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmEvents.resources
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmIntramurals.resources
