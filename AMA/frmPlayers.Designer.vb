@@ -32,15 +32,12 @@ Partial Class frmPlayers
         Me.btnBack = New AMA.FlatButton()
         Me.grpTable = New AMA.FlatGroupBox()
         Me.chkShow = New System.Windows.Forms.CheckBox()
-        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.lstPlayers = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.grpInfo = New AMA.FlatGroupBox()
-        Me.cboSports = New System.Windows.Forms.ComboBox()
-        Me.lblSport = New System.Windows.Forms.Label()
         Me.cboTeam = New System.Windows.Forms.ComboBox()
         Me.lblTeam = New System.Windows.Forms.Label()
         Me.txtLastName = New AMA.FlatTextBox()
@@ -155,37 +152,37 @@ Partial Class frmPlayers
         Me.grpTable.BackColor = System.Drawing.Color.Transparent
         Me.grpTable.BaseColor = System.Drawing.Color.White
         Me.grpTable.Controls.Add(Me.chkShow)
-        Me.grpTable.Controls.Add(Me.ListView1)
+        Me.grpTable.Controls.Add(Me.lstPlayers)
         Me.grpTable.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpTable.Location = New System.Drawing.Point(3, 326)
+        Me.grpTable.Location = New System.Drawing.Point(3, 260)
         Me.grpTable.Name = "grpTable"
         Me.grpTable.ShowText = True
-        Me.grpTable.Size = New System.Drawing.Size(764, 273)
+        Me.grpTable.Size = New System.Drawing.Size(764, 339)
         Me.grpTable.TabIndex = 1
         Me.grpTable.Text = "Player's List"
         '
         'chkShow
         '
         Me.chkShow.AutoSize = True
-        Me.chkShow.Location = New System.Drawing.Point(14, 234)
+        Me.chkShow.Location = New System.Drawing.Point(15, 303)
         Me.chkShow.Name = "chkShow"
         Me.chkShow.Size = New System.Drawing.Size(166, 25)
         Me.chkShow.TabIndex = 3
         Me.chkShow.Text = "Show Checkboxes"
         Me.chkShow.UseVisualStyleBackColor = True
         '
-        'ListView1
+        'lstPlayers
         '
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5})
-        Me.ListView1.FullRowSelect = True
-        Me.ListView1.GridLines = True
-        Me.ListView1.Location = New System.Drawing.Point(14, 41)
-        Me.ListView1.MultiSelect = False
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(738, 187)
-        Me.ListView1.TabIndex = 0
-        Me.ListView1.UseCompatibleStateImageBehavior = False
-        Me.ListView1.View = System.Windows.Forms.View.Details
+        Me.lstPlayers.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4})
+        Me.lstPlayers.FullRowSelect = True
+        Me.lstPlayers.GridLines = True
+        Me.lstPlayers.Location = New System.Drawing.Point(14, 41)
+        Me.lstPlayers.MultiSelect = False
+        Me.lstPlayers.Name = "lstPlayers"
+        Me.lstPlayers.Size = New System.Drawing.Size(738, 261)
+        Me.lstPlayers.TabIndex = 0
+        Me.lstPlayers.UseCompatibleStateImageBehavior = False
+        Me.lstPlayers.View = System.Windows.Forms.View.Details
         '
         'ColumnHeader1
         '
@@ -203,16 +200,10 @@ Partial Class frmPlayers
         '
         Me.ColumnHeader4.Text = "Team"
         '
-        'ColumnHeader5
-        '
-        Me.ColumnHeader5.Text = "Sport"
-        '
         'grpInfo
         '
         Me.grpInfo.BackColor = System.Drawing.Color.Transparent
         Me.grpInfo.BaseColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(73, Byte), Integer))
-        Me.grpInfo.Controls.Add(Me.cboSports)
-        Me.grpInfo.Controls.Add(Me.lblSport)
         Me.grpInfo.Controls.Add(Me.cboTeam)
         Me.grpInfo.Controls.Add(Me.lblTeam)
         Me.grpInfo.Controls.Add(Me.txtLastName)
@@ -224,33 +215,9 @@ Partial Class frmPlayers
         Me.grpInfo.Location = New System.Drawing.Point(0, 50)
         Me.grpInfo.Name = "grpInfo"
         Me.grpInfo.ShowText = True
-        Me.grpInfo.Size = New System.Drawing.Size(767, 270)
+        Me.grpInfo.Size = New System.Drawing.Size(767, 204)
         Me.grpInfo.TabIndex = 0
         Me.grpInfo.Text = "Player Information"
-        '
-        'cboSports
-        '
-        Me.cboSports.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.cboSports.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboSports.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cboSports.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboSports.ForeColor = System.Drawing.Color.White
-        Me.cboSports.Location = New System.Drawing.Point(157, 211)
-        Me.cboSports.Name = "cboSports"
-        Me.cboSports.Size = New System.Drawing.Size(267, 33)
-        Me.cboSports.TabIndex = 26
-        '
-        'lblSport
-        '
-        Me.lblSport.AutoSize = True
-        Me.lblSport.BackColor = System.Drawing.Color.Transparent
-        Me.lblSport.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSport.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.lblSport.Location = New System.Drawing.Point(13, 210)
-        Me.lblSport.Name = "lblSport"
-        Me.lblSport.Size = New System.Drawing.Size(62, 30)
-        Me.lblSport.TabIndex = 25
-        Me.lblSport.Text = "Sport"
         '
         'cboTeam
         '
@@ -365,19 +332,16 @@ Partial Class frmPlayers
     Friend WithEvents lblTeam As System.Windows.Forms.Label
     Friend WithEvents cboTeam As System.Windows.Forms.ComboBox
     Friend WithEvents grpTable As AMA.FlatGroupBox
-    Friend WithEvents ListView1 As System.Windows.Forms.ListView
+    Friend WithEvents lstPlayers As System.Windows.Forms.ListView
     Friend WithEvents btnBack As AMA.FlatButton
     Friend WithEvents btnCancel As AMA.FlatButton
     Friend WithEvents btnDelete As AMA.FlatButton
     Friend WithEvents btnSave As AMA.FlatButton
     Friend WithEvents btnAdd As AMA.FlatButton
-    Friend WithEvents cboSports As System.Windows.Forms.ComboBox
-    Friend WithEvents lblSport As System.Windows.Forms.Label
     Friend WithEvents chkShow As System.Windows.Forms.CheckBox
     Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader4 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader5 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
 End Class
