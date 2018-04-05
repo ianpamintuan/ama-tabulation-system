@@ -184,6 +184,7 @@
                         .Items(index).SubItems.Add(dbReader.Item("a_fouls").ToString)
                         .Items(index).SubItems.Add(dbReader.Item("b_fouls").ToString)
                         .Items(index).SubItems.Add(dbReader.Item("winner").ToString)
+                        .Items(index).SubItems.Add(dbReader.Item("mvp").ToString)
                         .Items(index).SubItems.Add(dbReader.Item("status").ToString)
 
                         index += 1

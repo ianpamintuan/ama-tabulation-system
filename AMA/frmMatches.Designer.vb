@@ -51,6 +51,7 @@ Partial Class frmMatches
         Me.btnBack = New AMA.FlatButton()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.FormSkin1.SuspendLayout()
         Me.grpTable.SuspendLayout()
         Me.grpInfo.SuspendLayout()
@@ -121,7 +122,7 @@ Partial Class frmMatches
         '
         'lstMatches
         '
-        Me.lstMatches.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader9, Me.ColumnHeader10, Me.ColumnHeader7, Me.ColumnHeader8})
+        Me.lstMatches.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader9, Me.ColumnHeader10, Me.ColumnHeader7, Me.ColumnHeader11, Me.ColumnHeader8})
         Me.lstMatches.FullRowSelect = True
         Me.lstMatches.GridLines = True
         Me.lstMatches.Location = New System.Drawing.Point(14, 39)
@@ -331,6 +332,10 @@ Partial Class frmMatches
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'ColumnHeader11
+        '
+        Me.ColumnHeader11.Text = "MVP"
+        '
         'frmMatches
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -379,4 +384,5 @@ Partial Class frmMatches
     Friend WithEvents ColumnHeader10 As System.Windows.Forms.ColumnHeader
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents lstMatches As AMA.ffListView
+    Friend WithEvents ColumnHeader11 As System.Windows.Forms.ColumnHeader
 End Class
