@@ -1,4 +1,7 @@
-﻿Public Class frmMatches
+﻿Imports MySql.Data.MySqlClient
+Imports Microsoft.Reporting.WinForms
+
+Public Class frmMatches
 
     Dim flag1, flag2, flag3 As Boolean
     Dim index As Integer
@@ -6,11 +9,30 @@
     Dim ConfirmationMessage As String = ""
     Dim MatchName As String = ""
 
+    Dim PrintQuery As String
+    Dim dbAdapter As New MySqlDataAdapter
+    Dim dbDataSet As DataSet
+
     Public Sub InitializeFlags()
 
         flag1 = True
         flag2 = True
         flag3 = True
+
+    End Sub
+
+    Public Sub LoadDataSet()
+
+        OpenDBConnection()
+
+        dbAdapter.SelectCommand = dbConn.CreateCommand
+        dbAdapter.SelectCommand.CommandText = PrintQuery
+        dbAdapter.SelectCommand.ExecuteReader()
+
+        CloseDBConnection()
+
+        dbDataSet = New DataSet("myDS")
+        dbAdapter.Fill(dbDataSet, "myDS")
 
     End Sub
 
@@ -192,6 +214,12 @@
                     End While
 
                     .AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
+
+                    btnViewReport.Enabled = True
+
+                Else
+
+                    btnViewReport.Enabled = False
 
                 End If
 
@@ -520,4 +548,42 @@
 
     End Sub
 
+    Private Sub btnViewReport_Click(sender As Object, e As EventArgs) Handles btnViewReport.Click
+
+        Dim MatchID = -1
+
+        If lstMatches.SelectedIndices.Count = 0 Or lstMatches.Items.Count = 0 Then
+
+            MsgBox("Please choose a match", MsgBoxStyle.Critical, "Message")
+            Exit Sub
+
+        End If
+
+        If Not IsNothing(lstMatches.FocusedItem) Then
+
+            index = lstMatches.FocusedItem.Index
+
+        Else
+
+            MsgBox("Please choose a match", MsgBoxStyle.Critical, "Message")
+            Exit Sub
+
+        End If
+
+        MatchID = lstMatches.Items(index).SubItems(0).Text
+
+        PrintQuery = "SELECT tblmatches.*, tblevents.event_name FROM tblmatches JOIN tblevents ON tblevents.event_id = tblmatches.event_id WHERE tblmatches.match_id = " & MatchID
+
+        LoadDataSet()
+
+        With frmMatchReport.ReportViewer1
+            .LocalReport.DataSources.Clear()
+            .LocalReport.DataSources.Add(New ReportDataSource("DataSet1", dbDataSet.Tables("myDS")))
+
+            .RefreshReport()
+        End With
+
+        frmMatchReport.ShowDialog()
+
+    End Sub
 End Class

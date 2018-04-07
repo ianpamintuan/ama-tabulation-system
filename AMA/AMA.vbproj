@@ -49,6 +49,8 @@
     <ApplicationIcon>ama_logo_NQo_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="MySql.Data, Version=6.6.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\MySql.Data.dll</HintPath>
@@ -57,6 +59,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -78,6 +81,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection.vb" />
+    <Compile Include="DataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet1.vb">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ffListView.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -128,6 +139,12 @@
       <DependentUpon>frmMatches.vb</DependentUpon>
     </Compile>
     <Compile Include="frmMatches.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMatchReport.Designer.vb">
+      <DependentUpon>frmMatchReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMatchReport.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMyProfile.Designer.vb">
@@ -211,6 +228,9 @@
     <EmbeddedResource Include="frmMatches.resx">
       <DependentUpon>frmMatches.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMatchReport.resx">
+      <DependentUpon>frmMatchReport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMyProfile.resx">
       <DependentUpon>frmMyProfile.vb</DependentUpon>
     </EmbeddedResource>
@@ -238,8 +258,20 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

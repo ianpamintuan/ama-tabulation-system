@@ -26,6 +26,7 @@ Partial Class frmMatches
         Me.FormSkin1 = New AMA.FormSkin()
         Me.btnCancel = New AMA.FlatButton()
         Me.grpTable = New AMA.FlatGroupBox()
+        Me.btnViewReport = New AMA.FlatButton()
         Me.chkShow = New System.Windows.Forms.CheckBox()
         Me.lstMatches = New AMA.ffListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -37,6 +38,7 @@ Partial Class frmMatches
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.btnDelete = New AMA.FlatButton()
         Me.btnSave = New AMA.FlatButton()
@@ -51,7 +53,6 @@ Partial Class frmMatches
         Me.btnBack = New AMA.FlatButton()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.FormSkin1.SuspendLayout()
         Me.grpTable.SuspendLayout()
         Me.grpInfo.SuspendLayout()
@@ -77,7 +78,7 @@ Partial Class frmMatches
         Me.FormSkin1.HeaderMaximize = False
         Me.FormSkin1.Location = New System.Drawing.Point(0, 0)
         Me.FormSkin1.Name = "FormSkin1"
-        Me.FormSkin1.Size = New System.Drawing.Size(798, 614)
+        Me.FormSkin1.Size = New System.Drawing.Size(798, 626)
         Me.FormSkin1.TabIndex = 0
         Me.FormSkin1.Text = "Matches"
         '
@@ -88,7 +89,7 @@ Partial Class frmMatches
         Me.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCancel.Enabled = False
         Me.btnCancel.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnCancel.Location = New System.Drawing.Point(439, 554)
+        Me.btnCancel.Location = New System.Drawing.Point(439, 566)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Rounded = False
         Me.btnCancel.Size = New System.Drawing.Size(137, 48)
@@ -100,20 +101,35 @@ Partial Class frmMatches
         '
         Me.grpTable.BackColor = System.Drawing.Color.Transparent
         Me.grpTable.BaseColor = System.Drawing.Color.White
+        Me.grpTable.Controls.Add(Me.btnViewReport)
         Me.grpTable.Controls.Add(Me.chkShow)
         Me.grpTable.Controls.Add(Me.lstMatches)
         Me.grpTable.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpTable.Location = New System.Drawing.Point(3, 260)
         Me.grpTable.Name = "grpTable"
         Me.grpTable.ShowText = True
-        Me.grpTable.Size = New System.Drawing.Size(795, 288)
+        Me.grpTable.Size = New System.Drawing.Size(795, 300)
         Me.grpTable.TabIndex = 1
         Me.grpTable.Text = "Matches List"
+        '
+        'btnViewReport
+        '
+        Me.btnViewReport.BackColor = System.Drawing.Color.Transparent
+        Me.btnViewReport.BaseColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnViewReport.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnViewReport.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnViewReport.Location = New System.Drawing.Point(677, 258)
+        Me.btnViewReport.Name = "btnViewReport"
+        Me.btnViewReport.Rounded = False
+        Me.btnViewReport.Size = New System.Drawing.Size(106, 32)
+        Me.btnViewReport.TabIndex = 6
+        Me.btnViewReport.Text = "View Report"
+        Me.btnViewReport.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
         '
         'chkShow
         '
         Me.chkShow.AutoSize = True
-        Me.chkShow.Location = New System.Drawing.Point(14, 251)
+        Me.chkShow.Location = New System.Drawing.Point(14, 258)
         Me.chkShow.Name = "chkShow"
         Me.chkShow.Size = New System.Drawing.Size(166, 25)
         Me.chkShow.TabIndex = 5
@@ -128,7 +144,7 @@ Partial Class frmMatches
         Me.lstMatches.Location = New System.Drawing.Point(14, 39)
         Me.lstMatches.MultiSelect = False
         Me.lstMatches.Name = "lstMatches"
-        Me.lstMatches.Size = New System.Drawing.Size(769, 206)
+        Me.lstMatches.Size = New System.Drawing.Size(769, 213)
         Me.lstMatches.TabIndex = 0
         Me.lstMatches.UseCompatibleStateImageBehavior = False
         Me.lstMatches.View = System.Windows.Forms.View.Details
@@ -169,6 +185,10 @@ Partial Class frmMatches
         '
         Me.ColumnHeader7.Text = "Winner"
         '
+        'ColumnHeader11
+        '
+        Me.ColumnHeader11.Text = "MVP"
+        '
         'ColumnHeader8
         '
         Me.ColumnHeader8.Text = "Status"
@@ -180,7 +200,7 @@ Partial Class frmMatches
         Me.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnDelete.Enabled = False
         Me.btnDelete.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnDelete.Location = New System.Drawing.Point(296, 554)
+        Me.btnDelete.Location = New System.Drawing.Point(296, 566)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Rounded = False
         Me.btnDelete.Size = New System.Drawing.Size(137, 48)
@@ -195,7 +215,7 @@ Partial Class frmMatches
         Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnSave.Enabled = False
         Me.btnSave.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnSave.Location = New System.Drawing.Point(153, 554)
+        Me.btnSave.Location = New System.Drawing.Point(153, 566)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Rounded = False
         Me.btnSave.Size = New System.Drawing.Size(137, 48)
@@ -300,7 +320,7 @@ Partial Class frmMatches
         Me.btnAdd.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAdd.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnAdd.Location = New System.Drawing.Point(10, 554)
+        Me.btnAdd.Location = New System.Drawing.Point(10, 566)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Rounded = False
         Me.btnAdd.Size = New System.Drawing.Size(137, 48)
@@ -314,7 +334,7 @@ Partial Class frmMatches
         Me.btnBack.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.btnBack.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnBack.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnBack.Location = New System.Drawing.Point(642, 554)
+        Me.btnBack.Location = New System.Drawing.Point(642, 566)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Rounded = False
         Me.btnBack.Size = New System.Drawing.Size(144, 48)
@@ -332,15 +352,11 @@ Partial Class frmMatches
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
-        'ColumnHeader11
-        '
-        Me.ColumnHeader11.Text = "MVP"
-        '
         'frmMatches
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(798, 614)
+        Me.ClientSize = New System.Drawing.Size(798, 626)
         Me.Controls.Add(Me.FormSkin1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmMatches"
@@ -385,4 +401,5 @@ Partial Class frmMatches
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents lstMatches As AMA.ffListView
     Friend WithEvents ColumnHeader11 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents btnViewReport As AMA.FlatButton
 End Class

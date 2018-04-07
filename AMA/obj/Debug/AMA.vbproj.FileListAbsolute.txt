@@ -21,3 +21,7 @@ C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.vbproj.GenerateResource.Cache
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.exe
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.xml
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.pdb
+C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.vbprojResolveAssemblyReference.cache
+C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmMatchReport.resources
+C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\RdlCompile.cache
+C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\RdlCompile.compiled
