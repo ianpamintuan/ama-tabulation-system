@@ -1,7 +1,29 @@
-﻿Public Class frmJudgeTally
+﻿Imports MySql.Data.MySqlClient
+Imports Microsoft.Reporting.WinForms
+
+Public Class frmJudgeTally
 
     Dim EventName As String = ""
     Dim TotalJudges As Integer = 0
+
+    Dim PrintQuery As String
+    Dim dbAdapter As New MySqlDataAdapter
+    Dim dbDataSet As DataSet
+
+    Public Sub LoadDataSet()
+
+        OpenDBConnection()
+
+        dbAdapter.SelectCommand = dbConn.CreateCommand
+        dbAdapter.SelectCommand.CommandText = PrintQuery
+        dbAdapter.SelectCommand.ExecuteReader()
+
+        CloseDBConnection()
+
+        dbDataSet = New DataSet("myDS")
+        dbAdapter.Fill(dbDataSet, "myDS")
+
+    End Sub
 
     Public Sub LoadEventName()
 
@@ -234,10 +256,28 @@
 
             LoadJudgeTally("SELECT tblscores.contestant_id, CONCAT(tblcontestants.first_name, ' ', tblcontestants.last_name) AS full_name,  (SUM(tblscores.score) / 5) / " & TotalJudges & " AS score FROM tblscores INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id WHERE tblscores.event_id = " & eventID & " AND tblcontestants.title = 'Ms' GROUP BY tblscores.contestant_id", lstTotalMs)
             LoadJudgeTally("SELECT tblscores.contestant_id, CONCAT(tblcontestants.first_name, ' ', tblcontestants.last_name) AS full_name,  (SUM(tblscores.score) / 5) / " & TotalJudges & " AS score FROM tblscores INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id WHERE tblscores.event_id = " & eventID & " AND tblcontestants.title = 'Mr' GROUP BY tblscores.contestant_id", lstTotalMr)
+
+            PrintQuery = "SELECT tblscores.contestant_id, CONCAT(tblcontestants.first_name, ' ', tblcontestants.last_name) AS full_name,  (SUM(tblscores.score) / 5) / " & TotalJudges & " AS score, tblevents.event_name FROM tblscores INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id LEFT JOIN tblevents ON tblevents.event_id = tblscores.event_id WHERE tblscores.event_id = " & eventID & " GROUP BY tblscores.contestant_id, tblcontestants.title"
+
             SetWinnerMr()
             SetWinnerMs()
 
         End If
+
+    End Sub
+
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+
+        LoadDataSet()
+
+        With frmPageantReport.ReportViewer1
+            .LocalReport.DataSources.Clear()
+            .LocalReport.DataSources.Add(New ReportDataSource("DataSet1", dbDataSet.Tables("myDS")))
+
+            .RefreshReport()
+        End With
+
+        frmPageantReport.ShowDialog()
 
     End Sub
 End Class

@@ -46,6 +46,7 @@ Partial Class frmJudgeTally
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lblJudgeName = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.btnPrint = New AMA.FlatButton()
         Me.lblWinnerMsName = New System.Windows.Forms.Label()
         Me.lblWinnerMrName = New System.Windows.Forms.Label()
         Me.lblWinnerMs = New System.Windows.Forms.Label()
@@ -57,14 +58,12 @@ Partial Class frmJudgeTally
         Me.grpPageantSummary = New AMA.FlatGroupBox()
         Me.FlatTabControl3 = New AMA.FlatTabControl()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
-        'Me.lstTotalMr = New System.Windows.Forms.ListView()
-        Me.lstTotalMr = New ffListView
+        Me.lstTotalMr = New AMA.ffListView()
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabPage6 = New System.Windows.Forms.TabPage()
-        'Me.lstTotalMs = New System.Windows.Forms.ListView()
-        Me.lstTotalMs = New ffListView
+        Me.lstTotalMs = New AMA.ffListView()
         Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -104,7 +103,7 @@ Partial Class frmJudgeTally
         Me.FormSkin1.HeaderMaximize = False
         Me.FormSkin1.Location = New System.Drawing.Point(0, 0)
         Me.FormSkin1.Name = "FormSkin1"
-        Me.FormSkin1.Size = New System.Drawing.Size(791, 562)
+        Me.FormSkin1.Size = New System.Drawing.Size(791, 646)
         Me.FormSkin1.TabIndex = 0
         Me.FormSkin1.Text = "Judge Tally"
         '
@@ -143,10 +142,10 @@ Partial Class frmJudgeTally
         Me.FlatTabControl1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.FlatTabControl1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.FlatTabControl1.ItemSize = New System.Drawing.Size(120, 40)
-        Me.FlatTabControl1.Location = New System.Drawing.Point(0, 47)
+        Me.FlatTabControl1.Location = New System.Drawing.Point(0, 50)
         Me.FlatTabControl1.Name = "FlatTabControl1"
         Me.FlatTabControl1.SelectedIndex = 0
-        Me.FlatTabControl1.Size = New System.Drawing.Size(791, 515)
+        Me.FlatTabControl1.Size = New System.Drawing.Size(791, 596)
         Me.FlatTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.FlatTabControl1.TabIndex = 0
         '
@@ -161,7 +160,7 @@ Partial Class frmJudgeTally
         Me.TabPage1.Location = New System.Drawing.Point(4, 44)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(783, 467)
+        Me.TabPage1.Size = New System.Drawing.Size(783, 548)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "My Sheet"
         '
@@ -315,6 +314,7 @@ Partial Class frmJudgeTally
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(73, Byte), Integer))
+        Me.TabPage2.Controls.Add(Me.btnPrint)
         Me.TabPage2.Controls.Add(Me.lblWinnerMsName)
         Me.TabPage2.Controls.Add(Me.lblWinnerMrName)
         Me.TabPage2.Controls.Add(Me.lblWinnerMs)
@@ -327,9 +327,23 @@ Partial Class frmJudgeTally
         Me.TabPage2.Location = New System.Drawing.Point(4, 44)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(783, 467)
+        Me.TabPage2.Size = New System.Drawing.Size(783, 548)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Overall"
+        '
+        'btnPrint
+        '
+        Me.btnPrint.BackColor = System.Drawing.Color.Transparent
+        Me.btnPrint.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnPrint.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnPrint.Location = New System.Drawing.Point(664, 497)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Rounded = False
+        Me.btnPrint.Size = New System.Drawing.Size(106, 32)
+        Me.btnPrint.TabIndex = 39
+        Me.btnPrint.Text = "Print"
+        Me.btnPrint.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
         '
         'lblWinnerMsName
         '
@@ -533,7 +547,7 @@ Partial Class frmJudgeTally
         Me.TabPage7.Controls.Add(Me.btnLogout)
         Me.TabPage7.Location = New System.Drawing.Point(4, 44)
         Me.TabPage7.Name = "TabPage7"
-        Me.TabPage7.Size = New System.Drawing.Size(783, 467)
+        Me.TabPage7.Size = New System.Drawing.Size(783, 548)
         Me.TabPage7.TabIndex = 2
         Me.TabPage7.Text = "Option"
         '
@@ -598,7 +612,7 @@ Partial Class frmJudgeTally
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(791, 562)
+        Me.ClientSize = New System.Drawing.Size(791, 646)
         Me.Controls.Add(Me.FormSkin1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -650,7 +664,6 @@ Partial Class frmJudgeTally
     Friend WithEvents grpPageantSummary As AMA.FlatGroupBox
     Friend WithEvents FlatTabControl3 As AMA.FlatTabControl
     Friend WithEvents TabPage5 As System.Windows.Forms.TabPage
-    Friend WithEvents lstTotalMr As System.Windows.Forms.ListView
     Friend WithEvents ColumnHeader7 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader8 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader9 As System.Windows.Forms.ColumnHeader
@@ -663,7 +676,6 @@ Partial Class frmJudgeTally
     Friend WithEvents lblEventName2 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents lblWinnerMsName As System.Windows.Forms.Label
-    Friend WithEvents lstTotalMs As System.Windows.Forms.ListView
     Friend WithEvents ColumnHeader10 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader11 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader12 As System.Windows.Forms.ColumnHeader
@@ -673,4 +685,7 @@ Partial Class frmJudgeTally
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents btnLogout As AMA.FlatButton
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents btnPrint As AMA.FlatButton
+    Friend WithEvents lstTotalMr As AMA.ffListView
+    Friend WithEvents lstTotalMs As AMA.ffListView
 End Class

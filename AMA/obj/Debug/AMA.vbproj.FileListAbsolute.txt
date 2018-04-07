@@ -25,3 +25,4 @@ C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.vbprojResolveAssemblyReference.ca
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmMatchReport.resources
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\RdlCompile.cache
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\RdlCompile.compiled
+C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.frmPageantReport.resources
