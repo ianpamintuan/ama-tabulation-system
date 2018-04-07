@@ -25,22 +25,21 @@ Partial Class frmLogin
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogin))
         Me.FormSkin1 = New AMA.FormSkin()
-        Me.btnRegister = New AMA.FlatButton()
         Me.btnLogin = New AMA.FlatButton()
         Me.txtPassword = New AMA.FlatTextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtUsername = New AMA.FlatTextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.FlatMini1 = New AMA.FlatMini()
         Me.FlatClose1 = New AMA.FlatClose()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.FormSkin1.SuspendLayout()
-        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'FormSkin1
@@ -48,7 +47,6 @@ Partial Class frmLogin
         Me.FormSkin1.BackColor = System.Drawing.Color.White
         Me.FormSkin1.BaseColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(73, Byte), Integer))
         Me.FormSkin1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(58, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.FormSkin1.Controls.Add(Me.btnRegister)
         Me.FormSkin1.Controls.Add(Me.btnLogin)
         Me.FormSkin1.Controls.Add(Me.txtPassword)
         Me.FormSkin1.Controls.Add(Me.Label5)
@@ -71,30 +69,16 @@ Partial Class frmLogin
         Me.FormSkin1.TabIndex = 0
         Me.FormSkin1.Text = "Login"
         '
-        'btnRegister
-        '
-        Me.btnRegister.BackColor = System.Drawing.Color.Transparent
-        Me.btnRegister.BaseColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.btnRegister.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnRegister.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnRegister.Location = New System.Drawing.Point(274, 458)
-        Me.btnRegister.Name = "btnRegister"
-        Me.btnRegister.Rounded = False
-        Me.btnRegister.Size = New System.Drawing.Size(168, 47)
-        Me.btnRegister.TabIndex = 9
-        Me.btnRegister.Text = "Register"
-        Me.btnRegister.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
-        '
         'btnLogin
         '
         Me.btnLogin.BackColor = System.Drawing.Color.Transparent
         Me.btnLogin.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnLogin.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnLogin.Location = New System.Drawing.Point(458, 458)
+        Me.btnLogin.Location = New System.Drawing.Point(274, 458)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Rounded = False
-        Me.btnLogin.Size = New System.Drawing.Size(168, 47)
+        Me.btnLogin.Size = New System.Drawing.Size(352, 47)
         Me.btnLogin.TabIndex = 3
         Me.btnLogin.Text = "Login"
         Me.btnLogin.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
@@ -152,6 +136,17 @@ Partial Class frmLogin
         Me.txtUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtUsername.TextColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtUsername.UseSystemPasswordChar = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = Global.AMA.My.Resources.Resources.AMA_logo
+        Me.PictureBox1.Location = New System.Drawing.Point(282, 158)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(334, 140)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 5
+        Me.PictureBox1.TabStop = False
         '
         'Label3
         '
@@ -223,17 +218,6 @@ Partial Class frmLogin
         Me.ErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.ErrorProvider1.ContainerControl = Me
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = Global.AMA.My.Resources.Resources.AMA_logo
-        Me.PictureBox1.Location = New System.Drawing.Point(282, 158)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(334, 140)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 5
-        Me.PictureBox1.TabStop = False
-        '
         'frmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -248,8 +232,8 @@ Partial Class frmLogin
         Me.TransparencyKey = System.Drawing.Color.Fuchsia
         Me.FormSkin1.ResumeLayout(False)
         Me.FormSkin1.PerformLayout()
-        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -266,6 +250,5 @@ Partial Class frmLogin
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents txtUsername As AMA.FlatTextBox
     Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
-    Friend WithEvents btnRegister As AMA.FlatButton
 
 End Class

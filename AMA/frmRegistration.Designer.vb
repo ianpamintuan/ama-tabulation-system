@@ -27,8 +27,6 @@ Partial Class frmRegistration
         Me.FormSkin1 = New AMA.FormSkin()
         Me.btnCancel = New AMA.FlatButton()
         Me.btnSave = New AMA.FlatButton()
-        Me.lblEvent = New System.Windows.Forms.Label()
-        Me.cboEvent = New System.Windows.Forms.ComboBox()
         Me.FlatGroupBox1 = New AMA.FlatGroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cboRoles = New System.Windows.Forms.ComboBox()
@@ -65,8 +63,6 @@ Partial Class frmRegistration
         Me.FormSkin1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(58, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.FormSkin1.Controls.Add(Me.btnCancel)
         Me.FormSkin1.Controls.Add(Me.btnSave)
-        Me.FormSkin1.Controls.Add(Me.lblEvent)
-        Me.FormSkin1.Controls.Add(Me.cboEvent)
         Me.FormSkin1.Controls.Add(Me.FlatGroupBox1)
         Me.FormSkin1.Controls.Add(Me.FlatMini1)
         Me.FormSkin1.Controls.Add(Me.FlatClose1)
@@ -109,32 +105,6 @@ Partial Class frmRegistration
         Me.btnSave.Text = "Save"
         Me.btnSave.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
         '
-        'lblEvent
-        '
-        Me.lblEvent.AutoSize = True
-        Me.lblEvent.BackColor = System.Drawing.Color.Transparent
-        Me.lblEvent.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEvent.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.lblEvent.Location = New System.Drawing.Point(12, 524)
-        Me.lblEvent.Name = "lblEvent"
-        Me.lblEvent.Size = New System.Drawing.Size(64, 30)
-        Me.lblEvent.TabIndex = 35
-        Me.lblEvent.Text = "Event"
-        Me.lblEvent.Visible = False
-        '
-        'cboEvent
-        '
-        Me.cboEvent.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.cboEvent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cboEvent.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboEvent.ForeColor = System.Drawing.Color.White
-        Me.cboEvent.Location = New System.Drawing.Point(232, 525)
-        Me.cboEvent.Name = "cboEvent"
-        Me.cboEvent.Size = New System.Drawing.Size(267, 33)
-        Me.cboEvent.TabIndex = 34
-        Me.cboEvent.Visible = False
-        '
         'FlatGroupBox1
         '
         Me.FlatGroupBox1.BackColor = System.Drawing.Color.Transparent
@@ -159,7 +129,7 @@ Partial Class frmRegistration
         Me.FlatGroupBox1.Location = New System.Drawing.Point(1, 50)
         Me.FlatGroupBox1.Name = "FlatGroupBox1"
         Me.FlatGroupBox1.ShowText = True
-        Me.FlatGroupBox1.Size = New System.Drawing.Size(567, 457)
+        Me.FlatGroupBox1.Size = New System.Drawing.Size(567, 471)
         Me.FlatGroupBox1.TabIndex = 2
         Me.FlatGroupBox1.Text = "User Information"
         '
@@ -182,7 +152,7 @@ Partial Class frmRegistration
         Me.cboRoles.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cboRoles.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboRoles.ForeColor = System.Drawing.Color.White
-        Me.cboRoles.Items.AddRange(New Object() {"Administrator", "Scorer", "Judge"})
+        Me.cboRoles.Items.AddRange(New Object() {"Administrator"})
         Me.cboRoles.Location = New System.Drawing.Point(231, 424)
         Me.cboRoles.Name = "cboRoles"
         Me.cboRoles.Size = New System.Drawing.Size(267, 33)
@@ -416,7 +386,6 @@ Partial Class frmRegistration
         Me.TransparencyKey = System.Drawing.Color.Fuchsia
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FormSkin1.ResumeLayout(False)
-        Me.FormSkin1.PerformLayout()
         Me.FlatGroupBox1.ResumeLayout(False)
         Me.FlatGroupBox1.PerformLayout()
         Me.ResumeLayout(False)
@@ -442,8 +411,6 @@ Partial Class frmRegistration
     Friend WithEvents lblConfirmPassword As System.Windows.Forms.Label
     Friend WithEvents cboRoles As System.Windows.Forms.ComboBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents cboEvent As System.Windows.Forms.ComboBox
-    Friend WithEvents lblEvent As System.Windows.Forms.Label
     Friend WithEvents btnSave As AMA.FlatButton
     Friend WithEvents btnCancel As AMA.FlatButton
     Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider

@@ -2,7 +2,7 @@
 
     Dim flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8 As Boolean
     Dim index As Integer
-    Dim tempUserID, tempEventID, tempTotalJudges As Integer
+    Dim tempUserID As Integer
     Dim ConfirmationMessage As String = ""
     Dim FullName As String = ""
     Dim tempEventName As String = ""
@@ -264,123 +264,6 @@
 
     End Sub
 
-    Public Sub EventValidation()
-
-        If cboRoles.Text = "Judge" Then
-
-            If cboEvent.SelectedIndex = -1 Then
-
-                ErrorProvider1.SetError(cboEvent, "Please choose an event.")
-                ErrorProvider1.SetIconPadding(cboEvent, 10)
-                flag8 = False
-
-            Else
-
-                ErrorProvider1.SetError(cboEvent, "")
-
-            End If
-
-        End If
-
-
-    End Sub
-
-    Public Sub LoadEvents()
-
-        Try
-
-            OpenDBConnection()
-            dbCmd.CommandText = "SELECT event_name FROM tblevents WHERE is_pageant = 1 ORDER BY event_name ASC"
-            dbReader = dbCmd.ExecuteReader
-
-            If dbReader.HasRows = True Then
-
-                While dbReader.Read
-
-                    cboEvent.Items.Add(dbReader.Item("event_name").ToString)
-
-                End While
-
-            End If
-
-            CheckIfDbReaderIsClosed()
-
-        Catch ex As Exception
-
-            CheckIfDbReaderIsClosed()
-
-            MsgBox("Error in loading events", MsgBoxStyle.Critical, "Error")
-
-        End Try
-
-    End Sub
-
-    Public Sub GetEventID()
-
-        Try
-
-            OpenDBConnection()
-            dbCmd.CommandText = "SELECT event_id FROM tblevents WHERE is_pageant = 1 AND event_name = '" & cboEvent.Text & "'"
-            dbReader = dbCmd.ExecuteReader
-
-            If dbReader.HasRows = True Then
-
-                While dbReader.Read
-
-                    tempEventID = dbReader.Item("event_id").ToString()
-
-                End While
-
-            End If
-
-            CheckIfDbReaderIsClosed()
-
-        Catch ex As Exception
-
-            CheckIfDbReaderIsClosed()
-
-            MsgBox("Error in getting event id", MsgBoxStyle.Critical, "Error")
-
-        End Try
-
-    End Sub
-
-    Public Sub CountJudges(Query As String)
-
-        tempTotalJudges = 0
-
-        Try
-
-            OpenDBConnection()
-            dbCmd.CommandText = Query
-            dbReader = dbCmd.ExecuteReader
-
-            If dbReader.HasRows = True Then
-
-                While dbReader.Read
-
-                    tempTotalJudges = dbReader.Item("total_judges").ToString()
-
-                    index += 1
-
-                End While
-
-
-            End If
-
-            CheckIfDbReaderIsClosed()
-
-
-        Catch ex As Exception
-
-            CheckIfDbReaderIsClosed()
-
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-
-        End Try
-
-    End Sub
-
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
 
         If MsgBox("Do you want to cancel account registration?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirm") = MsgBoxResult.Yes Then
@@ -404,7 +287,6 @@
         PasswordValidation()
         ConfirmPasswordValidation()
         RoleValidation()
-        EventValidation()
 
         If flag1 = False Or flag2 = False Or flag3 = False Or flag4 = False Or flag5 = False Or flag6 = False Or flag7 = False Or flag8 = False Then
 
@@ -418,28 +300,7 @@
             Try
 
                 OpenDBConnection()
-
-                GetEventID()
-
-                If cboRoles.Text <> "Judge" Then
-
-                    dbCmd.CommandText = "INSERT INTO tblusers(first_name, middle_name, last_name, email, username, password, role) VALUES('" & txtFirstName.Text.Trim & "', '" & txtMiddleName.Text.Trim & "', '" & txtLastName.Text.Trim & "', '" & txtEmail.Text.Trim & "', '" & txtUsername.Text.Trim & "', '" & txtPassword.Text.Trim & "', '" & cboRoles.Text & "')"
-
-                Else
-
-                    CountJudges("SELECT COUNT(user_id) AS total_judges FROM tblusers WHERE event_id = " & tempEventID)
-
-                    If tempTotalJudges >= 3 Then
-
-                        MsgBox("The total judges for " & cboEvent.Text & " is already reached the limit.", MsgBoxStyle.Critical, "Error")
-                        Exit Sub
-
-                    End If
-
-                    dbCmd.CommandText = "INSERT INTO tblusers(first_name, middle_name, last_name, email, username, password, role, event_id) VALUES('" & txtFirstName.Text.Trim & "', '" & txtMiddleName.Text.Trim & "', '" & txtLastName.Text.Trim & "', '" & txtEmail.Text.Trim & "', '" & txtUsername.Text.Trim & "', '" & txtPassword.Text.Trim & "', '" & cboRoles.Text & "', " & tempEventID & ")"
-
-                End If
-
+                dbCmd.CommandText = "INSERT INTO tblusers(first_name, middle_name, last_name, email, username, password, role) VALUES('" & txtFirstName.Text.Trim & "', '" & txtMiddleName.Text.Trim & "', '" & txtLastName.Text.Trim & "', '" & txtEmail.Text.Trim & "', '" & txtUsername.Text.Trim & "', '" & txtPassword.Text.Trim & "', '" & cboRoles.Text & "')"
                 dbCmd.ExecuteNonQuery()
 
                 MsgBox("User added successfully!" & vbNewLine & "You can now use the user that you have created.", MsgBoxStyle.Information, "Message")
@@ -454,28 +315,6 @@
             End Try
 
         End If
-
-    End Sub
-
-    Private Sub cboRoles_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboRoles.SelectedIndexChanged
-
-        If cboRoles.Text = "Judge" Then
-
-            lblEvent.Visible = True
-            cboEvent.Visible = True
-
-        Else
-
-            lblEvent.Visible = False
-            cboEvent.Visible = False
-
-        End If
-
-    End Sub
-
-    Private Sub frmRegistration_Load(sender As Object, e As EventArgs) Handles Me.Load
-
-        LoadEvents()
 
     End Sub
 

@@ -123,10 +123,34 @@
 
     End Sub
 
-    Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+    Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        frmRegistration.Show()
-        Me.Close()
+        Try
+
+            OpenDBConnection()
+            dbCmd.CommandText = "SELECT * FROM tblusers"
+            dbReader = dbCmd.ExecuteReader
+
+            If dbReader.HasRows = False Then
+
+                CheckIfDbReaderIsClosed()
+
+                frmRegistration.Show()
+                Me.Close()
+
+            End If
+
+            CheckIfDbReaderIsClosed()
+
+        Catch ex As Exception
+
+            CheckIfDbReaderIsClosed()
+
+            MsgBox(ex.Message, MsgBoxStyle.Critical)
+
+        End Try
+        
 
     End Sub
+
 End Class
