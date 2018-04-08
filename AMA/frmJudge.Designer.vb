@@ -25,6 +25,7 @@ Partial Class frmJudge
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmJudge))
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.FormSkin1 = New AMA.FormSkin()
         Me.FlatMini1 = New AMA.FlatMini()
         Me.FlatClose1 = New AMA.FlatClose()
@@ -64,7 +65,6 @@ Partial Class frmJudge
         Me.btnChange = New AMA.FlatButton()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.btnLogout = New AMA.FlatButton()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FormSkin1.SuspendLayout()
         Me.FlatTabControl1.SuspendLayout()
@@ -85,6 +85,11 @@ Partial Class frmJudge
         '
         Me.ErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.ErrorProvider1.ContainerControl = Me
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 500
         '
         'FormSkin1
         '
@@ -365,9 +370,9 @@ Partial Class frmJudge
         Me.lblPercentage4.ForeColor = System.Drawing.Color.White
         Me.lblPercentage4.Location = New System.Drawing.Point(192, 156)
         Me.lblPercentage4.Name = "lblPercentage4"
-        Me.lblPercentage4.Size = New System.Drawing.Size(41, 21)
+        Me.lblPercentage4.Size = New System.Drawing.Size(19, 21)
         Me.lblPercentage4.TabIndex = 11
-        Me.lblPercentage4.Text = "10%"
+        Me.lblPercentage4.Text = "0"
         '
         'lblPercentage3
         '
@@ -376,9 +381,9 @@ Partial Class frmJudge
         Me.lblPercentage3.ForeColor = System.Drawing.Color.White
         Me.lblPercentage3.Location = New System.Drawing.Point(192, 121)
         Me.lblPercentage3.Name = "lblPercentage3"
-        Me.lblPercentage3.Size = New System.Drawing.Size(41, 21)
+        Me.lblPercentage3.Size = New System.Drawing.Size(19, 21)
         Me.lblPercentage3.TabIndex = 10
-        Me.lblPercentage3.Text = "30%"
+        Me.lblPercentage3.Text = "0"
         '
         'lblPercentage2
         '
@@ -387,9 +392,9 @@ Partial Class frmJudge
         Me.lblPercentage2.ForeColor = System.Drawing.Color.White
         Me.lblPercentage2.Location = New System.Drawing.Point(192, 84)
         Me.lblPercentage2.Name = "lblPercentage2"
-        Me.lblPercentage2.Size = New System.Drawing.Size(41, 21)
+        Me.lblPercentage2.Size = New System.Drawing.Size(19, 21)
         Me.lblPercentage2.TabIndex = 9
-        Me.lblPercentage2.Text = "35%"
+        Me.lblPercentage2.Text = "0"
         '
         'lblPercentage1
         '
@@ -398,53 +403,53 @@ Partial Class frmJudge
         Me.lblPercentage1.ForeColor = System.Drawing.Color.White
         Me.lblPercentage1.Location = New System.Drawing.Point(192, 47)
         Me.lblPercentage1.Name = "lblPercentage1"
-        Me.lblPercentage1.Size = New System.Drawing.Size(41, 21)
+        Me.lblPercentage1.Size = New System.Drawing.Size(19, 21)
         Me.lblPercentage1.TabIndex = 8
-        Me.lblPercentage1.Text = "25%"
+        Me.lblPercentage1.Text = "0"
         '
         'lblCriteria4
         '
-        Me.lblCriteria4.AutoSize = True
         Me.lblCriteria4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCriteria4.ForeColor = System.Drawing.Color.White
-        Me.lblCriteria4.Location = New System.Drawing.Point(18, 156)
+        Me.lblCriteria4.Location = New System.Drawing.Point(18, 147)
         Me.lblCriteria4.Name = "lblCriteria4"
-        Me.lblCriteria4.Size = New System.Drawing.Size(125, 21)
+        Me.lblCriteria4.Size = New System.Drawing.Size(168, 35)
         Me.lblCriteria4.TabIndex = 3
-        Me.lblCriteria4.Text = "Audience Impact"
+        Me.lblCriteria4.Text = "Criteria 4"
+        Me.lblCriteria4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblCriteria3
         '
-        Me.lblCriteria3.AutoSize = True
         Me.lblCriteria3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCriteria3.ForeColor = System.Drawing.Color.White
-        Me.lblCriteria3.Location = New System.Drawing.Point(18, 121)
+        Me.lblCriteria3.Location = New System.Drawing.Point(18, 113)
         Me.lblCriteria3.Name = "lblCriteria3"
-        Me.lblCriteria3.Size = New System.Drawing.Size(134, 21)
+        Me.lblCriteria3.Size = New System.Drawing.Size(168, 34)
         Me.lblCriteria3.TabIndex = 2
-        Me.lblCriteria3.Text = "Poise and Bearing"
+        Me.lblCriteria3.Text = "Criteria 3"
+        Me.lblCriteria3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblCriteria2
         '
         Me.lblCriteria2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCriteria2.ForeColor = System.Drawing.Color.White
-        Me.lblCriteria2.Location = New System.Drawing.Point(18, 68)
+        Me.lblCriteria2.Location = New System.Drawing.Point(18, 76)
         Me.lblCriteria2.Name = "lblCriteria2"
-        Me.lblCriteria2.Size = New System.Drawing.Size(168, 53)
+        Me.lblCriteria2.Size = New System.Drawing.Size(168, 37)
         Me.lblCriteria2.TabIndex = 1
-        Me.lblCriteria2.Text = "Uniqueness/Creativity/Style of Attire"
+        Me.lblCriteria2.Text = "Criteria 2"
         Me.lblCriteria2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblCriteria1
         '
-        Me.lblCriteria1.AutoSize = True
         Me.lblCriteria1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCriteria1.ForeColor = System.Drawing.Color.White
-        Me.lblCriteria1.Location = New System.Drawing.Point(18, 47)
+        Me.lblCriteria1.Location = New System.Drawing.Point(18, 39)
         Me.lblCriteria1.Name = "lblCriteria1"
-        Me.lblCriteria1.Size = New System.Drawing.Size(87, 21)
+        Me.lblCriteria1.Size = New System.Drawing.Size(168, 37)
         Me.lblCriteria1.TabIndex = 0
-        Me.lblCriteria1.Text = "Personality"
+        Me.lblCriteria1.Text = "Criteria 1"
+        Me.lblCriteria1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'tabTitle
         '
@@ -567,11 +572,6 @@ Partial Class frmJudge
         Me.btnLogout.TabIndex = 16
         Me.btnLogout.Text = "Logout"
         Me.btnLogout.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
-        '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 500
         '
         'frmJudge
         '

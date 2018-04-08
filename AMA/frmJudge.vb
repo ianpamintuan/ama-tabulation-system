@@ -4,6 +4,7 @@
     Dim index, flag As Integer
     Dim categoryMr(,,) As Integer
     Dim categoryMs(,,) As Integer
+    Dim Criterias(,) As String
     Dim EventName As String = ""
 
     Public Sub InitializeFlags()
@@ -59,7 +60,7 @@
 
         If selectedMr <> -1 And selectedCategory <> -1 Then
 
-            For i = 0 To 4 Step 1
+            For i = 0 To lbCategories.Items.Count - 1 Step 1
 
                 If selectedCategory = i Then
 
@@ -74,7 +75,7 @@
 
         Else
 
-            For i = 0 To 4 Step 1
+            For i = 0 To lbCategories.Items.Count - 1 Step 1
 
                 If selectedCategory = i Then
 
@@ -82,7 +83,6 @@
                     categoryMs(i, selectedMs, 1) = nupCriteriaValue2.Value
                     categoryMs(i, selectedMs, 2) = nupCriteriaValue3.Value
                     categoryMs(i, selectedMs, 3) = nupCriteriaValue4.Value
-
 
                 End If
 
@@ -103,7 +103,7 @@
 
         If selectedMr <> -1 And selectedCategory <> -1 Then
 
-            For i = 0 To 4 Step 1
+            For i = 0 To lbCategories.Items.Count - 1 Step 1
 
                 If selectedCategory = i Then
 
@@ -153,7 +153,7 @@
 
         Else
 
-            For i = 0 To 4 Step 1
+            For i = 0 To lbCategories.Items.Count - 1 Step 1
 
                 If selectedCategory = i Then
 
@@ -227,7 +227,7 @@
 
                     While dbReader.Read
 
-                        .Items.Add(dbReader.Item("criteria_category_name").ToString)
+                        .Items.Add(dbReader.Item("criteria_category_id").ToString & " " & dbReader.Item("criteria_category_name").ToString)
 
                         index += 1
 
@@ -333,17 +333,70 @@
 
     End Sub
 
+    Private Sub LoadCriterias()
+
+        Criterias = New String(4, 3) {}
+        Dim index As Integer = 0
+
+        Try
+            OpenDBConnection()
+            dbCmd.CommandText = "SELECT * FROM tblcriterias"
+            dbReader = dbCmd.ExecuteReader
+
+            If dbReader.HasRows = True Then
+
+                While dbReader.Read
+
+                    Criterias(index, 0) = dbReader.Item("criteria_id")
+                    Criterias(index, 1) = dbReader.Item("criteria_name")
+                    Criterias(index, 2) = dbReader.Item("percentage")
+
+                    index += 1
+
+                End While
+
+                CheckIfDbReaderIsClosed()
+
+            End If
+
+            CheckIfDbReaderIsClosed()
+
+            lblCriteria1.Text = Criterias(0, 1)
+            lblCriteria2.Text = Criterias(1, 1)
+            lblCriteria3.Text = Criterias(2, 1)
+            lblCriteria4.Text = Criterias(3, 1)
+
+            lblPercentage1.Text = Criterias(0, 2)
+            lblPercentage2.Text = Criterias(1, 2)
+            lblPercentage3.Text = Criterias(2, 2)
+            lblPercentage4.Text = Criterias(3, 2)
+
+            nupCriteriaValue1.Maximum = Criterias(0, 2)
+            nupCriteriaValue2.Maximum = Criterias(1, 2)
+            nupCriteriaValue3.Maximum = Criterias(2, 2)
+            nupCriteriaValue4.Maximum = Criterias(3, 2)
+
+        Catch ex As Exception
+
+            CheckIfDbReaderIsClosed()
+            MsgBox("Error on loading the criterias" & vbNewLine & ex.Message, MsgBoxStyle.Critical, "Error")
+
+        End Try
+
+    End Sub
+
     Private Sub frmJudge_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         LoadCategories()
         LoadContestants("SELECT contestant_id, CONCAT(first_name, ' ', last_name) AS full_name FROM tblcontestants WHERE title = 'Mr' AND event_id = " & eventID, lbMr)
         LoadContestants("SELECT contestant_id, CONCAT(first_name, ' ', last_name) AS full_name FROM tblcontestants WHERE title = 'Ms' AND event_id = " & eventID, lbMs)
-        categoryMs = New Integer(5, lbMs.Items.Count, 4) {}
-        categoryMr = New Integer(5, lbMr.Items.Count, 4) {}
+        categoryMs = New Integer(lbCategories.Items.Count, lbMs.Items.Count, 4) {}
+        categoryMr = New Integer(lbCategories.Items.Count, lbMr.Items.Count, 4) {}
         lblJudgeName.Text = userName
         LoadEventName()
         lblEventName.Text = EventName
         LoadScores()
+        LoadCriterias()
 
     End Sub
 
@@ -422,6 +475,13 @@
 
     Private Sub btnSubmitScores_Click(sender As Object, e As EventArgs) Handles btnSubmitScores.Click
 
+        If lbMr.Items.Count = 0 Or lbMs.Items.Count = 0 Then
+
+            MsgBox("There are no available contestants for the event. Please contact the Administrator to add the contestants.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+
+        End If
+
         If MsgBox("Do you want to submit all the pageant scores?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
 
             Dim i, j, k, category_id, criteria_id, judge_id, event_id, score As Integer
@@ -430,7 +490,7 @@
 
             For i = 0 To lbMr.Items.Count - 1 Step 1
 
-                For j = 0 To 4 Step 1
+                For j = 0 To lbCategories.Items.Count - 1 Step 1
 
                     For k = 0 To 3 Step 1
 
@@ -448,7 +508,7 @@
 
             For i = 0 To lbMs.Items.Count - 1 Step 1
 
-                For j = 0 To 4 Step 1
+                For j = 0 To lbCategories.Items.Count - 1 Step 1
 
                     For k = 0 To 3 Step 1
 
@@ -476,15 +536,21 @@
                 'Scores for Mr
                 For i = 0 To lbMr.Items.Count - 1 Step 1
 
-                    For j = 0 To 4 Step 1
+                    For j = 0 To lbCategories.Items.Count - 1 Step 1
 
                         For k = 0 To 3 Step 1
 
                             event_id = eventID
                             judge_id = userID
-                            category_id = j + 1
-                            criteria_id = k + 1
+
+                            Dim temp2 = lbCategories.Items.Item(j).ToString
+                            Dim test2 = temp2.Split(New Char() {" "c})
+                            category_id = test2(0)
+
+                            criteria_id = Criterias(k, 0)
+
                             score = categoryMr(j, i, k)
+
                             Dim temp = lbMr.Items.Item(i).ToString
                             Dim test = temp.Split(New Char() {" "c})
                             contestant_id = test(0)
@@ -510,15 +576,21 @@
                 'Scores for Ms
                 For i = 0 To lbMs.Items.Count - 1 Step 1
 
-                    For j = 0 To 4 Step 1
+                    For j = 0 To lbCategories.Items.Count - 1 Step 1
 
                         For k = 0 To 3 Step 1
 
                             event_id = eventID
                             judge_id = userID
-                            category_id = j + 1
-                            criteria_id = k + 1
+
+                            Dim temp2 = lbCategories.Items.Item(j).ToString
+                            Dim test2 = temp2.Split(New Char() {" "c})
+                            category_id = test2(0)
+
+                            criteria_id = Criterias(k, 0)
+
                             score = categoryMs(j, i, k)
+
                             Dim temp = lbMs.Items.Item(i).ToString
                             Dim test = temp.Split(New Char() {" "c})
                             contestant_id = test(0)

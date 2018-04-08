@@ -187,8 +187,8 @@ Public Class frmJudgeTally
         lblEventName.Text = EventName
         lblEventName2.Text = EventName
         lblJudgeName.Text = userName
-        LoadJudgeTally("SELECT tblscores.contestant_id, CONCAT(tblcontestants.first_name, ' ', tblcontestants.last_name) AS full_name,  (SUM(tblscores.score) / 5) AS score FROM tblscores INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id WHERE tblscores.judge_id = " & userID & " AND tblscores.event_id = " & eventID & " AND tblcontestants.title = 'Mr' GROUP BY tblscores.contestant_id", lstScoresTallyMr)
-        LoadJudgeTally("SELECT tblscores.contestant_id, CONCAT(tblcontestants.first_name, ' ', tblcontestants.last_name) AS full_name,  (SUM(tblscores.score) / 5) AS score FROM tblscores INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id WHERE tblscores.judge_id = " & userID & " AND tblscores.event_id = " & eventID & " AND tblcontestants.title = 'Ms' GROUP BY tblscores.contestant_id", lstScoresTallyMs)
+        LoadJudgeTally("SELECT tblscores.contestant_id, CONCAT(tblcontestants.first_name, ' ', tblcontestants.last_name) AS full_name,  (SUM(tblscores.score) / COUNT(DISTINCT(tblscores.category_id))) AS score FROM tblscores INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id WHERE tblscores.judge_id = " & userID & " AND tblscores.event_id = " & eventID & " AND tblcontestants.title = 'Mr' GROUP BY tblscores.contestant_id", lstScoresTallyMr)
+        LoadJudgeTally("SELECT tblscores.contestant_id, CONCAT(tblcontestants.first_name, ' ', tblcontestants.last_name) AS full_name,  (SUM(tblscores.score) / COUNT(DISTINCT(tblscores.category_id))) AS score FROM tblscores INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id WHERE tblscores.judge_id = " & userID & " AND tblscores.event_id = " & eventID & " AND tblcontestants.title = 'Ms' GROUP BY tblscores.contestant_id", lstScoresTallyMs)
         CountJudgesSheet()
         lblTotalJudges.Text = TotalJudges
 
@@ -206,8 +206,8 @@ Public Class frmJudgeTally
             lblWinnerMs.Visible = True
             lblWinnerMsName.Visible = True
 
-            LoadJudgeTally("SELECT tblscores.contestant_id, CONCAT(tblcontestants.first_name, ' ', tblcontestants.last_name) AS full_name,  (SUM(tblscores.score) / 5) / " & TotalJudges & " AS score FROM tblscores INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id WHERE tblscores.event_id = " & eventID & " AND tblcontestants.title = 'Ms' GROUP BY tblscores.contestant_id", lstTotalMs)
-            LoadJudgeTally("SELECT tblscores.contestant_id, CONCAT(tblcontestants.first_name, ' ', tblcontestants.last_name) AS full_name,  (SUM(tblscores.score) / 5) / " & TotalJudges & " AS score FROM tblscores INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id WHERE tblscores.event_id = " & eventID & " AND tblcontestants.title = 'Mr' GROUP BY tblscores.contestant_id", lstTotalMr)
+            LoadJudgeTally("SELECT tblscores.contestant_id, CONCAT(tblcontestants.first_name, ' ', tblcontestants.last_name) AS full_name,  (SUM(tblscores.score) / COUNT(DISTINCT(tblscores.category_id))) / " & TotalJudges & " AS score FROM tblscores INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id WHERE tblscores.event_id = " & eventID & " AND tblcontestants.title = 'Ms' GROUP BY tblscores.contestant_id", lstTotalMs)
+            LoadJudgeTally("SELECT tblscores.contestant_id, CONCAT(tblcontestants.first_name, ' ', tblcontestants.last_name) AS full_name,  (SUM(tblscores.score) / COUNT(DISTINCT(tblscores.category_id))) / " & TotalJudges & " AS score FROM tblscores INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id WHERE tblscores.event_id = " & eventID & " AND tblcontestants.title = 'Mr' GROUP BY tblscores.contestant_id", lstTotalMr)
             SetWinnerMr()
             SetWinnerMs()
 
@@ -254,10 +254,10 @@ Public Class frmJudgeTally
             lblWinnerMs.Visible = True
             lblWinnerMsName.Visible = True
 
-            LoadJudgeTally("SELECT tblscores.contestant_id, CONCAT(tblcontestants.first_name, ' ', tblcontestants.last_name) AS full_name,  (SUM(tblscores.score) / 5) / " & TotalJudges & " AS score FROM tblscores INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id WHERE tblscores.event_id = " & eventID & " AND tblcontestants.title = 'Ms' GROUP BY tblscores.contestant_id", lstTotalMs)
-            LoadJudgeTally("SELECT tblscores.contestant_id, CONCAT(tblcontestants.first_name, ' ', tblcontestants.last_name) AS full_name,  (SUM(tblscores.score) / 5) / " & TotalJudges & " AS score FROM tblscores INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id WHERE tblscores.event_id = " & eventID & " AND tblcontestants.title = 'Mr' GROUP BY tblscores.contestant_id", lstTotalMr)
+            LoadJudgeTally("SELECT tblscores.contestant_id, CONCAT(tblcontestants.first_name, ' ', tblcontestants.last_name) AS full_name,  (SUM(tblscores.score) / COUNT(DISTINCT(tblscores.category_id))) / " & TotalJudges & " AS score FROM tblscores INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id WHERE tblscores.event_id = " & eventID & " AND tblcontestants.title = 'Ms' GROUP BY tblscores.contestant_id", lstTotalMs)
+            LoadJudgeTally("SELECT tblscores.contestant_id, CONCAT(tblcontestants.first_name, ' ', tblcontestants.last_name) AS full_name,  (SUM(tblscores.score) / COUNT(DISTINCT(tblscores.category_id))) / " & TotalJudges & " AS score FROM tblscores INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id WHERE tblscores.event_id = " & eventID & " AND tblcontestants.title = 'Mr' GROUP BY tblscores.contestant_id", lstTotalMr)
 
-            PrintQuery = "SELECT tblscores.contestant_id, CONCAT(tblcontestants.first_name, ' ', tblcontestants.last_name) AS full_name,  (SUM(tblscores.score) / 5) / " & TotalJudges & " AS score, tblevents.event_name FROM tblscores INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id LEFT JOIN tblevents ON tblevents.event_id = tblscores.event_id WHERE tblscores.event_id = " & eventID & " GROUP BY tblscores.contestant_id, tblcontestants.title"
+            PrintQuery = "SELECT tblscores.contestant_id, CONCAT(tblcontestants.first_name, ' ', tblcontestants.last_name) AS full_name,  (SUM(tblscores.score) / COUNT(DISTINCT(tblscores.category_id))) / " & TotalJudges & " AS score, tblevents.event_name FROM tblscores INNER JOIN tblcontestants ON tblcontestants.contestant_id = tblscores.contestant_id LEFT JOIN tblevents ON tblevents.event_id = tblscores.event_id WHERE tblscores.event_id = " & eventID & " GROUP BY tblscores.contestant_id, tblcontestants.title"
 
             SetWinnerMr()
             SetWinnerMs()
@@ -270,14 +270,20 @@ Public Class frmJudgeTally
 
         LoadDataSet()
 
+        Dim param1 As New ReportParameter("ReportParameter1", lblWinnerMrName.Text)
+        Dim param2 As New ReportParameter("ReportParameter2", lblWinnerMsName.Text)
+
+
         With frmPageantReport.ReportViewer1
             .LocalReport.DataSources.Clear()
             .LocalReport.DataSources.Add(New ReportDataSource("DataSet1", dbDataSet.Tables("myDS")))
-
+            .LocalReport.SetParameters(New ReportParameter() {param1})
+            .LocalReport.SetParameters(New ReportParameter() {param2})
             .RefreshReport()
         End With
 
         frmPageantReport.ShowDialog()
 
     End Sub
+
 End Class

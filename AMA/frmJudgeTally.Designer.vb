@@ -34,12 +34,12 @@ Partial Class frmJudgeTally
         Me.grpScoresTally = New AMA.FlatGroupBox()
         Me.FlatTabControl2 = New AMA.FlatTabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.lstScoresTallyMr = New System.Windows.Forms.ListView()
+        Me.lstScoresTallyMr = New AMA.ffListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabPage4 = New System.Windows.Forms.TabPage()
-        Me.lstScoresTallyMs = New System.Windows.Forms.ListView()
+        Me.lstScoresTallyMs = New AMA.ffListView()
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -644,7 +644,6 @@ Partial Class frmJudgeTally
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents grpScoresTally As AMA.FlatGroupBox
-    Friend WithEvents lstScoresTallyMr As System.Windows.Forms.ListView
     Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
@@ -657,7 +656,6 @@ Partial Class frmJudgeTally
     Friend WithEvents FlatTabControl2 As AMA.FlatTabControl
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
-    Friend WithEvents lstScoresTallyMs As System.Windows.Forms.ListView
     Friend WithEvents ColumnHeader4 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader5 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader6 As System.Windows.Forms.ColumnHeader
@@ -688,4 +686,6 @@ Partial Class frmJudgeTally
     Friend WithEvents btnPrint As AMA.FlatButton
     Friend WithEvents lstTotalMr As AMA.ffListView
     Friend WithEvents lstTotalMs As AMA.ffListView
+    Friend WithEvents lstScoresTallyMr As AMA.ffListView
+    Friend WithEvents lstScoresTallyMs As AMA.ffListView
 End Class
