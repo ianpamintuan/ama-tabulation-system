@@ -11,7 +11,7 @@ Public Class frmMatchReport
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
 
         frmMatches.Show()
-        Me.Close()
+        Me.Dispose()
 
     End Sub
 End Class
