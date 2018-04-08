@@ -31,7 +31,7 @@
 
     Private Sub btnPageant_Click(sender As Object, e As EventArgs) Handles btnPageant.Click
 
-        frmPageant.Show()
+        frmPageantMenu.Show()
         Me.Close()
 
     End Sub

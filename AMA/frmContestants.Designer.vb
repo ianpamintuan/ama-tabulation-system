@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmPageant
+Partial Class frmContestants
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,7 +23,7 @@ Partial Class frmPageant
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPageant))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmContestants))
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.FormSkin1 = New AMA.FormSkin()
         Me.FormSkin2 = New AMA.FormSkin()
@@ -105,7 +105,7 @@ Partial Class frmPageant
         Me.FormSkin2.Name = "FormSkin2"
         Me.FormSkin2.Size = New System.Drawing.Size(868, 658)
         Me.FormSkin2.TabIndex = 2
-        Me.FormSkin2.Text = "Pageant"
+        Me.FormSkin2.Text = "Contestants"
         '
         'btnCancel
         '
@@ -394,7 +394,7 @@ Partial Class frmPageant
         Me.FlatGroupBox1.TabIndex = 0
         Me.FlatGroupBox1.Text = "Contestant Information"
         '
-        'frmPageant
+        'frmContestants
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -402,7 +402,7 @@ Partial Class frmPageant
         Me.Controls.Add(Me.FormSkin1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "frmPageant"
+        Me.Name = "frmContestants"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmPageant"
         Me.TransparencyKey = System.Drawing.Color.Fuchsia

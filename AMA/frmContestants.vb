@@ -1,4 +1,4 @@
-﻿Public Class frmPageant
+﻿Public Class frmContestants
 
     Dim flag1, flag2, flag3, flag4 As Boolean
     Dim index, tempEventID, tempContestantID, tempTotalCandidates As Integer

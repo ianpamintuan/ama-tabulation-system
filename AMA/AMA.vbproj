@@ -98,6 +98,18 @@
     <Compile Include="FlatUI.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="frmCategories.Designer.vb">
+      <DependentUpon>frmCategories.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCategories.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCriterias.Designer.vb">
+      <DependentUpon>frmCriterias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCriterias.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmDashboard.Designer.vb">
       <DependentUpon>frmDashboard.vb</DependentUpon>
     </Compile>
@@ -153,10 +165,16 @@
     <Compile Include="frmMyProfile.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPageant.Designer.vb">
-      <DependentUpon>frmPageant.vb</DependentUpon>
+    <Compile Include="frmContestants.Designer.vb">
+      <DependentUpon>frmContestants.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmPageant.vb">
+    <Compile Include="frmContestants.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPageantMenu.Designer.vb">
+      <DependentUpon>frmPageantMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPageantMenu.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPageantReport.Designer.vb">
@@ -213,6 +231,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmCategories.resx">
+      <DependentUpon>frmCategories.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCriterias.resx">
+      <DependentUpon>frmCriterias.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.vb</DependentUpon>
     </EmbeddedResource>
@@ -240,8 +264,11 @@
     <EmbeddedResource Include="frmMyProfile.resx">
       <DependentUpon>frmMyProfile.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPageant.resx">
-      <DependentUpon>frmPageant.vb</DependentUpon>
+    <EmbeddedResource Include="frmContestants.resx">
+      <DependentUpon>frmContestants.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPageantMenu.resx">
+      <DependentUpon>frmPageantMenu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPageantReport.resx">
       <DependentUpon>frmPageantReport.vb</DependentUpon>
