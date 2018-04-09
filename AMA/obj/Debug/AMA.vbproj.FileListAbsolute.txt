@@ -35,7 +35,6 @@ D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.pdb
 D:\Projects\Visual Basic.Net\AMA\AMA\bin\Debug\AMA.exe
 D:\Projects\Visual Basic.Net\AMA\AMA\bin\Debug\AMA.pdb
 D:\Projects\Visual Basic.Net\AMA\AMA\bin\Debug\AMA.xml
-D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.vbprojResolveAssemblyReference.cache
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.frmCategories.resources
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.frmCriterias.resources
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.frmDashboard.resources

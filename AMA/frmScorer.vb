@@ -537,6 +537,10 @@
             lblPointsB.Visible = False
             lblTeamBPlayerPoints.Visible = False
             btnCloseMatch.Visible = False
+            btnDeductA.Visible = False
+            btnDeductB.Visible = False
+            btnDeductFoulA.Visible = False
+            btnDeductFoulB.Visible = False
 
             MsgBox("This match is already finished. You can check other unfinished matches.")
 
@@ -561,6 +565,10 @@
             lblPointsB.Visible = True
             lblTeamBPlayerPoints.Visible = True
             btnCloseMatch.Visible = True
+            btnDeductA.Visible = True
+            btnDeductB.Visible = True
+            btnDeductFoulA.Visible = True
+            btnDeductFoulB.Visible = True
 
             If tempSportType <> "Basketball" Then
 
@@ -623,6 +631,11 @@
                     Dim test = temp.Split(New Char() {" "c})
 
                     MVP = test(1) & " " & test(2)
+
+                ElseIf Val(lblAScore.Text) = Val(lblBScore.Text) Then
+
+                    MsgBox("The score is still tied.", MsgBoxStyle.Critical, "Error")
+                    Exit Sub
 
                 Else
 
@@ -937,6 +950,108 @@
         If MsgBox("Your match result will not be saved. Are you sure you want to close the match?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirm") = MsgBoxResult.Yes Then
 
             MatchReset()
+
+        End If
+
+    End Sub
+
+    Private Sub btnDeductA_Click(sender As Object, e As EventArgs) Handles btnDeductA.Click
+
+        If PlayerValidation(lbTeamAPlayers) Then
+
+            Dim PlayerPoints = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
+
+            If PlayerPoints < 1 Then
+
+                MsgBox("You can't deduct points when less than 1 point", MsgBoxStyle.Critical, "Error")
+                Exit Sub
+
+            End If
+
+            If MsgBox("Deduct 1 point to " & lbTeamAPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+
+                PlayerPoints -= 1
+                teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0) = PlayerPoints
+                lblTeamAPlayerPoints.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
+                UpdateTeamScore()
+
+            End If
+
+        End If
+
+    End Sub
+
+    Private Sub btnDeductB_Click(sender As Object, e As EventArgs) Handles btnDeductB.Click
+
+        If PlayerValidation(lbTeamBPlayers) Then
+
+            Dim PlayerPoints = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
+
+            If PlayerPoints < 1 Then
+
+                MsgBox("You can't deduct points when less than 1 point", MsgBoxStyle.Critical, "Error")
+                Exit Sub
+
+            End If
+
+            If MsgBox("Deduct 1 point to " & lbTeamBPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+
+                PlayerPoints -= 1
+                teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0) = PlayerPoints
+                lblTeamBPlayerPoints.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
+                UpdateTeamScore()
+
+            End If
+
+        End If
+
+    End Sub
+
+    Private Sub btnDeductFoulA_Click(sender As Object, e As EventArgs) Handles btnDeductFoulA.Click
+
+        If PlayerValidation(lbTeamAPlayers) Then
+
+            Dim PlayerFouls = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 1)
+
+            If PlayerFouls < 1 Then
+
+                MsgBox("You can't deduct fouls when less than 1 foul", MsgBoxStyle.Critical, "Error")
+                Exit Sub
+
+            End If
+
+            If MsgBox("Deduct 1 foul to " & lbTeamAPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+
+                PlayerFouls -= 1
+                teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 1) = PlayerFouls
+                lblTeamAFouls.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 1)
+
+            End If
+
+        End If
+
+    End Sub
+
+    Private Sub btnDeductFoulB_Click(sender As Object, e As EventArgs) Handles btnDeductFoulB.Click
+
+        If PlayerValidation(lbTeamBPlayers) Then
+
+            Dim PlayerFouls = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 1)
+
+            If PlayerFouls < 1 Then
+
+                MsgBox("You can't deduct fouls when less than 1 foul", MsgBoxStyle.Critical, "Error")
+                Exit Sub
+
+            End If
+
+            If MsgBox("Deduct 1 foul to " & lbTeamBPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
+
+                PlayerFouls -= 1
+                teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 1) = PlayerFouls
+                lblTeamBFouls.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 1)
+
+            End If
 
         End If
 

@@ -35,6 +35,10 @@ Partial Class frmScorer
         Me.Label6 = New System.Windows.Forms.Label()
         Me.lblScorerName = New System.Windows.Forms.Label()
         Me.grpInfo = New AMA.FlatGroupBox()
+        Me.btnDeductFoulB = New AMA.FlatButton()
+        Me.btnDeductFoulA = New AMA.FlatButton()
+        Me.btnDeductB = New AMA.FlatButton()
+        Me.btnDeductA = New AMA.FlatButton()
         Me.btnCloseMatch = New AMA.FlatButton()
         Me.lblTeamBPlayerPoints = New System.Windows.Forms.Label()
         Me.lblPointsB = New System.Windows.Forms.Label()
@@ -231,6 +235,10 @@ Partial Class frmScorer
         '
         Me.grpInfo.BackColor = System.Drawing.Color.Transparent
         Me.grpInfo.BaseColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(73, Byte), Integer))
+        Me.grpInfo.Controls.Add(Me.btnDeductFoulB)
+        Me.grpInfo.Controls.Add(Me.btnDeductFoulA)
+        Me.grpInfo.Controls.Add(Me.btnDeductB)
+        Me.grpInfo.Controls.Add(Me.btnDeductA)
         Me.grpInfo.Controls.Add(Me.btnCloseMatch)
         Me.grpInfo.Controls.Add(Me.lblTeamBPlayerPoints)
         Me.grpInfo.Controls.Add(Me.lblPointsB)
@@ -265,6 +273,62 @@ Partial Class frmScorer
         Me.grpInfo.Size = New System.Drawing.Size(1043, 493)
         Me.grpInfo.TabIndex = 42
         Me.grpInfo.Text = "Match Information"
+        '
+        'btnDeductFoulB
+        '
+        Me.btnDeductFoulB.BackColor = System.Drawing.Color.Transparent
+        Me.btnDeductFoulB.BaseColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnDeductFoulB.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDeductFoulB.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnDeductFoulB.Location = New System.Drawing.Point(726, 281)
+        Me.btnDeductFoulB.Name = "btnDeductFoulB"
+        Me.btnDeductFoulB.Rounded = False
+        Me.btnDeductFoulB.Size = New System.Drawing.Size(24, 24)
+        Me.btnDeductFoulB.TabIndex = 60
+        Me.btnDeductFoulB.Text = "-"
+        Me.btnDeductFoulB.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
+        '
+        'btnDeductFoulA
+        '
+        Me.btnDeductFoulA.BackColor = System.Drawing.Color.Transparent
+        Me.btnDeductFoulA.BaseColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnDeductFoulA.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDeductFoulA.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnDeductFoulA.Location = New System.Drawing.Point(424, 278)
+        Me.btnDeductFoulA.Name = "btnDeductFoulA"
+        Me.btnDeductFoulA.Rounded = False
+        Me.btnDeductFoulA.Size = New System.Drawing.Size(24, 24)
+        Me.btnDeductFoulA.TabIndex = 59
+        Me.btnDeductFoulA.Text = "-"
+        Me.btnDeductFoulA.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
+        '
+        'btnDeductB
+        '
+        Me.btnDeductB.BackColor = System.Drawing.Color.Transparent
+        Me.btnDeductB.BaseColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnDeductB.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDeductB.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnDeductB.Location = New System.Drawing.Point(716, 232)
+        Me.btnDeductB.Name = "btnDeductB"
+        Me.btnDeductB.Rounded = False
+        Me.btnDeductB.Size = New System.Drawing.Size(40, 32)
+        Me.btnDeductB.TabIndex = 58
+        Me.btnDeductB.Text = "-"
+        Me.btnDeductB.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
+        '
+        'btnDeductA
+        '
+        Me.btnDeductA.BackColor = System.Drawing.Color.Transparent
+        Me.btnDeductA.BaseColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnDeductA.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDeductA.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnDeductA.Location = New System.Drawing.Point(414, 232)
+        Me.btnDeductA.Name = "btnDeductA"
+        Me.btnDeductA.Rounded = False
+        Me.btnDeductA.Size = New System.Drawing.Size(40, 32)
+        Me.btnDeductA.TabIndex = 57
+        Me.btnDeductA.Text = "-"
+        Me.btnDeductA.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
         '
         'btnCloseMatch
         '
@@ -303,7 +367,7 @@ Partial Class frmScorer
         'lblTeamAPlayerPoints
         '
         Me.lblTeamAPlayerPoints.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(96, Byte), Integer))
-        Me.lblTeamAPlayerPoints.Location = New System.Drawing.Point(354, 188)
+        Me.lblTeamAPlayerPoints.Location = New System.Drawing.Point(359, 188)
         Me.lblTeamAPlayerPoints.Name = "lblTeamAPlayerPoints"
         Me.lblTeamAPlayerPoints.Size = New System.Drawing.Size(72, 21)
         Me.lblTeamAPlayerPoints.TabIndex = 53
@@ -314,7 +378,7 @@ Partial Class frmScorer
         '
         Me.lblPointsA.AutoSize = True
         Me.lblPointsA.ForeColor = System.Drawing.Color.White
-        Me.lblPointsA.Location = New System.Drawing.Point(290, 188)
+        Me.lblPointsA.Location = New System.Drawing.Point(295, 188)
         Me.lblPointsA.Name = "lblPointsA"
         Me.lblPointsA.Size = New System.Drawing.Size(58, 21)
         Me.lblPointsA.TabIndex = 52
@@ -372,7 +436,7 @@ Partial Class frmScorer
         Me.btnAddFoulB.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.btnAddFoulB.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAddFoulB.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnAddFoulB.Location = New System.Drawing.Point(717, 281)
+        Me.btnAddFoulB.Location = New System.Drawing.Point(696, 281)
         Me.btnAddFoulB.Name = "btnAddFoulB"
         Me.btnAddFoulB.Rounded = False
         Me.btnAddFoulB.Size = New System.Drawing.Size(24, 24)
@@ -383,7 +447,7 @@ Partial Class frmScorer
         'lblTeamBFouls
         '
         Me.lblTeamBFouls.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(96, Byte), Integer))
-        Me.lblTeamBFouls.Location = New System.Drawing.Point(655, 281)
+        Me.lblTeamBFouls.Location = New System.Drawing.Point(634, 281)
         Me.lblTeamBFouls.Name = "lblTeamBFouls"
         Me.lblTeamBFouls.Size = New System.Drawing.Size(56, 21)
         Me.lblTeamBFouls.TabIndex = 48
@@ -394,7 +458,7 @@ Partial Class frmScorer
         '
         Me.lblFoulB.AutoSize = True
         Me.lblFoulB.ForeColor = System.Drawing.Color.White
-        Me.lblFoulB.Location = New System.Drawing.Point(605, 281)
+        Me.lblFoulB.Location = New System.Drawing.Point(584, 281)
         Me.lblFoulB.Name = "lblFoulB"
         Me.lblFoulB.Size = New System.Drawing.Size(50, 21)
         Me.lblFoulB.TabIndex = 47
@@ -406,7 +470,7 @@ Partial Class frmScorer
         Me.btnAddFoulA.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.btnAddFoulA.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAddFoulA.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnAddFoulA.Location = New System.Drawing.Point(402, 278)
+        Me.btnAddFoulA.Location = New System.Drawing.Point(394, 278)
         Me.btnAddFoulA.Name = "btnAddFoulA"
         Me.btnAddFoulA.Rounded = False
         Me.btnAddFoulA.Size = New System.Drawing.Size(24, 24)
@@ -417,7 +481,7 @@ Partial Class frmScorer
         'lblTeamAFouls
         '
         Me.lblTeamAFouls.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(96, Byte), Integer))
-        Me.lblTeamAFouls.Location = New System.Drawing.Point(340, 278)
+        Me.lblTeamAFouls.Location = New System.Drawing.Point(332, 278)
         Me.lblTeamAFouls.Name = "lblTeamAFouls"
         Me.lblTeamAFouls.Size = New System.Drawing.Size(56, 21)
         Me.lblTeamAFouls.TabIndex = 45
@@ -428,7 +492,7 @@ Partial Class frmScorer
         '
         Me.lblFoulA.AutoSize = True
         Me.lblFoulA.ForeColor = System.Drawing.Color.White
-        Me.lblFoulA.Location = New System.Drawing.Point(290, 278)
+        Me.lblFoulA.Location = New System.Drawing.Point(282, 278)
         Me.lblFoulA.Name = "lblFoulA"
         Me.lblFoulA.Size = New System.Drawing.Size(50, 21)
         Me.lblFoulA.TabIndex = 44
@@ -472,7 +536,7 @@ Partial Class frmScorer
         Me.btnAdd3B.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.btnAdd3B.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAdd3B.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnAdd3B.Location = New System.Drawing.Point(609, 232)
+        Me.btnAdd3B.Location = New System.Drawing.Point(578, 232)
         Me.btnAdd3B.Name = "btnAdd3B"
         Me.btnAdd3B.Rounded = False
         Me.btnAdd3B.Size = New System.Drawing.Size(40, 32)
@@ -512,7 +576,7 @@ Partial Class frmScorer
         Me.btnAdd2B.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.btnAdd2B.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAdd2B.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnAdd2B.Location = New System.Drawing.Point(701, 232)
+        Me.btnAdd2B.Location = New System.Drawing.Point(670, 232)
         Me.btnAdd2B.Name = "btnAdd2B"
         Me.btnAdd2B.Rounded = False
         Me.btnAdd2B.Size = New System.Drawing.Size(40, 32)
@@ -526,7 +590,7 @@ Partial Class frmScorer
         Me.btnAdd1A.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.btnAdd1A.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAdd1A.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnAdd1A.Location = New System.Drawing.Point(340, 232)
+        Me.btnAdd1A.Location = New System.Drawing.Point(322, 232)
         Me.btnAdd1A.Name = "btnAdd1A"
         Me.btnAdd1A.Rounded = False
         Me.btnAdd1A.Size = New System.Drawing.Size(40, 32)
@@ -540,7 +604,7 @@ Partial Class frmScorer
         Me.btnAdd1B.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.btnAdd1B.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAdd1B.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnAdd1B.Location = New System.Drawing.Point(655, 232)
+        Me.btnAdd1B.Location = New System.Drawing.Point(624, 232)
         Me.btnAdd1B.Name = "btnAdd1B"
         Me.btnAdd1B.Rounded = False
         Me.btnAdd1B.Size = New System.Drawing.Size(40, 32)
@@ -554,7 +618,7 @@ Partial Class frmScorer
         Me.btnAdd2A.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.btnAdd2A.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAdd2A.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnAdd2A.Location = New System.Drawing.Point(386, 232)
+        Me.btnAdd2A.Location = New System.Drawing.Point(368, 232)
         Me.btnAdd2A.Name = "btnAdd2A"
         Me.btnAdd2A.Rounded = False
         Me.btnAdd2A.Size = New System.Drawing.Size(40, 32)
@@ -568,7 +632,7 @@ Partial Class frmScorer
         Me.btnAdd3A.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.btnAdd3A.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAdd3A.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnAdd3A.Location = New System.Drawing.Point(294, 232)
+        Me.btnAdd3A.Location = New System.Drawing.Point(276, 232)
         Me.btnAdd3A.Name = "btnAdd3A"
         Me.btnAdd3A.Rounded = False
         Me.btnAdd3A.Size = New System.Drawing.Size(40, 32)
@@ -948,4 +1012,8 @@ Partial Class frmScorer
     Friend WithEvents lblTeamAPlayerPoints As System.Windows.Forms.Label
     Friend WithEvents lblPointsA As System.Windows.Forms.Label
     Friend WithEvents btnCloseMatch As AMA.FlatButton
+    Friend WithEvents btnDeductB As AMA.FlatButton
+    Friend WithEvents btnDeductA As AMA.FlatButton
+    Friend WithEvents btnDeductFoulB As AMA.FlatButton
+    Friend WithEvents btnDeductFoulA As AMA.FlatButton
 End Class
