@@ -26,7 +26,8 @@ Partial Class frmMatches
         Me.FormSkin1 = New AMA.FormSkin()
         Me.btnCancel = New AMA.FlatButton()
         Me.grpTable = New AMA.FlatGroupBox()
-        Me.btnViewReport = New AMA.FlatButton()
+        Me.btnPlayersReport = New AMA.FlatButton()
+        Me.btnMatchReport = New AMA.FlatButton()
         Me.chkShow = New System.Windows.Forms.CheckBox()
         Me.lstMatches = New AMA.ffListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -101,7 +102,8 @@ Partial Class frmMatches
         '
         Me.grpTable.BackColor = System.Drawing.Color.Transparent
         Me.grpTable.BaseColor = System.Drawing.Color.White
-        Me.grpTable.Controls.Add(Me.btnViewReport)
+        Me.grpTable.Controls.Add(Me.btnPlayersReport)
+        Me.grpTable.Controls.Add(Me.btnMatchReport)
         Me.grpTable.Controls.Add(Me.chkShow)
         Me.grpTable.Controls.Add(Me.lstMatches)
         Me.grpTable.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -112,19 +114,33 @@ Partial Class frmMatches
         Me.grpTable.TabIndex = 1
         Me.grpTable.Text = "Matches List"
         '
-        'btnViewReport
+        'btnPlayersReport
         '
-        Me.btnViewReport.BackColor = System.Drawing.Color.Transparent
-        Me.btnViewReport.BaseColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.btnViewReport.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnViewReport.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.btnViewReport.Location = New System.Drawing.Point(677, 258)
-        Me.btnViewReport.Name = "btnViewReport"
-        Me.btnViewReport.Rounded = False
-        Me.btnViewReport.Size = New System.Drawing.Size(106, 32)
-        Me.btnViewReport.TabIndex = 6
-        Me.btnViewReport.Text = "View Report"
-        Me.btnViewReport.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
+        Me.btnPlayersReport.BackColor = System.Drawing.Color.Transparent
+        Me.btnPlayersReport.BaseColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnPlayersReport.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnPlayersReport.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnPlayersReport.Location = New System.Drawing.Point(551, 258)
+        Me.btnPlayersReport.Name = "btnPlayersReport"
+        Me.btnPlayersReport.Rounded = False
+        Me.btnPlayersReport.Size = New System.Drawing.Size(120, 32)
+        Me.btnPlayersReport.TabIndex = 7
+        Me.btnPlayersReport.Text = "Players Report"
+        Me.btnPlayersReport.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
+        '
+        'btnMatchReport
+        '
+        Me.btnMatchReport.BackColor = System.Drawing.Color.Transparent
+        Me.btnMatchReport.BaseColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnMatchReport.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnMatchReport.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnMatchReport.Location = New System.Drawing.Point(677, 258)
+        Me.btnMatchReport.Name = "btnMatchReport"
+        Me.btnMatchReport.Rounded = False
+        Me.btnMatchReport.Size = New System.Drawing.Size(106, 32)
+        Me.btnMatchReport.TabIndex = 6
+        Me.btnMatchReport.Text = "Match Report"
+        Me.btnMatchReport.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
         '
         'chkShow
         '
@@ -401,5 +417,6 @@ Partial Class frmMatches
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents lstMatches As AMA.ffListView
     Friend WithEvents ColumnHeader11 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents btnViewReport As AMA.FlatButton
+    Friend WithEvents btnMatchReport As AMA.FlatButton
+    Friend WithEvents btnPlayersReport As AMA.FlatButton
 End Class

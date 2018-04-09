@@ -189,6 +189,12 @@
     <Compile Include="frmPlayers.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmPlayersReport.Designer.vb">
+      <DependentUpon>frmPlayersReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPlayersReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmRegistration.Designer.vb">
       <DependentUpon>frmRegistration.vb</DependentUpon>
     </Compile>
@@ -276,6 +282,9 @@
     <EmbeddedResource Include="frmPlayers.resx">
       <DependentUpon>frmPlayers.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPlayersReport.resx">
+      <DependentUpon>frmPlayersReport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRegistration.resx">
       <DependentUpon>frmRegistration.vb</DependentUpon>
     </EmbeddedResource>
@@ -296,6 +305,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Report2.rdlc" />
+    <EmbeddedResource Include="Report3.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataSet1.xsc">

@@ -215,11 +215,11 @@ Public Class frmMatches
 
                     .AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
 
-                    btnViewReport.Enabled = True
+                    btnMatchReport.Enabled = True
 
                 Else
 
-                    btnViewReport.Enabled = False
+                    btnMatchReport.Enabled = False
 
                 End If
 
@@ -548,7 +548,7 @@ Public Class frmMatches
 
     End Sub
 
-    Private Sub btnViewReport_Click(sender As Object, e As EventArgs) Handles btnViewReport.Click
+    Private Sub btnMatchReport_Click(sender As Object, e As EventArgs) Handles btnMatchReport.Click
 
         Dim MatchID = -1
 
@@ -584,6 +584,46 @@ Public Class frmMatches
         End With
 
         frmMatchReport.ShowDialog()
+
+    End Sub
+
+    Private Sub btnPlayersReport_Click(sender As Object, e As EventArgs) Handles btnPlayersReport.Click
+
+        Dim MatchID = -1
+
+        If lstMatches.SelectedIndices.Count = 0 Or lstMatches.Items.Count = 0 Then
+
+            MsgBox("Please choose a match", MsgBoxStyle.Critical, "Message")
+            Exit Sub
+
+        End If
+
+        If Not IsNothing(lstMatches.FocusedItem) Then
+
+            index = lstMatches.FocusedItem.Index
+
+        Else
+
+            MsgBox("Please choose a match", MsgBoxStyle.Critical, "Message")
+            Exit Sub
+
+        End If
+
+        MatchID = lstMatches.Items(index).SubItems(0).Text
+        Dim param1 As New ReportParameter("ReportParameter1", MatchID)
+
+        PrintQuery = "SELECT tblplayers.player_id, CONCAT(first_name, ' ', last_name) AS full_name, tblplayers.team_id, tblplayerscores.points, tblplayerscores.fouls, tblteams.team_name, tblevents.event_name FROM tblplayers INNER JOIN tblplayerscores ON tblplayerscores.player_id = tblplayers.player_id INNER JOIN tblteams ON tblteams.team_id = tblplayerscores.team_id INNER JOIN tblmatches ON tblmatches.match_id = tblplayerscores.match_id INNER JOIN tblevents ON tblevents.event_id = tblmatches.event_id WHERE tblplayerscores.match_id = " & MatchID
+
+        LoadDataSet()
+
+        With frmPlayersReport.ReportViewer1
+            .LocalReport.DataSources.Clear()
+            .LocalReport.DataSources.Add(New ReportDataSource("DataSet1", dbDataSet.Tables("myDS")))
+            .LocalReport.SetParameters(New ReportParameter() {param1})
+            .RefreshReport()
+        End With
+
+        frmPlayersReport.ShowDialog()
 
     End Sub
 End Class
