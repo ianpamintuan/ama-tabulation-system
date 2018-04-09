@@ -651,8 +651,24 @@
 
                 End If
 
+                Dim TotalFoulA As Integer = 0
+                Dim TotalFoulB As Integer = 0
+
+
+                For i = 0 To lbTeamAPlayers.Items.Count - 1 Step 1
+
+                    TotalFoulA += teamAPlayersStats(i, 1)
+
+                Next
+
+                For i = 0 To lbTeamBPlayers.Items.Count - 1 Step 1
+
+                    TotalFoulB += teamBPlayersStats(i, 1)
+
+                Next
+
                 OpenDBConnection()
-                dbCmd.CommandText = "UPDATE tblmatches SET a_score = '" & lblAScore.Text.ToString & "', b_score = '" & lblBScore.Text & "', a_fouls = '" & lblTeamAFouls.Text & "', b_fouls = '" & lblTeamBFouls.Text & "', winner = '" & winner & "', mvp = '" & MVP & "', status = 'Finished' WHERE match_id = " & selectedMatch
+                dbCmd.CommandText = "UPDATE tblmatches SET a_score = '" & lblAScore.Text.ToString & "', b_score = '" & lblBScore.Text & "', a_fouls = '" & TotalFoulA & "', b_fouls = '" & TotalFoulB & "', winner = '" & winner & "', mvp = '" & MVP & "', status = 'Finished' WHERE match_id = " & selectedMatch
                 dbCmd.ExecuteNonQuery()
 
                 dbCmd.CommandText = "SELECT * FROM tblplayerscores WHERE match_id = " & cboMatches.Text
