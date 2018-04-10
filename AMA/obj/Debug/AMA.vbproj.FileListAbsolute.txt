@@ -59,3 +59,4 @@ D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.Resources.resources
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.vbproj.GenerateResource.Cache
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\RdlCompile.cache
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\RdlCompile.compiled
+D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.frmPageantResults.resources

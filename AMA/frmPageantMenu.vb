@@ -20,4 +20,11 @@
         Me.Close()
 
     End Sub
+
+    Private Sub btnPageantResults_Click(sender As Object, e As EventArgs) Handles btnPageantResults.Click
+
+        frmPageantResults.Show()
+        Me.Close()
+
+    End Sub
 End Class

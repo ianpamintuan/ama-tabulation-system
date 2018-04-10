@@ -183,6 +183,12 @@
     <Compile Include="frmPageantReport.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmPageantResults.Designer.vb">
+      <DependentUpon>frmPageantResults.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPageantResults.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmPlayers.Designer.vb">
       <DependentUpon>frmPlayers.vb</DependentUpon>
     </Compile>
@@ -278,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPageantReport.resx">
       <DependentUpon>frmPageantReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPageantResults.resx">
+      <DependentUpon>frmPageantResults.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPlayers.resx">
       <DependentUpon>frmPlayers.vb</DependentUpon>

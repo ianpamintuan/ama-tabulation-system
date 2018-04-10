@@ -23,6 +23,7 @@ Partial Class frmPageantMenu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.FormSkin1 = New AMA.FormSkin()
+        Me.btnPageantResults = New AMA.FlatButton()
         Me.btnCriterias = New AMA.FlatButton()
         Me.btnCategories = New AMA.FlatButton()
         Me.btnContestants = New AMA.FlatButton()
@@ -34,6 +35,7 @@ Partial Class frmPageantMenu
         Me.FormSkin1.BackColor = System.Drawing.Color.White
         Me.FormSkin1.BaseColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(73, Byte), Integer))
         Me.FormSkin1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(53, Byte), Integer), CType(CType(58, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.FormSkin1.Controls.Add(Me.btnPageantResults)
         Me.FormSkin1.Controls.Add(Me.btnCriterias)
         Me.FormSkin1.Controls.Add(Me.btnCategories)
         Me.FormSkin1.Controls.Add(Me.btnContestants)
@@ -44,9 +46,23 @@ Partial Class frmPageantMenu
         Me.FormSkin1.HeaderMaximize = False
         Me.FormSkin1.Location = New System.Drawing.Point(0, 0)
         Me.FormSkin1.Name = "FormSkin1"
-        Me.FormSkin1.Size = New System.Drawing.Size(433, 354)
+        Me.FormSkin1.Size = New System.Drawing.Size(433, 438)
         Me.FormSkin1.TabIndex = 0
         Me.FormSkin1.Text = "Pageant Menu"
+        '
+        'btnPageantResults
+        '
+        Me.btnPageantResults.BackColor = System.Drawing.Color.Transparent
+        Me.btnPageantResults.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.btnPageantResults.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnPageantResults.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnPageantResults.Location = New System.Drawing.Point(56, 329)
+        Me.btnPageantResults.Name = "btnPageantResults"
+        Me.btnPageantResults.Rounded = False
+        Me.btnPageantResults.Size = New System.Drawing.Size(317, 64)
+        Me.btnPageantResults.TabIndex = 3
+        Me.btnPageantResults.Text = "Pageant Results"
+        Me.btnPageantResults.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
         '
         'btnCriterias
         '
@@ -94,7 +110,7 @@ Partial Class frmPageantMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(433, 354)
+        Me.ClientSize = New System.Drawing.Size(433, 438)
         Me.Controls.Add(Me.FormSkin1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmPageantMenu"
@@ -109,4 +125,5 @@ Partial Class frmPageantMenu
     Friend WithEvents btnCriterias As AMA.FlatButton
     Friend WithEvents btnCategories As AMA.FlatButton
     Friend WithEvents btnContestants As AMA.FlatButton
+    Friend WithEvents btnPageantResults As AMA.FlatButton
 End Class
