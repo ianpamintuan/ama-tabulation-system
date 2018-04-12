@@ -734,14 +734,10 @@
 
             Dim PlayerPoints = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
 
-            If MsgBox("Add 1 point to " & lbTeamAPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
-
-                PlayerPoints += 1
-                teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0) = PlayerPoints
-                lblTeamAPlayerPoints.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
-                UpdateTeamScore()
-
-            End If
+            PlayerPoints += 1
+            teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0) = PlayerPoints
+            lblTeamAPlayerPoints.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
+            UpdateTeamScore()
 
         End If
 
@@ -753,14 +749,10 @@
 
             Dim PlayerPoints = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
 
-            If MsgBox("Add 2 points to " & lbTeamAPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
-
-                PlayerPoints += 2
-                teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0) = PlayerPoints
-                lblTeamAPlayerPoints.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
-                UpdateTeamScore()
-
-            End If
+            PlayerPoints += 2
+            teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0) = PlayerPoints
+            lblTeamAPlayerPoints.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
+            UpdateTeamScore()
 
         End If
 
@@ -772,14 +764,10 @@
 
             Dim PlayerPoints = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
 
-            If MsgBox("Add 3 points to " & lbTeamAPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
-
-                PlayerPoints += 3
-                teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0) = PlayerPoints
-                lblTeamAPlayerPoints.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
-                UpdateTeamScore()
-
-            End If
+            PlayerPoints += 3
+            teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0) = PlayerPoints
+            lblTeamAPlayerPoints.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
+            UpdateTeamScore()
 
         End If
 
@@ -791,14 +779,10 @@
 
             Dim PlayerPoints = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
 
-            If MsgBox("Add 1 point to " & lbTeamBPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
-
-                PlayerPoints += 1
-                teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0) = PlayerPoints
-                lblTeamBPlayerPoints.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
-                UpdateTeamScore()
-
-            End If
+            PlayerPoints += 1
+            teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0) = PlayerPoints
+            lblTeamBPlayerPoints.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
+            UpdateTeamScore()
 
         End If
 
@@ -810,14 +794,10 @@
 
             Dim PlayerPoints = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
 
-            If MsgBox("Add 2 points to " & lbTeamBPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
-
-                PlayerPoints += 2
-                teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0) = PlayerPoints
-                lblTeamBPlayerPoints.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
-                UpdateTeamScore()
-
-            End If
+            PlayerPoints += 2
+            teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0) = PlayerPoints
+            lblTeamBPlayerPoints.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
+            UpdateTeamScore()
 
         End If
 
@@ -829,14 +809,10 @@
 
             Dim PlayerPoints = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
 
-            If MsgBox("Add 3 points to " & lbTeamBPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
-
-                PlayerPoints += 3
-                teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0) = PlayerPoints
-                lblTeamBPlayerPoints.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
-                UpdateTeamScore()
-
-            End If
+            PlayerPoints += 3
+            teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0) = PlayerPoints
+            lblTeamBPlayerPoints.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
+            UpdateTeamScore()
 
         End If
 
@@ -880,13 +856,9 @@
 
             Dim PlayerFouls = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 1)
 
-            If MsgBox("Add 1 foul to " & lbTeamAPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
-
                 PlayerFouls += 1
                 teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 1) = PlayerFouls
                 lblTeamAFouls.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 1)
-
-            End If
 
         End If
 
@@ -898,13 +870,9 @@
 
             Dim PlayerFouls = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 1)
 
-            If MsgBox("Add 1 foul to " & lbTeamBPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
-
-                PlayerFouls += 1
-                teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 1) = PlayerFouls
-                lblTeamBFouls.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 1)
-
-            End If
+            PlayerFouls += 1
+            teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 1) = PlayerFouls
+            lblTeamBFouls.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 1)
 
         End If
 
@@ -968,14 +936,10 @@
 
             End If
 
-            If MsgBox("Deduct 1 point to " & lbTeamAPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
-
-                PlayerPoints -= 1
-                teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0) = PlayerPoints
-                lblTeamAPlayerPoints.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
-                UpdateTeamScore()
-
-            End If
+            PlayerPoints -= 1
+            teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0) = PlayerPoints
+            lblTeamAPlayerPoints.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
+            UpdateTeamScore()
 
         End If
 
@@ -994,14 +958,10 @@
 
             End If
 
-            If MsgBox("Deduct 1 point to " & lbTeamBPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
-
-                PlayerPoints -= 1
-                teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0) = PlayerPoints
-                lblTeamBPlayerPoints.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
-                UpdateTeamScore()
-
-            End If
+            PlayerPoints -= 1
+            teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0) = PlayerPoints
+            lblTeamBPlayerPoints.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
+            UpdateTeamScore()
 
         End If
 
@@ -1020,13 +980,9 @@
 
             End If
 
-            If MsgBox("Deduct 1 foul to " & lbTeamAPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
-
-                PlayerFouls -= 1
-                teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 1) = PlayerFouls
-                lblTeamAFouls.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 1)
-
-            End If
+            PlayerFouls -= 1
+            teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 1) = PlayerFouls
+            lblTeamAFouls.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 1)
 
         End If
 
@@ -1045,13 +1001,9 @@
 
             End If
 
-            If MsgBox("Deduct 1 foul to " & lbTeamBPlayers.SelectedItem.ToString & "?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirm") = MsgBoxResult.Yes Then
-
-                PlayerFouls -= 1
-                teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 1) = PlayerFouls
-                lblTeamBFouls.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 1)
-
-            End If
+            PlayerFouls -= 1
+            teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 1) = PlayerFouls
+            lblTeamBFouls.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 1)
 
         End If
 
