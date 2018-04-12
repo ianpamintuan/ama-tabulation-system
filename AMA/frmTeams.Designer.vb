@@ -133,7 +133,7 @@ Partial Class frmTeams
         '
         'ColumnHeader3
         '
-        Me.ColumnHeader3.Text = "Sport ID"
+        Me.ColumnHeader3.Text = "Sport"
         '
         'btnDelete
         '

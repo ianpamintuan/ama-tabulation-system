@@ -152,7 +152,7 @@
 
                         .Items.Add(dbReader.Item("team_id").ToString)
                         .Items(index).SubItems.Add(dbReader.Item("team_name").ToString)
-                        .Items(index).SubItems.Add(dbReader.Item("sport_id").ToString)
+                        .Items(index).SubItems.Add(dbReader.Item("name").ToString)
 
                         index += 1
 
@@ -190,7 +190,7 @@
     Private Sub frmTeams_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         LoadSportsOptions()
-        LoadTeams("SELECT * FROM tblteams ORDER BY team_id ASC")
+        LoadTeams("SELECT tblteams.team_id, tblteams.team_name, tblsports.name  FROM tblteams INNER JOIN tblsports ON tblsports.sport_id = tblteams.sport_id ORDER BY team_id ASC")
 
     End Sub
 
@@ -255,7 +255,7 @@
                     dbCmd.CommandText = "INSERT INTO tblteams(team_name, sport_id) VALUES('" & txtTeamName.Text.Trim & "', '" & tempSportID & "')"
                     dbCmd.ExecuteNonQuery()
 
-                    LoadTeams("SELECT * FROM tblteams ORDER BY team_id ASC")
+                    LoadTeams("SELECT tblteams.team_id, tblteams.team_name, tblsports.name  FROM tblteams INNER JOIN tblsports ON tblsports.sport_id = tblteams.sport_id ORDER BY team_id ASC")
 
                     MsgBox("Team added successfully!", MsgBoxStyle.Information, "Message")
 
@@ -304,7 +304,7 @@
                     dbCmd.CommandText = "UPDATE tblteams SET team_name = '" & txtTeamName.Text.Trim & "', sport_id = '" & tempSportID & "'  WHERE team_id = " & tempTeamID
                     dbCmd.ExecuteNonQuery()
 
-                    LoadTeams("SELECT * FROM tblteams ORDER BY team_id ASC")
+                    LoadTeams("SELECT tblteams.team_id, tblteams.team_name, tblsports.name  FROM tblteams INNER JOIN tblsports ON tblsports.sport_id = tblteams.sport_id ORDER BY team_id ASC")
 
                     MsgBox("Team updated successfully!", MsgBoxStyle.Information, "Message")
 
@@ -384,33 +384,9 @@
 
             tempTeamID = .SubItems(0).Text
             txtTeamName.Text = .SubItems(1).Text
-
-            Try
-
-                OpenDBConnection()
-                dbCmd.CommandText = "SELECT name FROM tblsports WHERE sport_id = " & .SubItems(2).Text
-                dbReader = dbCmd.ExecuteReader
-
-                If dbReader.HasRows = True Then
-
-                    dbReader.Read()
-
-                    cboSports.Text = dbReader.Item("name").ToString
-
-                End If
-
-                CheckIfDbReaderIsClosed()
-
-            Catch ex As Exception
-
-                CheckIfDbReaderIsClosed()
-                MsgBox("Error on loading the Sport name on the combo box.", MsgBoxStyle.Critical, "Error")
-
-            End Try
+            cboSports.Text = .SubItems(2).Text
 
         End With
-
-        CheckIfDbReaderIsClosed()
 
         saveMode = "Edit"
 
@@ -457,7 +433,7 @@
                 End If
             Next
 
-            LoadTeams("SELECT * FROM tblteams ORDER BY team_id ASC")
+            LoadTeams("SELECT tblteams.team_id, tblteams.team_name, tblsports.name  FROM tblteams INNER JOIN tblsports ON tblsports.sport_id = tblteams.sport_id ORDER BY team_id ASC")
 
             MsgBox("Team(s) deleted successfully", MsgBoxStyle.Information, "Message")
 
