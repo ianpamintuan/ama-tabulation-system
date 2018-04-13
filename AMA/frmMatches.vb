@@ -208,6 +208,7 @@ Public Class frmMatches
                         .Items(index).SubItems.Add(dbReader.Item("winner").ToString)
                         .Items(index).SubItems.Add(dbReader.Item("mvp").ToString)
                         .Items(index).SubItems.Add(dbReader.Item("status").ToString)
+                        .Items(index).SubItems.Add(dbReader.Item("name").ToString)
 
                         index += 1
 
@@ -312,7 +313,7 @@ Public Class frmMatches
                     dbCmd.CommandText = "INSERT INTO tblmatches(event_id, team_a, team_b) VALUES('" & tempEventID & "', '" & cboTeamA.Text & "', '" & cboTeamB.Text & "')"
                     dbCmd.ExecuteNonQuery()
 
-                    LoadMatches("SELECT * FROM tblmatches ORDER BY match_id ASC")
+                    LoadMatches("SELECT tblmatches.*, tblsports.name FROM tblmatches INNER JOIN tblteams ON tblteams.team_name = tblmatches.team_a INNER JOIN tblsports ON tblsports.sport_id = tblteams.sport_id ORDER BY match_id ASC")
 
                     MsgBox("Match added successfully!", MsgBoxStyle.Information, "Message")
 
@@ -364,7 +365,7 @@ Public Class frmMatches
                     dbCmd.CommandText = "UPDATE tblmatches SET event_id = " & tempEventID & ", team_a = '" & cboTeamA.Text & "', team_b = '" & cboTeamB.Text & "'  WHERE match_id = " & tempMatchID
                     dbCmd.ExecuteNonQuery()
 
-                    LoadMatches("SELECT * FROM tblmatches ORDER BY match_id ASC")
+                    LoadMatches("SELECT tblmatches.*, tblsports.name FROM tblmatches INNER JOIN tblteams ON tblteams.team_name = tblmatches.team_a INNER JOIN tblsports ON tblsports.sport_id = tblteams.sport_id ORDER BY match_id ASC")
 
                     MsgBox("Team updated successfully!", MsgBoxStyle.Information, "Message")
 
@@ -387,7 +388,7 @@ Public Class frmMatches
 
         LoadEventsOptions()
         LoadTeamsOptions()
-        LoadMatches("SELECT * FROM tblmatches ORDER BY match_id ASC")
+        LoadMatches("SELECT tblmatches.*, tblsports.name FROM tblmatches INNER JOIN tblteams ON tblteams.team_name = tblmatches.team_a INNER JOIN tblsports ON tblsports.sport_id = tblteams.sport_id ORDER BY match_id ASC")
 
     End Sub
 
@@ -528,7 +529,7 @@ Public Class frmMatches
                 End If
             Next
 
-            LoadMatches("SELECT * FROM tblmatches ORDER BY match_id ASC")
+            LoadMatches("SELECT tblmatches.*, tblsports.name FROM tblmatches INNER JOIN tblteams ON tblteams.team_name = tblmatches.team_a INNER JOIN tblsports ON tblsports.sport_id = tblteams.sport_id ORDER BY match_id ASC")
 
             MsgBox("Match(s) deleted successfully", MsgBoxStyle.Information, "Message")
 
@@ -542,7 +543,7 @@ Public Class frmMatches
 
         If grpInfo.Enabled = False And chkShow.Checked = False And lstMatches.SelectedItems.Count = 0 Then
 
-            LoadMatches("SELECT * FROM tblmatches ORDER BY match_id ASC")
+            LoadMatches("SELECT tblmatches.*, tblsports.name FROM tblmatches INNER JOIN tblteams ON tblteams.team_name = tblmatches.team_a INNER JOIN tblsports ON tblsports.sport_id = tblteams.sport_id ORDER BY match_id ASC")
 
         End If
 
