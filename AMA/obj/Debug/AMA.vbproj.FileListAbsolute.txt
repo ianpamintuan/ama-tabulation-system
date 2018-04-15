@@ -60,6 +60,5 @@ D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\RdlCompile.compiled
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.exe
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.xml
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.pdb
-D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.vbprojResolveAssemblyReference.cache
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.frmAwardReport.resources
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.frmAwardResults.resources
