@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2018 at 08:22 PM
+-- Generation Time: Apr 15, 2018 at 06:17 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -153,6 +153,10 @@ CREATE TABLE `tblmatches` (
   `b_score` varchar(3) NOT NULL DEFAULT '0',
   `a_fouls` varchar(3) NOT NULL DEFAULT '0',
   `b_fouls` varchar(3) NOT NULL DEFAULT '0',
+  `a_assists` varchar(3) NOT NULL DEFAULT '0',
+  `b_assists` varchar(3) NOT NULL DEFAULT '0',
+  `a_steals` varchar(3) NOT NULL DEFAULT '0',
+  `b_steals` int(11) NOT NULL DEFAULT '0',
   `winner` varchar(255) DEFAULT NULL,
   `mvp` varchar(255) DEFAULT NULL,
   `status` varchar(255) NOT NULL DEFAULT 'Pending'
@@ -162,10 +166,11 @@ CREATE TABLE `tblmatches` (
 -- Dumping data for table `tblmatches`
 --
 
-INSERT INTO `tblmatches` (`match_id`, `event_id`, `team_a`, `team_b`, `a_score`, `b_score`, `a_fouls`, `b_fouls`, `winner`, `mvp`, `status`) VALUES
-(13, 5, 'LA Lakers', 'Golden State Warriors', '40', '32', '1', '1', 'LA Lakers', 'Kobe Bryant', 'Finished'),
-(14, 5, 'Golden State Warriors', 'LA Lakers', '3', '0', '0', '0', 'Golden State Warriors', 'Stephen Curry', 'Finished'),
-(15, 5, 'LA Lakers', 'Golden State Warriors', '39', '17', '1', '2', 'LA Lakers', 'Brandon Ingram', 'Finished');
+INSERT INTO `tblmatches` (`match_id`, `event_id`, `team_a`, `team_b`, `a_score`, `b_score`, `a_fouls`, `b_fouls`, `a_assists`, `b_assists`, `a_steals`, `b_steals`, `winner`, `mvp`, `status`) VALUES
+(13, 5, 'LA Lakers', 'Golden State Warriors', '40', '32', '1', '1', '0', '0', '0', 0, 'LA Lakers', 'Kobe Bryant', 'Finished'),
+(14, 5, 'Golden State Warriors', 'LA Lakers', '3', '0', '0', '0', '0', '0', '0', 0, 'Golden State Warriors', 'Stephen Curry', 'Finished'),
+(15, 5, 'LA Lakers', 'Golden State Warriors', '39', '17', '1', '2', '0', '0', '0', 0, 'LA Lakers', 'Brandon Ingram', 'Finished'),
+(16, 5, 'Golden State Warriors', 'LA Lakers', '62', '71', '12', '9', '15', '17', '8', 8, 'LA Lakers', 'Kobe Bryant', 'Finished');
 
 -- --------------------------------------------------------
 
@@ -208,44 +213,56 @@ CREATE TABLE `tblplayerscores` (
   `team_id` int(11) NOT NULL,
   `match_id` int(11) NOT NULL,
   `points` int(11) NOT NULL DEFAULT '0',
-  `fouls` int(11) NOT NULL DEFAULT '0'
+  `fouls` int(11) NOT NULL DEFAULT '0',
+  `assists` int(11) NOT NULL DEFAULT '0',
+  `steals` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblplayerscores`
 --
 
-INSERT INTO `tblplayerscores` (`playerscore_id`, `player_id`, `team_id`, `match_id`, `points`, `fouls`) VALUES
-(11, 4, 1, 13, 11, 1),
-(12, 6, 1, 13, 8, 1),
-(13, 7, 1, 13, 4, 0),
-(14, 8, 1, 13, 9, 1),
-(15, 9, 1, 13, 8, 3),
-(16, 5, 5, 13, 9, 2),
-(17, 10, 5, 13, 8, 1),
-(18, 11, 5, 13, 9, 0),
-(19, 12, 5, 13, 4, 3),
-(20, 13, 5, 13, 2, 1),
-(21, 5, 5, 14, 3, 0),
-(22, 10, 5, 14, 0, 0),
-(23, 11, 5, 14, 0, 0),
-(24, 12, 5, 14, 0, 0),
-(25, 13, 5, 14, 0, 0),
-(26, 4, 1, 14, 0, 0),
-(27, 6, 1, 14, 0, 0),
-(28, 7, 1, 14, 0, 0),
-(29, 8, 1, 14, 0, 0),
-(30, 9, 1, 14, 0, 0),
-(51, 4, 1, 15, 11, 0),
-(52, 6, 1, 15, 12, 0),
-(53, 7, 1, 15, 4, 0),
-(54, 8, 1, 15, 8, 0),
-(55, 9, 1, 15, 4, 1),
-(56, 5, 5, 15, 4, 0),
-(57, 10, 5, 15, 3, 0),
-(58, 11, 5, 15, 6, 0),
-(59, 12, 5, 15, 2, 2),
-(60, 13, 5, 15, 2, 0);
+INSERT INTO `tblplayerscores` (`playerscore_id`, `player_id`, `team_id`, `match_id`, `points`, `fouls`, `assists`, `steals`) VALUES
+(11, 4, 1, 13, 11, 1, 0, 0),
+(12, 6, 1, 13, 8, 1, 0, 0),
+(13, 7, 1, 13, 4, 0, 0, 0),
+(14, 8, 1, 13, 9, 1, 0, 0),
+(15, 9, 1, 13, 8, 3, 0, 0),
+(16, 5, 5, 13, 9, 2, 0, 0),
+(17, 10, 5, 13, 8, 1, 0, 0),
+(18, 11, 5, 13, 9, 0, 0, 0),
+(19, 12, 5, 13, 4, 3, 0, 0),
+(20, 13, 5, 13, 2, 1, 0, 0),
+(21, 5, 5, 14, 3, 0, 0, 0),
+(22, 10, 5, 14, 0, 0, 0, 0),
+(23, 11, 5, 14, 0, 0, 0, 0),
+(24, 12, 5, 14, 0, 0, 0, 0),
+(25, 13, 5, 14, 0, 0, 0, 0),
+(26, 4, 1, 14, 0, 0, 0, 0),
+(27, 6, 1, 14, 0, 0, 0, 0),
+(28, 7, 1, 14, 0, 0, 0, 0),
+(29, 8, 1, 14, 0, 0, 0, 0),
+(30, 9, 1, 14, 0, 0, 0, 0),
+(51, 4, 1, 15, 11, 0, 0, 0),
+(52, 6, 1, 15, 12, 0, 0, 0),
+(53, 7, 1, 15, 4, 0, 0, 0),
+(54, 8, 1, 15, 8, 0, 0, 0),
+(55, 9, 1, 15, 4, 1, 0, 0),
+(56, 5, 5, 15, 4, 0, 0, 0),
+(57, 10, 5, 15, 3, 0, 0, 0),
+(58, 11, 5, 15, 6, 0, 0, 0),
+(59, 12, 5, 15, 2, 2, 0, 0),
+(60, 13, 5, 15, 2, 0, 0, 0),
+(61, 5, 5, 16, 15, 2, 4, 1),
+(62, 10, 5, 16, 12, 1, 2, 2),
+(63, 11, 5, 16, 20, 2, 3, 3),
+(64, 12, 5, 16, 10, 4, 5, 1),
+(65, 13, 5, 16, 5, 3, 1, 1),
+(66, 4, 1, 16, 22, 1, 3, 2),
+(67, 6, 1, 16, 14, 1, 4, 1),
+(68, 7, 1, 16, 10, 2, 7, 3),
+(69, 8, 1, 16, 15, 2, 2, 1),
+(70, 9, 1, 16, 10, 3, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1076,12 +1093,12 @@ ALTER TABLE `tblcriteria_categories`
 -- AUTO_INCREMENT for table `tblevents`
 --
 ALTER TABLE `tblevents`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `tblmatches`
 --
 ALTER TABLE `tblmatches`
-  MODIFY `match_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `match_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `tblplayers`
 --
@@ -1091,7 +1108,7 @@ ALTER TABLE `tblplayers`
 -- AUTO_INCREMENT for table `tblplayerscores`
 --
 ALTER TABLE `tblplayerscores`
-  MODIFY `playerscore_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `playerscore_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 --
 -- AUTO_INCREMENT for table `tblscores`
 --
@@ -1111,7 +1128,7 @@ ALTER TABLE `tblteams`
 -- AUTO_INCREMENT for table `tblusers`
 --
 ALTER TABLE `tblusers`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
