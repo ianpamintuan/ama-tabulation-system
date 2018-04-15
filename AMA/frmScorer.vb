@@ -29,6 +29,10 @@
         lblTeamBFouls.Text = "0"
         lblTeamAPlayerPoints.Text = "0"
         lblTeamBPlayerPoints.Text = "0"
+        lblTeamAAssists.Text = "0"
+        lblTeamASteals.Text = "0"
+        lblTeamBAssists.Text = "0"
+        lblTeamBSteals.Text = "0"
 
         btnAdd1A.Visible = True
         btnAdd1B.Visible = True
@@ -36,14 +40,38 @@
         btnAdd2B.Visible = True
         btnAdd3A.Visible = True
         btnAdd3B.Visible = True
+        btnDeductA.Visible = True
+        btnDeductB.Visible = True
 
         lblFoulA.Visible = True
         lblTeamAFouls.Visible = True
         btnAddFoulA.Visible = True
+        btnDeductFoulA.Visible = True
+
+        lblAssistsA.Visible = True
+        lblTeamAAssists.Visible = True
+        btnAddAssistA.Visible = True
+        btnDeductAssistA.Visible = True
+
+        lblStealsA.Visible = True
+        lblTeamASteals.Visible = True
+        btnAddStealA.Visible = True
+        btnDeductStealA.Visible = True
 
         lblFoulB.Visible = True
         lblTeamBFouls.Visible = True
         btnAddFoulB.Visible = True
+        btnDeductFoulB.Visible = True
+
+        lblAssistsB.Visible = True
+        lblTeamBAssists.Visible = True
+        btnAddAssistB.Visible = True
+        btnDeductAssistB.Visible = True
+
+        lblStealsB.Visible = True
+        lblTeamBSteals.Visible = True
+        btnAddStealB.Visible = True
+        btnDeductStealB.Visible = True
 
         grpInfo.Enabled = False
         grpSelection.Enabled = True
@@ -54,6 +82,9 @@
         lbTeamBPlayers.SelectedIndex = -1
         lbTeamAPlayers.Items.Clear()
         lbTeamBPlayers.Items.Clear()
+
+        btnCloseMatch.Visible = True
+        btnFinishMatch.Visible = True
 
     End Sub
 
@@ -459,8 +490,8 @@
         LoadPlayers("SELECT player_id, CONCAT(first_name, ' ', last_name) AS full_name, tblplayers.team_id FROM tblplayers INNER JOIN tblteams ON tblteams.team_id = tblplayers.team_id WHERE tblteams.team_name = '" & lblTeamA.Text & "'", lbTeamAPlayers, "A")
         LoadPlayers("SELECT player_id, CONCAT(first_name, ' ', last_name) AS full_name, tblplayers.team_id FROM tblplayers INNER JOIN tblteams ON tblteams.team_id = tblplayers.team_id WHERE tblteams.team_name = '" & lblTeamB.Text & "'", lbTeamBPlayers, "B")
 
-        teamAPlayersStats = New Integer(lbTeamAPlayers.Items.Count, 2) {}
-        teamBPlayersStats = New Integer(lbTeamBPlayers.Items.Count, 2) {}
+        teamAPlayersStats = New Integer(lbTeamAPlayers.Items.Count, 4) {}
+        teamBPlayersStats = New Integer(lbTeamBPlayers.Items.Count, 4) {}
 
         Try
 
@@ -515,6 +546,7 @@
         If lblStatus.Text = "Finished" Then
 
             btnFinishMatch.Visible = False
+            btnCloseMatch.Visible = False
             grpSelection.Enabled = True
             btnAdd1A.Visible = False
             btnAdd1B.Visible = False
@@ -536,11 +568,26 @@
             lblTeamAPlayerPoints.Visible = False
             lblPointsB.Visible = False
             lblTeamBPlayerPoints.Visible = False
-            btnCloseMatch.Visible = False
             btnDeductA.Visible = False
             btnDeductB.Visible = False
             btnDeductFoulA.Visible = False
             btnDeductFoulB.Visible = False
+            lblAssistsA.Visible = False
+            lblTeamAAssists.Visible = False
+            btnAddAssistA.Visible = False
+            btnDeductAssistA.Visible = False
+            lblStealsA.Visible = False
+            lblTeamASteals.Visible = False
+            btnAddStealA.Visible = False
+            btnDeductStealA.Visible = False
+            lblAssistsB.Visible = False
+            lblTeamBAssists.Visible = False
+            btnAddAssistB.Visible = False
+            btnDeductAssistB.Visible = False
+            lblStealsB.Visible = False
+            lblTeamBSteals.Visible = False
+            btnAddStealB.Visible = False
+            btnDeductStealB.Visible = False
 
             MsgBox("This match is already finished. You can check other unfinished matches.")
 
@@ -569,6 +616,31 @@
             btnDeductB.Visible = True
             btnDeductFoulA.Visible = True
             btnDeductFoulB.Visible = True
+            lblFoulA.Visible = True
+            lblTeamAFouls.Visible = True
+            btnAddFoulA.Visible = True
+            btnDeductFoulA.Visible = True
+
+            lblAssistsA.Visible = True
+            lblTeamAAssists.Visible = True
+            btnAddAssistA.Visible = True
+            btnDeductAssistA.Visible = True
+
+            lblStealsA.Visible = True
+            lblTeamASteals.Visible = True
+            btnAddStealA.Visible = True
+            btnDeductStealA.Visible = True
+
+            lblAssistsB.Visible = True
+            lblTeamBAssists.Visible = True
+            btnAddAssistB.Visible = True
+            btnDeductAssistB.Visible = True
+
+            lblStealsB.Visible = True
+            lblTeamBSteals.Visible = True
+            btnAddStealB.Visible = True
+            btnDeductStealB.Visible = True
+
 
             If tempSportType <> "Basketball" Then
 
@@ -667,7 +739,6 @@
                 Dim TotalFoulA As Integer = 0
                 Dim TotalFoulB As Integer = 0
 
-
                 For i = 0 To lbTeamAPlayers.Items.Count - 1 Step 1
 
                     TotalFoulA += teamAPlayersStats(i, 1)
@@ -680,8 +751,38 @@
 
                 Next
 
+                Dim TotalAssistsA As Integer = 0
+                Dim TotalAssistsB As Integer = 0
+
+                For i = 0 To lbTeamAPlayers.Items.Count - 1 Step 1
+
+                    TotalAssistsA += teamAPlayersStats(i, 2)
+
+                Next
+
+                For i = 0 To lbTeamBPlayers.Items.Count - 1 Step 1
+
+                    TotalAssistsB += teamBPlayersStats(i, 2)
+
+                Next
+
+                Dim TotalStealsA As Integer = 0
+                Dim TotalStealsB As Integer = 0
+
+                For i = 0 To lbTeamAPlayers.Items.Count - 1 Step 1
+
+                    TotalStealsA += teamAPlayersStats(i, 3)
+
+                Next
+
+                For i = 0 To lbTeamBPlayers.Items.Count - 1 Step 1
+
+                    TotalStealsB += teamBPlayersStats(i, 3)
+
+                Next
+
                 OpenDBConnection()
-                dbCmd.CommandText = "UPDATE tblmatches SET a_score = '" & lblAScore.Text.ToString & "', b_score = '" & lblBScore.Text & "', a_fouls = '" & TotalFoulA & "', b_fouls = '" & TotalFoulB & "', winner = '" & winner & "', mvp = '" & MVP & "', status = 'Finished' WHERE match_id = " & selectedMatch
+                dbCmd.CommandText = "UPDATE tblmatches SET a_score = '" & lblAScore.Text.ToString & "', b_score = '" & lblBScore.Text & "', a_fouls = '" & TotalFoulA & "', b_fouls = '" & TotalFoulB & "', a_assists = '" & TotalAssistsA & "', b_assists = '" & TotalAssistsB & "', a_steals = '" & TotalStealsA & "', b_steals = '" & TotalStealsB & "', winner = '" & winner & "', mvp = '" & MVP & "', status = 'Finished' WHERE match_id = " & selectedMatch
                 dbCmd.ExecuteNonQuery()
 
                 dbCmd.CommandText = "SELECT * FROM tblplayerscores WHERE match_id = " & cboMatches.Text
@@ -697,7 +798,7 @@
                         Dim test = temp.Split(New Char() {" "c})
                         Dim PlayerID = test(0)
 
-                        dbCmd.CommandText = "INSERT INTO tblplayerscores(player_id, team_id, match_id, points, fouls) VALUES(" & PlayerID & ", " & tempTeamAID & ", " & cboMatches.Text & ", " & teamAPlayersStats(i, 0) & ", " & teamAPlayersStats(i, 1) & ")"
+                        dbCmd.CommandText = "INSERT INTO tblplayerscores(player_id, team_id, match_id, points, fouls, assists, steals) VALUES(" & PlayerID & ", " & tempTeamAID & ", " & cboMatches.Text & ", " & teamAPlayersStats(i, 0) & ", " & teamAPlayersStats(i, 1) & ", " & teamAPlayersStats(i, 2) & ", " & teamAPlayersStats(i, 3) & ")"
                         dbCmd.ExecuteNonQuery()
 
                     Next
@@ -708,18 +809,21 @@
                         Dim test = temp.Split(New Char() {" "c})
                         Dim PlayerID = test(0)
 
-                        dbCmd.CommandText = "INSERT INTO tblplayerscores(player_id, team_id, match_id, points, fouls) VALUES(" & PlayerID & ", " & tempTeamBID & ", " & cboMatches.Text & ", " & teamBPlayersStats(i, 0) & ", " & teamBPlayersStats(i, 1) & ")"
+                        dbCmd.CommandText = "INSERT INTO tblplayerscores(player_id, team_id, match_id, points, fouls, assists, steals) VALUES(" & PlayerID & ", " & tempTeamBID & ", " & cboMatches.Text & ", " & teamBPlayersStats(i, 0) & ", " & teamBPlayersStats(i, 1) & ", " & teamBPlayersStats(i, 2) & ", " & teamBPlayersStats(i, 3) & ")"
                         dbCmd.ExecuteNonQuery()
 
                     Next
 
                 End If
 
+                CheckIfDbReaderIsClosed()
+
                 MsgBox("Match successfully ended the match.", MsgBoxStyle.Information, "Message")
                 MatchReset()
 
             Catch ex As Exception
 
+                CheckIfDbReaderIsClosed()
                 MsgBox("Error on ending the match." & vbNewLine & ex.Message, MsgBoxStyle.Critical, "Error")
 
             End Try
@@ -897,6 +1001,8 @@
 
             lblTeamAPlayerPoints.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 0)
             lblTeamAFouls.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 1)
+            lblTeamAAssists.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 2)
+            lblTeamASteals.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 3)
 
         End If
 
@@ -908,6 +1014,8 @@
 
             lblTeamBPlayerPoints.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 0)
             lblTeamBFouls.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 1)
+            lblTeamBAssists.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 2)
+            lblTeamBSteals.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 3)
 
         End If
 
@@ -1004,6 +1112,146 @@
             PlayerFouls -= 1
             teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 1) = PlayerFouls
             lblTeamBFouls.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 1)
+
+        End If
+
+    End Sub
+
+    Private Sub btnAddAssistA_Click(sender As Object, e As EventArgs) Handles btnAddAssistA.Click
+
+        If PlayerValidation(lbTeamAPlayers) Then
+
+            Dim PlayerAssists = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 2)
+
+            PlayerAssists += 1
+            teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 2) = PlayerAssists
+            lblTeamAAssists.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 2)
+
+        End If
+
+    End Sub
+
+    Private Sub btnDeductAssistA_Click(sender As Object, e As EventArgs) Handles btnDeductAssistA.Click
+
+        If PlayerValidation(lbTeamAPlayers) Then
+
+            Dim PlayerAssists = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 2)
+
+            If PlayerAssists < 1 Then
+
+                MsgBox("You can't deduct assists when less than 1 assist", MsgBoxStyle.Critical, "Error")
+                Exit Sub
+
+            End If
+
+            PlayerAssists -= 1
+            teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 2) = PlayerAssists
+            lblTeamAAssists.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 2)
+
+        End If
+
+    End Sub
+
+    Private Sub btnAddAssistB_Click(sender As Object, e As EventArgs) Handles btnAddAssistB.Click
+
+        If PlayerValidation(lbTeamBPlayers) Then
+
+            Dim PlayerAssists = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 2)
+
+            PlayerAssists += 1
+            teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 2) = PlayerAssists
+            lblTeamBAssists.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 2)
+
+        End If
+
+    End Sub
+
+    Private Sub btnDeductAssistB_Click(sender As Object, e As EventArgs) Handles btnDeductAssistB.Click
+
+        If PlayerValidation(lbTeamBPlayers) Then
+
+            Dim PlayerAssists = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 2)
+
+            If PlayerAssists < 1 Then
+
+                MsgBox("You can't deduct assists when less than 1 assist", MsgBoxStyle.Critical, "Error")
+                Exit Sub
+
+            End If
+
+            PlayerAssists -= 1
+            teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 2) = PlayerAssists
+            lblTeamBAssists.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 2)
+
+        End If
+
+    End Sub
+
+    Private Sub btnAddStealA_Click(sender As Object, e As EventArgs) Handles btnAddStealA.Click
+
+        If PlayerValidation(lbTeamAPlayers) Then
+
+            Dim PlayerSteals = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 3)
+
+            PlayerSteals += 1
+            teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 3) = PlayerSteals
+            lblTeamASteals.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 3)
+
+        End If
+
+    End Sub
+
+    Private Sub btnDeductStealA_Click(sender As Object, e As EventArgs) Handles btnDeductStealA.Click
+
+        If PlayerValidation(lbTeamAPlayers) Then
+
+            Dim PlayerSteals = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 3)
+
+            If PlayerSteals < 1 Then
+
+                MsgBox("You can't deduct steals when less than 1 steal", MsgBoxStyle.Critical, "Error")
+                Exit Sub
+
+            End If
+
+            PlayerSteals -= 1
+            teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 3) = PlayerSteals
+            lblTeamASteals.Text = teamAPlayersStats(lbTeamAPlayers.SelectedIndex, 3)
+
+        End If
+
+    End Sub
+
+    Private Sub btnAddStealB_Click(sender As Object, e As EventArgs) Handles btnAddStealB.Click
+
+        If PlayerValidation(lbTeamBPlayers) Then
+
+            Dim PlayerSteals = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 3)
+
+            PlayerSteals += 1
+            teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 3) = PlayerSteals
+            lblTeamBSteals.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 3)
+
+        End If
+
+    End Sub
+
+    Private Sub btnDeductStealB_Click(sender As Object, e As EventArgs) Handles btnDeductStealB.Click
+
+        If PlayerValidation(lbTeamBPlayers) Then
+
+            Dim PlayerSteals = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 3)
+
+            If PlayerSteals < 1 Then
+
+                MsgBox("You can't deduct steals when less than 1 steal", MsgBoxStyle.Critical, "Error")
+                Exit Sub
+
+            End If
+
+            PlayerSteals -= 1
+            teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 3) = PlayerSteals
+            lblTeamBSteals.Text = teamBPlayersStats(lbTeamBPlayers.SelectedIndex, 3)
 
         End If
 

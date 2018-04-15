@@ -35,6 +35,22 @@ Partial Class frmScorer
         Me.Label6 = New System.Windows.Forms.Label()
         Me.lblScorerName = New System.Windows.Forms.Label()
         Me.grpInfo = New AMA.FlatGroupBox()
+        Me.btnDeductStealB = New AMA.FlatButton()
+        Me.btnAddStealB = New AMA.FlatButton()
+        Me.lblTeamBSteals = New System.Windows.Forms.Label()
+        Me.lblStealsB = New System.Windows.Forms.Label()
+        Me.btnDeductAssistB = New AMA.FlatButton()
+        Me.btnAddAssistB = New AMA.FlatButton()
+        Me.lblTeamBAssists = New System.Windows.Forms.Label()
+        Me.lblAssistsB = New System.Windows.Forms.Label()
+        Me.btnDeductStealA = New AMA.FlatButton()
+        Me.btnAddStealA = New AMA.FlatButton()
+        Me.lblTeamASteals = New System.Windows.Forms.Label()
+        Me.lblStealsA = New System.Windows.Forms.Label()
+        Me.btnDeductAssistA = New AMA.FlatButton()
+        Me.btnAddAssistA = New AMA.FlatButton()
+        Me.lblTeamAAssists = New System.Windows.Forms.Label()
+        Me.lblAssistsA = New System.Windows.Forms.Label()
         Me.btnDeductFoulB = New AMA.FlatButton()
         Me.btnDeductFoulA = New AMA.FlatButton()
         Me.btnDeductB = New AMA.FlatButton()
@@ -235,6 +251,22 @@ Partial Class frmScorer
         '
         Me.grpInfo.BackColor = System.Drawing.Color.Transparent
         Me.grpInfo.BaseColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(73, Byte), Integer))
+        Me.grpInfo.Controls.Add(Me.btnDeductStealB)
+        Me.grpInfo.Controls.Add(Me.btnAddStealB)
+        Me.grpInfo.Controls.Add(Me.lblTeamBSteals)
+        Me.grpInfo.Controls.Add(Me.lblStealsB)
+        Me.grpInfo.Controls.Add(Me.btnDeductAssistB)
+        Me.grpInfo.Controls.Add(Me.btnAddAssistB)
+        Me.grpInfo.Controls.Add(Me.lblTeamBAssists)
+        Me.grpInfo.Controls.Add(Me.lblAssistsB)
+        Me.grpInfo.Controls.Add(Me.btnDeductStealA)
+        Me.grpInfo.Controls.Add(Me.btnAddStealA)
+        Me.grpInfo.Controls.Add(Me.lblTeamASteals)
+        Me.grpInfo.Controls.Add(Me.lblStealsA)
+        Me.grpInfo.Controls.Add(Me.btnDeductAssistA)
+        Me.grpInfo.Controls.Add(Me.btnAddAssistA)
+        Me.grpInfo.Controls.Add(Me.lblTeamAAssists)
+        Me.grpInfo.Controls.Add(Me.lblAssistsA)
         Me.grpInfo.Controls.Add(Me.btnDeductFoulB)
         Me.grpInfo.Controls.Add(Me.btnDeductFoulA)
         Me.grpInfo.Controls.Add(Me.btnDeductB)
@@ -273,6 +305,198 @@ Partial Class frmScorer
         Me.grpInfo.Size = New System.Drawing.Size(1043, 493)
         Me.grpInfo.TabIndex = 42
         Me.grpInfo.Text = "Match Information"
+        '
+        'btnDeductStealB
+        '
+        Me.btnDeductStealB.BackColor = System.Drawing.Color.Transparent
+        Me.btnDeductStealB.BaseColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnDeductStealB.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDeductStealB.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnDeductStealB.Location = New System.Drawing.Point(726, 349)
+        Me.btnDeductStealB.Name = "btnDeductStealB"
+        Me.btnDeductStealB.Rounded = False
+        Me.btnDeductStealB.Size = New System.Drawing.Size(24, 24)
+        Me.btnDeductStealB.TabIndex = 76
+        Me.btnDeductStealB.Text = "-"
+        Me.btnDeductStealB.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
+        '
+        'btnAddStealB
+        '
+        Me.btnAddStealB.BackColor = System.Drawing.Color.Transparent
+        Me.btnAddStealB.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.btnAddStealB.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnAddStealB.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnAddStealB.Location = New System.Drawing.Point(696, 349)
+        Me.btnAddStealB.Name = "btnAddStealB"
+        Me.btnAddStealB.Rounded = False
+        Me.btnAddStealB.Size = New System.Drawing.Size(24, 24)
+        Me.btnAddStealB.TabIndex = 75
+        Me.btnAddStealB.Text = "+"
+        Me.btnAddStealB.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
+        '
+        'lblTeamBSteals
+        '
+        Me.lblTeamBSteals.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.lblTeamBSteals.Location = New System.Drawing.Point(634, 349)
+        Me.lblTeamBSteals.Name = "lblTeamBSteals"
+        Me.lblTeamBSteals.Size = New System.Drawing.Size(56, 21)
+        Me.lblTeamBSteals.TabIndex = 74
+        Me.lblTeamBSteals.Text = "0"
+        Me.lblTeamBSteals.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblStealsB
+        '
+        Me.lblStealsB.AutoSize = True
+        Me.lblStealsB.ForeColor = System.Drawing.Color.White
+        Me.lblStealsB.Location = New System.Drawing.Point(574, 349)
+        Me.lblStealsB.Name = "lblStealsB"
+        Me.lblStealsB.Size = New System.Drawing.Size(55, 21)
+        Me.lblStealsB.TabIndex = 73
+        Me.lblStealsB.Text = "Steals"
+        '
+        'btnDeductAssistB
+        '
+        Me.btnDeductAssistB.BackColor = System.Drawing.Color.Transparent
+        Me.btnDeductAssistB.BaseColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnDeductAssistB.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDeductAssistB.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnDeductAssistB.Location = New System.Drawing.Point(726, 314)
+        Me.btnDeductAssistB.Name = "btnDeductAssistB"
+        Me.btnDeductAssistB.Rounded = False
+        Me.btnDeductAssistB.Size = New System.Drawing.Size(24, 24)
+        Me.btnDeductAssistB.TabIndex = 72
+        Me.btnDeductAssistB.Text = "-"
+        Me.btnDeductAssistB.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
+        '
+        'btnAddAssistB
+        '
+        Me.btnAddAssistB.BackColor = System.Drawing.Color.Transparent
+        Me.btnAddAssistB.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.btnAddAssistB.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnAddAssistB.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnAddAssistB.Location = New System.Drawing.Point(696, 314)
+        Me.btnAddAssistB.Name = "btnAddAssistB"
+        Me.btnAddAssistB.Rounded = False
+        Me.btnAddAssistB.Size = New System.Drawing.Size(24, 24)
+        Me.btnAddAssistB.TabIndex = 71
+        Me.btnAddAssistB.Text = "+"
+        Me.btnAddAssistB.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
+        '
+        'lblTeamBAssists
+        '
+        Me.lblTeamBAssists.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.lblTeamBAssists.Location = New System.Drawing.Point(634, 314)
+        Me.lblTeamBAssists.Name = "lblTeamBAssists"
+        Me.lblTeamBAssists.Size = New System.Drawing.Size(56, 21)
+        Me.lblTeamBAssists.TabIndex = 70
+        Me.lblTeamBAssists.Text = "0"
+        Me.lblTeamBAssists.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblAssistsB
+        '
+        Me.lblAssistsB.AutoSize = True
+        Me.lblAssistsB.ForeColor = System.Drawing.Color.White
+        Me.lblAssistsB.Location = New System.Drawing.Point(574, 314)
+        Me.lblAssistsB.Name = "lblAssistsB"
+        Me.lblAssistsB.Size = New System.Drawing.Size(60, 21)
+        Me.lblAssistsB.TabIndex = 69
+        Me.lblAssistsB.Text = "Assists"
+        '
+        'btnDeductStealA
+        '
+        Me.btnDeductStealA.BackColor = System.Drawing.Color.Transparent
+        Me.btnDeductStealA.BaseColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnDeductStealA.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDeductStealA.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnDeductStealA.Location = New System.Drawing.Point(424, 346)
+        Me.btnDeductStealA.Name = "btnDeductStealA"
+        Me.btnDeductStealA.Rounded = False
+        Me.btnDeductStealA.Size = New System.Drawing.Size(24, 24)
+        Me.btnDeductStealA.TabIndex = 68
+        Me.btnDeductStealA.Text = "-"
+        Me.btnDeductStealA.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
+        '
+        'btnAddStealA
+        '
+        Me.btnAddStealA.BackColor = System.Drawing.Color.Transparent
+        Me.btnAddStealA.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.btnAddStealA.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnAddStealA.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnAddStealA.Location = New System.Drawing.Point(394, 346)
+        Me.btnAddStealA.Name = "btnAddStealA"
+        Me.btnAddStealA.Rounded = False
+        Me.btnAddStealA.Size = New System.Drawing.Size(24, 24)
+        Me.btnAddStealA.TabIndex = 67
+        Me.btnAddStealA.Text = "+"
+        Me.btnAddStealA.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
+        '
+        'lblTeamASteals
+        '
+        Me.lblTeamASteals.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.lblTeamASteals.Location = New System.Drawing.Point(332, 349)
+        Me.lblTeamASteals.Name = "lblTeamASteals"
+        Me.lblTeamASteals.Size = New System.Drawing.Size(56, 21)
+        Me.lblTeamASteals.TabIndex = 66
+        Me.lblTeamASteals.Text = "0"
+        Me.lblTeamASteals.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblStealsA
+        '
+        Me.lblStealsA.AutoSize = True
+        Me.lblStealsA.ForeColor = System.Drawing.Color.White
+        Me.lblStealsA.Location = New System.Drawing.Point(272, 349)
+        Me.lblStealsA.Name = "lblStealsA"
+        Me.lblStealsA.Size = New System.Drawing.Size(55, 21)
+        Me.lblStealsA.TabIndex = 65
+        Me.lblStealsA.Text = "Steals"
+        '
+        'btnDeductAssistA
+        '
+        Me.btnDeductAssistA.BackColor = System.Drawing.Color.Transparent
+        Me.btnDeductAssistA.BaseColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.btnDeductAssistA.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDeductAssistA.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnDeductAssistA.Location = New System.Drawing.Point(424, 311)
+        Me.btnDeductAssistA.Name = "btnDeductAssistA"
+        Me.btnDeductAssistA.Rounded = False
+        Me.btnDeductAssistA.Size = New System.Drawing.Size(24, 24)
+        Me.btnDeductAssistA.TabIndex = 64
+        Me.btnDeductAssistA.Text = "-"
+        Me.btnDeductAssistA.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
+        '
+        'btnAddAssistA
+        '
+        Me.btnAddAssistA.BackColor = System.Drawing.Color.Transparent
+        Me.btnAddAssistA.BaseColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.btnAddAssistA.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnAddAssistA.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.btnAddAssistA.Location = New System.Drawing.Point(394, 311)
+        Me.btnAddAssistA.Name = "btnAddAssistA"
+        Me.btnAddAssistA.Rounded = False
+        Me.btnAddAssistA.Size = New System.Drawing.Size(24, 24)
+        Me.btnAddAssistA.TabIndex = 63
+        Me.btnAddAssistA.Text = "+"
+        Me.btnAddAssistA.TextColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(243, Byte), Integer))
+        '
+        'lblTeamAAssists
+        '
+        Me.lblTeamAAssists.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.lblTeamAAssists.Location = New System.Drawing.Point(332, 314)
+        Me.lblTeamAAssists.Name = "lblTeamAAssists"
+        Me.lblTeamAAssists.Size = New System.Drawing.Size(56, 21)
+        Me.lblTeamAAssists.TabIndex = 62
+        Me.lblTeamAAssists.Text = "0"
+        Me.lblTeamAAssists.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblAssistsA
+        '
+        Me.lblAssistsA.AutoSize = True
+        Me.lblAssistsA.ForeColor = System.Drawing.Color.White
+        Me.lblAssistsA.Location = New System.Drawing.Point(272, 314)
+        Me.lblAssistsA.Name = "lblAssistsA"
+        Me.lblAssistsA.Size = New System.Drawing.Size(60, 21)
+        Me.lblAssistsA.TabIndex = 61
+        Me.lblAssistsA.Text = "Assists"
         '
         'btnDeductFoulB
         '
@@ -458,7 +682,7 @@ Partial Class frmScorer
         '
         Me.lblFoulB.AutoSize = True
         Me.lblFoulB.ForeColor = System.Drawing.Color.White
-        Me.lblFoulB.Location = New System.Drawing.Point(584, 281)
+        Me.lblFoulB.Location = New System.Drawing.Point(574, 281)
         Me.lblFoulB.Name = "lblFoulB"
         Me.lblFoulB.Size = New System.Drawing.Size(50, 21)
         Me.lblFoulB.TabIndex = 47
@@ -492,7 +716,7 @@ Partial Class frmScorer
         '
         Me.lblFoulA.AutoSize = True
         Me.lblFoulA.ForeColor = System.Drawing.Color.White
-        Me.lblFoulA.Location = New System.Drawing.Point(282, 278)
+        Me.lblFoulA.Location = New System.Drawing.Point(272, 278)
         Me.lblFoulA.Name = "lblFoulA"
         Me.lblFoulA.Size = New System.Drawing.Size(50, 21)
         Me.lblFoulA.TabIndex = 44
@@ -1016,4 +1240,20 @@ Partial Class frmScorer
     Friend WithEvents btnDeductA As AMA.FlatButton
     Friend WithEvents btnDeductFoulB As AMA.FlatButton
     Friend WithEvents btnDeductFoulA As AMA.FlatButton
+    Friend WithEvents btnDeductAssistA As AMA.FlatButton
+    Friend WithEvents btnAddAssistA As AMA.FlatButton
+    Friend WithEvents lblTeamAAssists As System.Windows.Forms.Label
+    Friend WithEvents lblAssistsA As System.Windows.Forms.Label
+    Friend WithEvents btnDeductStealA As AMA.FlatButton
+    Friend WithEvents btnAddStealA As AMA.FlatButton
+    Friend WithEvents lblTeamASteals As System.Windows.Forms.Label
+    Friend WithEvents lblStealsA As System.Windows.Forms.Label
+    Friend WithEvents btnDeductStealB As AMA.FlatButton
+    Friend WithEvents btnAddStealB As AMA.FlatButton
+    Friend WithEvents lblTeamBSteals As System.Windows.Forms.Label
+    Friend WithEvents lblStealsB As System.Windows.Forms.Label
+    Friend WithEvents btnDeductAssistB As AMA.FlatButton
+    Friend WithEvents btnAddAssistB As AMA.FlatButton
+    Friend WithEvents lblTeamBAssists As System.Windows.Forms.Label
+    Friend WithEvents lblAssistsB As System.Windows.Forms.Label
 End Class
