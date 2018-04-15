@@ -29,9 +29,6 @@ C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.exe
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.xml
 C:\Users\MarkIan\Desktop\AMA\AMA\obj\Debug\AMA.pdb
 D:\Projects\Visual Basic.Net\AMA\AMA\bin\Debug\AMA.exe.config
-D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.exe
-D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.xml
-D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.pdb
 D:\Projects\Visual Basic.Net\AMA\AMA\bin\Debug\AMA.exe
 D:\Projects\Visual Basic.Net\AMA\AMA\bin\Debug\AMA.pdb
 D:\Projects\Visual Basic.Net\AMA\AMA\bin\Debug\AMA.xml
@@ -49,6 +46,7 @@ D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.frmMyProfile.resources
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.frmContestants.resources
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.frmPageantMenu.resources
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.frmPageantReport.resources
+D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.frmPageantResults.resources
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.frmPlayers.resources
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.frmPlayersReport.resources
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.frmRegistration.resources
@@ -59,5 +57,6 @@ D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.Resources.resources
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.vbproj.GenerateResource.Cache
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\RdlCompile.cache
 D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\RdlCompile.compiled
-D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.frmPageantResults.resources
-D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.vbprojResolveAssemblyReference.cache
+D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.exe
+D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.xml
+D:\Projects\Visual Basic.Net\AMA\AMA\obj\Debug\AMA.pdb

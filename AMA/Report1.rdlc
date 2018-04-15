@@ -6,12 +6,12 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.13069in</Width>
+              <Width>6.22528in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>5.27083in</Height>
+              <Height>5.33955in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -106,7 +106,7 @@
                           <Top>2.04167in</Top>
                           <Left>0.95487in</Left>
                           <Height>0.6875in</Height>
-                          <Width>2.90972in</Width>
+                          <Width>2.47222in</Width>
                           <ZIndex>2</ZIndex>
                           <Style>
                             <Border>
@@ -139,7 +139,7 @@
                           <Top>2.92834in</Top>
                           <Left>0.94098in</Left>
                           <Height>0.70834in</Height>
-                          <Width>2.92361in</Width>
+                          <Width>2.48611in</Width>
                           <ZIndex>3</ZIndex>
                           <Style>
                             <Border>
@@ -281,9 +281,9 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox9</rd:DefaultName>
                           <Top>1.52729in</Top>
-                          <Left>4.0087in</Left>
+                          <Left>3.49654in</Left>
                           <Height>0.32292in</Height>
-                          <Width>1in</Width>
+                          <Width>0.60417in</Width>
                           <ZIndex>7</ZIndex>
                           <Style>
                             <Border>
@@ -317,9 +317,9 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox9</rd:DefaultName>
                           <Top>1.52729in</Top>
-                          <Left>5.07814in</Left>
+                          <Left>4.17015in</Left>
                           <Height>0.32292in</Height>
-                          <Width>0.95833in</Width>
+                          <Width>0.60417in</Width>
                           <ZIndex>8</ZIndex>
                           <Style>
                             <Border>
@@ -350,9 +350,9 @@
                           </Paragraphs>
                           <rd:DefaultName>a_score</rd:DefaultName>
                           <Top>2.04167in</Top>
-                          <Left>4.0087in</Left>
+                          <Left>3.49654in</Left>
                           <Height>0.32292in</Height>
-                          <Width>1in</Width>
+                          <Width>0.60417in</Width>
                           <ZIndex>9</ZIndex>
                           <Style>
                             <Border>
@@ -383,9 +383,9 @@
                           </Paragraphs>
                           <rd:DefaultName>b_score</rd:DefaultName>
                           <Top>2.92834in</Top>
-                          <Left>4.0087in</Left>
+                          <Left>3.49653in</Left>
                           <Height>0.32292in</Height>
-                          <Width>1in</Width>
+                          <Width>0.60417in</Width>
                           <ZIndex>10</ZIndex>
                           <Style>
                             <Border>
@@ -416,9 +416,9 @@
                           </Paragraphs>
                           <rd:DefaultName>a_fouls</rd:DefaultName>
                           <Top>2.04167in</Top>
-                          <Left>5.07814in</Left>
+                          <Left>4.17015in</Left>
                           <Height>0.32292in</Height>
-                          <Width>0.95833in</Width>
+                          <Width>0.60417in</Width>
                           <ZIndex>11</ZIndex>
                           <Style>
                             <Border>
@@ -449,9 +449,9 @@
                           </Paragraphs>
                           <rd:DefaultName>b_fouls</rd:DefaultName>
                           <Top>2.92834in</Top>
-                          <Left>5.07814in</Left>
+                          <Left>4.17015in</Left>
                           <Height>0.32292in</Height>
-                          <Width>0.95833in</Width>
+                          <Width>0.60417in</Width>
                           <ZIndex>12</ZIndex>
                           <Style>
                             <Border>
@@ -553,7 +553,7 @@
                           <Top>3.81896in</Top>
                           <Left>0.95487in</Left>
                           <Height>0.73959in</Height>
-                          <Width>2.90972in</Width>
+                          <Width>2.47222in</Width>
                           <ZIndex>15</ZIndex>
                           <Style>
                             <Border>
@@ -634,6 +634,212 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <Textbox Name="Textbox18">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Assists</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>SemiBold</FontWeight>
+                                    <Color>#dc5560</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox9</rd:DefaultName>
+                          <Top>1.52729in</Top>
+                          <Left>4.84376in</Left>
+                          <Height>0.32292in</Height>
+                          <Width>0.60417in</Width>
+                          <ZIndex>18</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox19">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Steals</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>SemiBold</FontWeight>
+                                    <Color>#dc5560</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox9</rd:DefaultName>
+                          <Top>1.52729in</Top>
+                          <Left>5.50349in</Left>
+                          <Height>0.32292in</Height>
+                          <Width>0.60417in</Width>
+                          <ZIndex>19</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="a_assists">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!a_assists.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>a_assists</rd:DefaultName>
+                          <Top>2.04167in</Top>
+                          <Left>4.84376in</Left>
+                          <Height>0.32292in</Height>
+                          <Width>0.60417in</Width>
+                          <ZIndex>20</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="b_assists">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!b_assists.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>b_assists</rd:DefaultName>
+                          <Top>2.92834in</Top>
+                          <Left>4.84376in</Left>
+                          <Height>0.32292in</Height>
+                          <Width>0.60417in</Width>
+                          <ZIndex>21</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="a_steals">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!a_steals.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>a_steals</rd:DefaultName>
+                          <Top>2.04167in</Top>
+                          <Left>5.50349in</Left>
+                          <Height>0.32292in</Height>
+                          <Width>0.60417in</Width>
+                          <ZIndex>22</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="b_steals">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!b_steals.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>b_steals</rd:DefaultName>
+                          <Top>2.92834in</Top>
+                          <Left>5.50349in</Left>
+                          <Height>0.32292in</Height>
+                          <Width>0.60417in</Width>
+                          <ZIndex>23</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
                       </ReportItems>
                       <KeepTogether>true</KeepTogether>
                       <Style>
@@ -642,6 +848,7 @@
                         </Border>
                       </Style>
                     </Rectangle>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -661,10 +868,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>1.00967in</Top>
+        <Top>0.97842in</Top>
         <Left>0.12847in</Left>
-        <Height>5.27083in</Height>
-        <Width>6.13069in</Width>
+        <Height>5.33955in</Height>
+        <Width>6.22528in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -729,7 +936,7 @@
     <Height>6.41194in</Height>
     <Style />
   </Body>
-  <Width>6.37375in</Width>
+  <Width>6.47792in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
@@ -802,10 +1009,26 @@
           <DataField>event_name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="a_assists">
+          <DataField>a_assists</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="b_assists">
+          <DataField>b_assists</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="a_steals">
+          <DataField>a_steals</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="b_steals">
+          <DataField>b_steals</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\MarkIan\Desktop\AMA\AMA\DataSet1.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Projects\Visual Basic.Net\AMA\AMA\DataSet1.xsd</rd:SchemaPath>
         <rd:TableName>DataTable1</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

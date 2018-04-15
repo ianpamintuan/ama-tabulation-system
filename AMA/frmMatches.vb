@@ -617,7 +617,7 @@ Public Class frmMatches
         MatchID = lstMatches.Items(index).SubItems(0).Text
         Dim param1 As New ReportParameter("ReportParameter1", MatchID)
 
-        PrintQuery = "SELECT tblplayers.player_id, CONCAT(first_name, ' ', last_name) AS full_name, tblplayers.team_id, tblplayerscores.points, tblplayerscores.fouls, tblteams.team_name, tblevents.event_name FROM tblplayers INNER JOIN tblplayerscores ON tblplayerscores.player_id = tblplayers.player_id INNER JOIN tblteams ON tblteams.team_id = tblplayerscores.team_id INNER JOIN tblmatches ON tblmatches.match_id = tblplayerscores.match_id INNER JOIN tblevents ON tblevents.event_id = tblmatches.event_id WHERE tblplayerscores.match_id = " & MatchID
+        PrintQuery = "SELECT tblplayers.player_id, CONCAT(first_name, ' ', last_name) AS full_name, tblplayers.team_id, tblplayerscores.points, tblplayerscores.fouls, tblplayerscores.assists, tblplayerscores.steals, tblteams.team_name, tblevents.event_name FROM tblplayers INNER JOIN tblplayerscores ON tblplayerscores.player_id = tblplayers.player_id INNER JOIN tblteams ON tblteams.team_id = tblplayerscores.team_id INNER JOIN tblmatches ON tblmatches.match_id = tblplayerscores.match_id INNER JOIN tblevents ON tblevents.event_id = tblmatches.event_id WHERE tblplayerscores.match_id = " & MatchID
 
         LoadDataSet()
 
