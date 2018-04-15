@@ -41,6 +41,7 @@ Partial Class frmMatches
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.btnDelete = New AMA.FlatButton()
         Me.btnSave = New AMA.FlatButton()
         Me.grpInfo = New AMA.FlatGroupBox()
@@ -54,7 +55,10 @@ Partial Class frmMatches
         Me.btnBack = New AMA.FlatButton()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.FormSkin1.SuspendLayout()
         Me.grpTable.SuspendLayout()
         Me.grpInfo.SuspendLayout()
@@ -155,7 +159,7 @@ Partial Class frmMatches
         '
         'lstMatches
         '
-        Me.lstMatches.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader9, Me.ColumnHeader10, Me.ColumnHeader7, Me.ColumnHeader11, Me.ColumnHeader8, Me.ColumnHeader12})
+        Me.lstMatches.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader9, Me.ColumnHeader10, Me.ColumnHeader13, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader16, Me.ColumnHeader7, Me.ColumnHeader11, Me.ColumnHeader8, Me.ColumnHeader12})
         Me.lstMatches.FullRowSelect = True
         Me.lstMatches.GridLines = True
         Me.lstMatches.Location = New System.Drawing.Point(14, 39)
@@ -209,6 +213,10 @@ Partial Class frmMatches
         'ColumnHeader8
         '
         Me.ColumnHeader8.Text = "Status"
+        '
+        'ColumnHeader12
+        '
+        Me.ColumnHeader12.Text = "Sport"
         '
         'btnDelete
         '
@@ -369,9 +377,21 @@ Partial Class frmMatches
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
-        'ColumnHeader12
+        'ColumnHeader13
         '
-        Me.ColumnHeader12.Text = "Sport"
+        Me.ColumnHeader13.Text = "A Assists"
+        '
+        'ColumnHeader14
+        '
+        Me.ColumnHeader14.Text = "B Assists"
+        '
+        'ColumnHeader15
+        '
+        Me.ColumnHeader15.Text = "A Steals"
+        '
+        'ColumnHeader16
+        '
+        Me.ColumnHeader16.Text = "B Steals"
         '
         'frmMatches
         '
@@ -425,4 +445,8 @@ Partial Class frmMatches
     Friend WithEvents btnMatchReport As AMA.FlatButton
     Friend WithEvents btnPlayersReport As AMA.FlatButton
     Friend WithEvents ColumnHeader12 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader13 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader14 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader15 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader16 As System.Windows.Forms.ColumnHeader
 End Class
