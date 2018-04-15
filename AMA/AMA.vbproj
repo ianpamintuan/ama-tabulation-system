@@ -98,6 +98,18 @@
     <Compile Include="FlatUI.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="frmAwardReport.Designer.vb">
+      <DependentUpon>frmAwardReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAwardReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAwardResults.Designer.vb">
+      <DependentUpon>frmAwardResults.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAwardResults.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmCategories.Designer.vb">
       <DependentUpon>frmCategories.vb</DependentUpon>
     </Compile>
@@ -243,6 +255,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAwardReport.resx">
+      <DependentUpon>frmAwardReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAwardResults.resx">
+      <DependentUpon>frmAwardResults.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCategories.resx">
       <DependentUpon>frmCategories.vb</DependentUpon>
     </EmbeddedResource>
@@ -315,6 +333,7 @@
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="Report3.rdlc" />
+    <EmbeddedResource Include="Report4.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataSet1.xsc">

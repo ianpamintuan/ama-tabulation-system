@@ -10,7 +10,7 @@ Public Class frmJudgeTally
     Dim dbAdapter As New MySqlDataAdapter
     Dim dbDataSet As DataSet
 
-    Public Sub LoadDataSet()
+    Private Sub LoadDataSet()
 
         OpenDBConnection()
 
@@ -25,7 +25,7 @@ Public Class frmJudgeTally
 
     End Sub
 
-    Public Sub LoadEventName()
+    Private Sub LoadEventName()
 
         Try
 
@@ -55,7 +55,7 @@ Public Class frmJudgeTally
 
     End Sub
 
-    Public Sub CountJudgesSheet()
+    Private Sub CountJudgesSheet()
 
         Try
 
@@ -85,7 +85,7 @@ Public Class frmJudgeTally
 
     End Sub
 
-    Public Sub LoadJudgeTally(Query As String, lst As ListView)
+    Private Sub LoadJudgeTally(Query As String, lst As ListView)
 
         Dim index As Integer = 0
 
@@ -135,7 +135,7 @@ Public Class frmJudgeTally
 
     End Sub
 
-    Public Sub SetWinnerMr()
+    Private Sub SetWinnerMr()
 
         Dim name As String = ""
         Dim score As Double = 0
@@ -158,7 +158,7 @@ Public Class frmJudgeTally
 
     End Sub
 
-    Public Sub SetWinnerMs()
+    Private Sub SetWinnerMs()
 
         Dim name As String = ""
         Dim score As Double = 0
@@ -272,7 +272,6 @@ Public Class frmJudgeTally
 
         Dim param1 As New ReportParameter("ReportParameter1", lblWinnerMrName.Text)
         Dim param2 As New ReportParameter("ReportParameter2", lblWinnerMsName.Text)
-
 
         With frmPageantReport.ReportViewer1
             .LocalReport.DataSources.Clear()

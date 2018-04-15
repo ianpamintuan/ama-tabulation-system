@@ -27,4 +27,11 @@
         Me.Close()
 
     End Sub
+
+    Private Sub btnAwards_Click(sender As Object, e As EventArgs) Handles btnAwards.Click
+
+        frmAwardResults.Show()
+        Me.Close()
+
+    End Sub
 End Class
