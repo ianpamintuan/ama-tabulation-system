@@ -17,6 +17,12 @@ These instructions will get you a copy of the project up and running on your loc
 * Reporting of event winners
 * Flat UI theme
 
+## Admin Credentials
+```
+username: admin
+password: 12345678
+```
+
 ## Author
 
 Mark Ian Pamintuan
